@@ -1,0 +1,237 @@
+.collections {
+  max-width: 1280px;
+  margin: auto;
+  padding: 70px 30px;
+}
+
+.collections-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.collections-header h2 {
+  font-size: 38px;
+  color: #8f3f16;
+  margin-bottom: 10px;
+  font-family: "Eb Garamond", serif;
+}
+
+.collections-header p {
+  color: #666;
+  font-size: 16px;
+}
+
+.view-btn {
+  border: none;
+  background: transparent;
+  color: #8f3f16;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.view-btn:hover {
+  text-decoration: underline;
+}
+
+.collections-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.collection-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(194, 101, 42, 0.08);
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .7s;
+}
+
+.collection-card:hover img {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      to top,
+      rgba(143, 63, 22, .95),
+      rgba(143, 63, 22, .1)
+  );
+}
+
+.content {
+  position: absolute;
+  left: 25px;
+  bottom: 25px;
+  right: 25px;
+}
+
+.content h3 {
+  color: white;
+  font-size: 32px;
+  margin-bottom: 18px;
+  font-family: "Eb Garamond", serif;
+}
+
+.content button {
+  background: #b85b2b;
+  color: white;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.content button:hover {
+  background: white;
+  color: #8f3f16;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .collections-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Small tablet / large phone */
+@media (max-width: 768px) {
+  .collections {
+    padding: 60px 24px;
+  }
+
+  .collections-header h2 {
+    font-size: 34px;
+  }
+
+  .content h3 {
+    font-size: 30px;
+    margin-bottom: 14px;
+  }
+
+  .content button {
+    padding: 11px 22px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .collections {
+    padding: 50px 20px;
+  }
+
+  .collections-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .collections-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .collections-header h2 {
+    font-size: 30px;
+  }
+
+  .content {
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .content h3 {
+    font-size: 26px;
+  }
+
+  .content button {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Small mobile (iPhone SE and similar, ~375px) */
+@media (max-width: 400px) {
+  .collections {
+    padding: 40px 16px;
+  }
+
+  .collections-header {
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .collections-header h2 {
+    font-size: 25px;
+  }
+
+  .collections-header p {
+    font-size: 14px;
+  }
+
+  .view-btn {
+    font-size: 14px;
+  }
+
+  .collections-grid {
+    gap: 14px;
+  }
+
+  .content {
+    left: 16px;
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .content h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .content button {
+    padding: 9px 16px;
+    font-size: 0.78rem;
+    letter-spacing: 0.3px;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 340px) {
+  .collections {
+    padding: 32px 12px;
+  }
+
+  .collections-header h2 {
+    font-size: 22px;
+  }
+
+  .content h3 {
+    font-size: 19px;
+  }
+
+  .content button {
+    padding: 8px 14px;
+    font-size: 0.72rem;
+  }
+}

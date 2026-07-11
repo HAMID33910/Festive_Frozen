@@ -1,0 +1,565 @@
+.hot-sales-section {
+
+    background:#f6f0e8;
+
+    padding:64px 32px;
+
+}
+
+
+.hot-sales-container {
+
+    max-width:1280px;
+
+    margin:auto;
+
+}
+
+
+.hot-sales-header {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:40px;
+
+}
+
+
+
+
+.hot-sales-header h2 {
+
+    font-family:"Eb Garamond", serif;
+
+    font-size:36px;
+
+    color:#8f3f16;
+
+}
+
+
+.slider-buttons {
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+.slider-buttons button {
+
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    border:1px solid #d8d0c8;
+
+    background:transparent;
+
+    font-size:25px;
+
+    color:#3a302a;
+
+    cursor:pointer;
+
+
+}
+
+.hot-products-grid {
+
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:24px;
+
+
+}
+
+
+.hot-product-card {
+
+
+    background:#f2ece4;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0px 10px 30px rgba(194,101,42,0.08);
+
+
+    display:flex;
+
+    flex-direction:column;
+
+
+    transition:0.3s;
+
+
+}
+
+
+
+
+
+
+.hot-product-card:hover {
+
+
+    transform:translateY(-5px);
+
+
+}
+
+
+
+
+
+
+
+.hot-product-image {
+
+
+    position:relative;
+
+    aspect-ratio:1/1;
+
+    overflow:hidden;
+
+    background:#f6f0e8;
+
+
+}
+
+
+
+
+
+
+
+.hot-product-image img {
+
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+
+    transition:transform .5s;
+
+
+}
+
+
+
+
+
+
+
+.hot-product-card:hover img {
+
+
+    transform:scale(1.05);
+
+
+}
+
+
+.sale-badge {
+
+
+    position:absolute;
+
+
+    top:16px;
+
+
+    left:16px;
+
+
+    background:#c0392b;
+
+
+    color:white;
+
+
+    padding:5px 12px;
+
+
+    border-radius:999px;
+
+
+    font-size:12px;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+
+
+
+
+.hot-wishlist {
+
+
+    position:absolute;
+
+
+    top:16px;
+
+
+    right:16px;
+
+
+}
+
+
+
+
+
+
+.hot-wishlist button {
+
+
+    width:40px;
+
+
+    height:40px;
+
+
+    border-radius:50%;
+
+
+    border:none;
+
+
+    background:rgba(250,245,238,.9);
+
+
+    color:#8f3f16;
+
+
+    cursor:pointer;
+
+
+    font-size:20px;
+
+
+}
+
+
+
+
+
+
+
+.hot-product-content {
+
+
+    padding:24px;
+
+
+    display:flex;
+
+
+    flex-direction:column;
+
+
+    flex-grow:1;
+
+
+}
+
+
+
+
+
+
+
+.hot-category {
+
+
+    color:#605850;
+
+
+    font-size:12px;
+
+
+    margin-bottom:8px;
+
+
+    font-weight:600;
+
+
+}
+
+
+
+
+
+
+
+.hot-product-content h3 {
+
+
+    font-family:"Eb Garamond",serif;
+
+
+    font-size:24px;
+
+
+    font-weight:bold;
+
+
+    color:#3a302a;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+
+
+.hot-bottom {
+
+
+    margin-top:auto;
+
+
+}
+
+
+
+
+
+
+
+.hot-price-rating {
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    margin-bottom:16px;
+
+
+}
+
+
+
+
+
+
+
+.hot-price {
+
+
+    font-size:20px;
+
+
+    font-weight:bold;
+
+
+    color:#8f3f16;
+
+
+}
+
+
+
+
+
+
+
+.hot-rating {
+
+
+    color:#b85b2b;
+
+
+    display:flex;
+
+
+    gap:5px;
+
+
+}
+
+
+
+
+
+
+.hot-rating span {
+
+
+    color:#3a302a;
+
+
+}
+
+
+
+
+
+
+
+.hot-actions {
+
+
+    display:flex;
+
+
+    gap:8px;
+
+
+}
+
+
+
+
+
+
+
+.hot-buy {
+
+
+    flex:1;
+
+
+    background:#8f3f16;
+
+
+    color:white;
+
+
+    border:none;
+
+
+    padding:10px 16px;
+
+
+    border-radius:8px;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+
+
+.hot-cart {
+
+
+    background:#eae2da;
+
+
+    color:#605850;
+
+
+    border:none;
+
+
+    padding:10px;
+
+
+    border-radius:8px;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+@media(max-width:1024px){
+
+
+    .hot-products-grid{
+
+
+        grid-template-columns:repeat(3,1fr);
+
+
+    }
+
+
+}
+
+
+
+@media(max-width:768px){
+
+
+    .hot-products-grid{
+
+
+        grid-template-columns:repeat(2,1fr);
+
+
+    }
+
+
+
+    .hot-sales-section{
+
+
+        padding:40px 15px;
+
+
+    }
+
+
+}
+
+
+
+@media(max-width:480px){
+
+
+    .hot-products-grid{
+
+
+        grid-template-columns:1fr;
+
+
+    }
+
+
+}

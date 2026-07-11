@@ -1,0 +1,171 @@
+.footer {
+  background: #f3e4d0;
+  border-top: 1px solid #d8c2a5;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 60px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.footer-brand {
+  flex: 1;
+}
+
+.footer-brand h2 {
+  margin: 0;
+  font-size: 30px;
+  color: #8f4f1d;
+  font-weight: 700;
+}
+
+.footer-brand p {
+  margin-top: 18px;
+  max-width: 450px;
+  color: #555;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.footer-social a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #faf5ee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #8f4f1d;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  background: #ad7b0f;
+  color: white;
+}
+
+.footer-links h3 {
+  color: #8f4f1d;
+  margin-bottom: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 15px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ad7b0f;
+}
+
+.footer-bottom {
+  border-top: 1px solid #d8c2a5;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+/* ==========================
+   Tablet
+========================== */
+
+@media (max-width: 992px) {
+
+  .footer-container {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .footer-brand p {
+    margin: 18px auto;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media (max-width: 768px) {
+
+  .footer-container {
+    padding: 40px 20px;
+  }
+
+  .footer-brand h2 {
+    font-size: 24px;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+  }
+
+  .footer-links h3 {
+    font-size: 20px;
+  }
+
+}
+
+/* ==========================
+   Small Mobile
+========================== */
+
+@media (max-width: 480px) {
+
+  .footer-brand h2 {
+    font-size: 22px;
+  }
+
+  .footer-brand p {
+    font-size: 13px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+  }
+
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+  }
+
+}

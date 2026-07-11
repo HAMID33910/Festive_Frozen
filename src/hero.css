@@ -1,0 +1,263 @@
+.hero-section-image {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.hero-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 25px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(143, 63, 22, 0.9) 0%,
+    rgba(143, 63, 22, 0.5) 45%,
+    rgba(143, 63, 22, 0.15) 75%,
+    transparent 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  padding: 70px;
+}
+
+.hero-tag {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #fbe8d8;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.hero-content h1 {
+  color: #fff;
+  font-size: 64px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  font-family: serif;
+}
+
+.hero-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.shop-btn,
+.process-btn {
+  padding: 16px 35px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.shop-btn {
+  background: #b85b2b;
+  color: #fff;
+  border: none;
+}
+
+.shop-btn:hover {
+  background: #9b471f;
+}
+
+.process-btn {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.process-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===========================
+   Large Tablets
+=========================== */
+
+@media (max-width: 1200px) {
+  .hero-container {
+    height: 370px;
+  }
+
+  .hero-content {
+    padding: 60px;
+  }
+
+  .hero-content h1 {
+    font-size: 56px;
+  }
+}
+
+/* ===========================
+   Tablets
+=========================== */
+
+@media (max-width: 992px) {
+  .hero-container {
+    height: 340px;
+  }
+
+  .hero-content {
+    max-width: 550px;
+    padding: 45px;
+  }
+
+  .hero-content h1 {
+    font-size: 46px;
+  }
+
+  .hero-content p {
+    font-size: 17px;
+  }
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 768px) {
+  .hero-section-image {
+    padding: 15px;
+  }
+
+  .hero-container {
+    height: 300px;
+    border-radius: 18px;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(143, 63, 22, 0.85),
+      rgba(143, 63, 22, 0.55)
+    );
+  }
+
+  .hero-content {
+    padding: 25px;
+    max-width: 100%;
+  }
+
+  .hero-tag {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+    margin-bottom: 18px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .shop-btn,
+  .process-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+  }
+}
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media (max-width: 480px) {
+  .hero-section-image {
+    padding: 10px;
+  }
+
+  .hero-container {
+    height: 260px;
+    border-radius: 15px;
+  }
+
+  .hero-content {
+    padding: 18px;
+  }
+
+  .hero-tag {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+
+  .shop-btn,
+  .process-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+/* ===========================
+   Extra Small Mobile
+=========================== */
+
+@media (max-width: 340px) {
+  .hero-container {
+    height: 220px;
+  }
+
+  .hero-content h1 {
+    font-size: 22px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+  }
+}
