@@ -3,24 +3,76 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 
+// Routes
 const signupRoute = require("./routes/signup");
 const loginRoute = require("./routes/login");
+const categoryRoute = require("./routes/categories");
+const productRoute = require("./routes/products");
+const orderRoute = require("./routes/orders");
+const dashboardRoute = require("./routes/dashboard");
 
 const app = express();
 
+/* ===========================
+   Middleware
+=========================== */
+
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+/* ===========================
+   Static Upload Folders
+=========================== */
+
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/productuploads", express.static(path.join(__dirname, "productuploads")));
+
+/* ===========================
+   MongoDB
+=========================== */
 
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
-app.use("/api/signup", signupRoute);
+/* ===========================
+   Routes
+=========================== */
 
+// Authentication
+app.use("/api/signup", signupRoute);
 app.use("/api/auth/login", loginRoute);
 
-app.listen(3001, () => {
-  console.log("Server Running on Port 3001");
+// Categories
+app.use("/api/categories", categoryRoute);
+
+// Products
+app.use("/api/products", productRoute);
+
+// Orders
+app.use("/api/orders", orderRoute);
+
+// Dashboard
+app.use("/api/dashboard", dashboardRoute);
+
+/* ===========================
+   Home Route
+=========================== */
+
+app.get("/", (req, res) => {
+  res.send("Festive Frozen Backend Running...");
+});
+
+/* ===========================
+   Server
+=========================== */
+
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`Server Running on Port ${PORT}`);
 });

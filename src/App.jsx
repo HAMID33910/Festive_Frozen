@@ -4,6 +4,7 @@ import Hero from "./hero.jsx";
 import CuratedCollections from "./CuratedCollections";
 import SignupScreen from "./signup.jsx";
 import LoginScreen from "./login.jsx";
+import AdminPanel from "./Admin/adminpanel.jsx";
 function Home() {
   return <Hero />;
   
@@ -17,11 +18,13 @@ function App() {
     <BrowserRouter>
       {/* <Navbar /> */}
       
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Navbar" element={<Navbar />} />
         <Route path="/SignupScreen" element={<SignupScreen />} />
         <Route path="/LoginScreen" element={<LoginScreen />} />
+        <Route path="/AdminPanel" element={<AdminPanel />} />
       </Routes>
     </BrowserRouter>
   );
