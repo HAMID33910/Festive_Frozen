@@ -2,6 +2,7 @@
   max-width: 1280px;
   margin: auto;
   padding: 70px 30px;
+  
 }
 
 .collections-header {
@@ -18,7 +19,48 @@
   color: #8f3f16;
   margin-bottom: 10px;
   font-family: "Eb Garamond", serif;
+  text-decoration: none;
 }
+
+.collections-header button {
+    position: relative;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #8f3f16;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.collections-header button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #8f3f16;
+    transition: width 0.3s ease;
+}
+
+.collections-header button:hover {
+    color: #74310f;
+}
+
+.collections-header button:hover::after {
+    width: 100%;
+}
+
+.collections-header button:focus,
+.collections-header button:active {
+    outline: none;
+    text-decoration: none;
+}
+
 
 .collections-header p {
   color: #666;
@@ -32,11 +74,10 @@
   font-weight: bold;
   cursor: pointer;
   transition: .3s;
+  text-decoration: none;
 }
 
-.view-btn:hover {
-  text-decoration: underline;
-}
+
 
 .collections-grid {
   display: grid;

@@ -6,6 +6,9 @@ import SignupScreen from "./signup.jsx";
 import LoginScreen from "./login.jsx";
 import AdminPanel from "./Admin/adminpanel.jsx";
 import CartSidebar from "./CartSidebar";
+import Categories from "./Categories.jsx";
+import Products from "./Products";
+import Checkout from "./Checkout.jsx"
 function Home() {
   return <Hero />;
   
@@ -27,6 +30,9 @@ function App() {
         <Route path="/LoginScreen" element={<LoginScreen />} />
         <Route path="/AdminPanel" element={<AdminPanel />} />
         <Route path="/CartSidebar" element={<CartSidebar />} />
+        <Route path="/categories" element={<Categories />}/>
+        <Route path="/products" element={<Products />}/>
+        <Route path="/Checkout" element={<Checkout />}/>
       </Routes>
     </BrowserRouter>
   );

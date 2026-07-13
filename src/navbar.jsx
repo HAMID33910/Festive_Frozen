@@ -4,11 +4,13 @@ import logo from "./assets/Logo.png";
 import "./navbar.css";
 import CartSidebar from "./CartSidebar";
 import { CartContext } from "./CartContext";
+import HotSales from "./hotsales";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [role, setRole] = useState("user");
+
 
   const {
   cartItems,
@@ -21,6 +23,14 @@ function Navbar() {
 
   const navigate = useNavigate();
   const location = useLocation();
+
+
+  const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
   useEffect(() => {
     const token =
@@ -59,18 +69,21 @@ function Navbar() {
         <div className="nav-container">
 
           {/* Logo */}
-          <Link to="/" className="logo">
+          <Link to="/" className="logo" onClick={scrollToTop}>
             <img src={logo} alt="Festive Frozen logo" />
           </Link>
 
           {/* Desktop Links */}
           <ul className="nav-links">
             <li>
-              <Link to="/">Home</Link>
-            </li>
+              <Link to="/" onClick={scrollToTop}>
+                    Home
+                </Link>
+                  </li>
 
             <li>
-              <Link to="/hotsales">Hot Sales</Link>
+              {/* <Link to="/hotsales">Hot Sales</Link> */}
+              <Link to = "/Hotsales">Hot Sales</Link>
             </li>
 
             <li>

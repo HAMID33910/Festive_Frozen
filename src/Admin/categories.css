@@ -15,7 +15,7 @@
 
 .categories-header h2 {
     font-size: 30px;
-    color: #1d232f;
+    color:#8f3f16;;
     font-weight: 700;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .categories-table thead {
-    background: #1d232f;
+    background: #8f3f16;;
     color: white;
 }
 
@@ -129,6 +129,84 @@
 
 .delete-category-btn:hover {
     background: #dc2626;
+}
+
+/* ===========================
+   ACTION BUTTONS
+=========================== */
+
+.category-action-buttons{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+
+.edit-category-btn,
+.delete-category-btn{
+
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:18px;
+
+    transition:.3s;
+}
+
+
+.edit-category-btn{
+
+    background:#3b82f6;
+
+}
+
+
+.edit-category-btn:hover{
+
+    background:#2563eb;
+
+}
+
+
+
+.delete-category-btn{
+
+    background:#ef4444;
+
+}
+
+
+.delete-category-btn:hover{
+
+    background:#dc2626;
+
+}
+
+
+/* table alignment */
+
+.categories-table td{
+
+    vertical-align:middle;
+
+}
+
+
+.categories-table td:last-child{
+
+    width:120px;
+
 }
 
 /* ===========================

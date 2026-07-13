@@ -1,0 +1,179 @@
+.discount-section{
+    max-width:1280px;
+    margin:auto;
+    padding:64px 32px;
+}
+
+.discount-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:40px;
+}
+
+.discount-header h2{
+    font-family:"Eb Garamond",serif;
+    font-size:36px;
+    color:#8f3f16;
+}
+
+.discount-header button{
+    position:relative;
+    border:none;
+    background:transparent;
+    color:#8f3f16;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    padding:0;
+    transition:.3s;
+}
+
+.discount-header button::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0;
+    height:2px;
+    background:#8f3f16;
+    transition:.3s;
+}
+
+.discount-header button:hover::after{
+    width:100%;
+}
+
+.discount-card{
+    background:#f2ece4;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(194,101,42,.08);
+    transition:.3s;
+}
+
+.discount-card:hover{
+    transform:translateY(-6px);
+}
+
+.discount-image{
+    position:relative;
+    aspect-ratio:1/1;
+    overflow:hidden;
+    background:#f6f0e8;
+}
+
+.discount-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.discount-card:hover img{
+    transform:scale(1.05);
+}
+
+.discount-badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#8f3f16;
+    color:#fff;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.discount-content{
+    padding:24px;
+}
+
+.discount-category{
+    font-size:12px;
+    color:#605850;
+    font-weight:600;
+}
+
+.discount-content h3{
+    margin:10px 0 20px;
+    font-size:24px;
+    font-family:"Eb Garamond",serif;
+    color:#3a302a;
+}
+
+.discount-price-box{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.discount-old-price{
+    color:#888;
+    text-decoration:line-through;
+    font-size:16px;
+}
+
+.discount-new-price{
+    color:#8f3f16;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.discount-actions{
+    display:flex;
+    gap:10px;
+}
+
+.discount-buy-btn{
+    flex:1;
+    border:none;
+    background:#8f3f16;
+    color:#fff;
+    padding:11px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.discount-cart-btn{
+    width:50px;
+    border:none;
+    border-radius:8px;
+    background:#eae2da;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.discount-cart-btn:hover{
+    background:#8f3f16;
+    color:#fff;
+}
+
+@media(max-width:1024px){
+
+    .discount-section{
+        padding:60px 25px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .discount-section{
+        padding:45px 20px;
+    }
+
+    .discount-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .discount-header h2{
+        font-size:32px;
+    }
+
+}

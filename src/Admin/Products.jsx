@@ -478,7 +478,7 @@ Rs. {product.productPrice}
 </td>
 
 
-<td>
+{/* <td>
 
 
 
@@ -513,6 +513,29 @@ onClick={()=>deleteProduct(product._id)}
 
 
 
+
+</td> */}
+
+<td>
+
+<div className="product-actions">
+
+<button
+className="edit-btn"
+onClick={() => editProduct(product)}
+>
+<FiEdit />
+</button>
+
+
+<button
+className="delete-btn"
+onClick={() => deleteProduct(product._id)}
+>
+<FiTrash2 />
+</button>
+
+</div>
 
 </td>
 
@@ -738,11 +761,6 @@ editId
 
 
 </button>
-
-
-
-
-
 
 <button
 

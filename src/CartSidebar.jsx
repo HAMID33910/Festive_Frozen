@@ -1,5 +1,7 @@
 import "./cartSidebar.css";
 import { FiX, FiTrash2 } from "react-icons/fi";
+import Checkout from "./Checkout.jsx"
+import { Link } from "react-router-dom";
 
 function CartSidebar({
   isOpen,
@@ -115,9 +117,12 @@ function CartSidebar({
               </strong>
             </div>
 
+            <Link to = "/Checkout">
+
             <button className="checkout-btn">
               Proceed to Checkout
             </button>
+            </Link>
           </div>
         )}
       </div>

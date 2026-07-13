@@ -323,7 +323,7 @@ function Categories() {
 
 
 
-            <td>
+            {/* <td>
 
 
               <button
@@ -356,7 +356,28 @@ function Categories() {
 
 
 
-            </td>
+            </td> */}
+
+            <td>
+  <div className="category-action-buttons">
+
+    <button
+      className="edit-category-btn"
+      onClick={()=>editCategory(category)}
+    >
+      <FiEdit />
+    </button>
+
+
+    <button
+      className="delete-category-btn"
+      onClick={()=>deleteCategory(category._id)}
+    >
+      <FiTrash2 />
+    </button>
+
+  </div>
+</td>
 
 
 

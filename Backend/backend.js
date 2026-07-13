@@ -10,8 +10,10 @@ const signupRoute = require("./routes/signup");
 const loginRoute = require("./routes/login");
 const categoryRoute = require("./routes/categories");
 const productRoute = require("./routes/products");
-const orderRoute = require("./routes/orders");
+// const orderRoute = require("./routes/orders");
 const dashboardRoute = require("./routes/dashboard");
+const dealRoute = require("./routes/deals");
+const orderRoute = require("./routes/orders");
 
 const app = express();
 
@@ -22,6 +24,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(
+  "/dealuploads",
+  express.static("dealuploads")
+);
 
 /* ===========================
    Static Upload Folders
@@ -29,7 +35,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use("/productuploads", express.static(path.join(__dirname, "productuploads")));
-
+app.use("/dealuploads", express.static(path.join(__dirname, "dealuploads")));
+app.use("/api/orders", orderRoute);
 /* ===========================
    MongoDB
 =========================== */
@@ -58,6 +65,10 @@ app.use("/api/orders", orderRoute);
 
 // Dashboard
 app.use("/api/dashboard", dashboardRoute);
+
+// DEALS
+
+app.use("/api/deals", dealRoute);
 
 /* ===========================
    Home Route

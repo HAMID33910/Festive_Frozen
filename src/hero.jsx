@@ -1,10 +1,13 @@
 import "./hero.css";
 import CuratedCollections from "./CuratedCollections.jsx";
-import Products from "./products.jsx";
+import Products from "./FeaturedProducts.jsx";
 import HotSales from "./hotsales.jsx";
 import Values from "./values.jsx";
 import Footer from "./footer.jsx";
 import Navbar from "./navbar.jsx";
+import DiscountOffers from "./DiscountOffers.jsx";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
 
 
 function Hero() {
@@ -46,9 +49,11 @@ function Hero() {
           </p>
 
           <div className="hero-buttons">
-            <button className="shop-btn">
+            <Link to  = "/products">
+            <button className="shop-btn" >
               Shop Now
             </button>
+            </Link>
 
             <button className="process-btn">
               Our Process
@@ -60,6 +65,7 @@ function Hero() {
     </section>
     
     <CuratedCollections/>
+    <DiscountOffers/>
     <Products/>
     <HotSales/>
     <Values/>

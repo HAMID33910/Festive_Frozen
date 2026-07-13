@@ -177,7 +177,7 @@ body {
   position: absolute;
   top: 2px;
   right: 2px;
-  background: #ff6b5e;
+  background: #b99445;
   color: #fff;
   font-size: 0.65rem;
   font-weight: 700;
@@ -215,7 +215,7 @@ body {
 
 .icon-btn:hover {
   background-color: transparent !important;
-  color: #ad7b0f;
+  color: #af7d11;
   transform: translateY(-2px);
 }
 

@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
-import "./products.css";
-import { useContext } from "react";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
+import "./Products.css";
+import Navbar from "./navbar.jsx";
+import Footer from "./footer.jsx";
 
 function Products() {
   const [products, setProducts] = useState([]);
   const { addToCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3001/api/products")
@@ -15,107 +18,84 @@ function Products() {
   }, []);
 
   return (
-    <section className="featured-section">
+    <>
+    <Navbar />
+    <section className="products-page">
+      <div className="products-container">
 
-      <div className="featured-header">
-        <h2>Our Featured Products</h2>
+        <div className="products-header">
+          <div>
+            <h1>Our Products</h1>
+            <p>
+              Browse our complete collection of premium frozen foods.
+            </p>
+          </div>
 
-        <button>
-          See All
-        </button>
-      </div>
+          
+        </div>
 
+        <div className="products-grid">
 
-      <div className="products-grid">
+          {products.map((product) => (
+            <div
+              className="product-card"
+              key={product._id}
+            >
 
-        {products.map((product) => (
+              <div className="product-image">
 
-          <div className="product-card" key={product._id}>
+                <img
+                  src={`http://localhost:3001/productuploads/${product.productImage}`}
+                  alt={product.productTitle}
+                />
 
-            <div className="product-image">
-
-              <img
-                src={`http://localhost:3001/productuploads/${product.productImage}`}
-                alt={product.productTitle}
-              />
-
-
-              <div className="wishlist-overlay">
-                <button>
-                  ♥
-                </button>
               </div>
 
-            </div>
+              <div className="product-content">
 
+                <span className="product-category">
+                  {product.categoryId?.title || "Frozen Food"}
+                </span>
 
+                <h3>{product.productTitle}</h3>
 
-            <div className="product-content">
-
-
-              <span className="category">
-                Frozen Food • 500g
-              </span>
-
-
-              <h3>
-                {product.productTitle}
-              </h3>
-
-
-
-              <div className="product-bottom">
-
-
-                <div className="price-rating">
-
+                <div className="price-row">
                   <span className="price">
                     Rs. {product.productPrice}
                   </span>
 
-
-                  <div className="rating">
-                    ★
-                    <span>4.9</span>
-                  </div>
-
+                  <span className="rating">
+                    ★ 4.9
+                  </span>
                 </div>
 
-
-
-                <div className="actions">
+                <div className="product-buttons">
 
                   <button className="buy-btn">
                     Buy Now
                   </button>
 
-
-                 <button
-  className="cart-btn"
-  onClick={() => addToCart(product)}
->
-  🛒
-</button>
+                  <button
+                    className="cart-btn"
+                    onClick={() => addToCart(product)}
+                  >
+                    🛒 Add to Cart
+                  </button>
 
                 </div>
 
-
               </div>
 
-
             </div>
+          ))}
 
-
-          </div>
-
-        ))}
-
+        </div>
 
       </div>
-
     </section>
+    <Footer />
+    </>
   );
 }
-
 
 export default Products;

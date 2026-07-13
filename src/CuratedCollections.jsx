@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./CuratedCollections.css";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
 
 function CuratedCollections() {
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  
 
   useEffect(() => {
     fetch("http://localhost:3001/api/categories")
@@ -13,34 +22,78 @@ function CuratedCollections() {
 
   return (
     <section className="collections">
+
       <div className="collections-header">
+
         <div>
           <h2>Curated Collections</h2>
-          <p>Explore our diverse range of flash-frozen essentials.</p>
+          <p>
+            Explore our diverse range of flash-frozen essentials.
+          </p>
         </div>
 
-        <button className="view-btn">
+            <button
+            className="view-btn"
+            onClick={() => navigate("/categories")}
+            
+>
           View All Categories
+          
         </button>
+
       </div>
 
-      <div className="collections-grid">
+      <Swiper
+        modules={[Autoplay]}
+        spaceBetween={25}
+        loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        breakpoints={{
+          0: {
+            slidesPerView: 1.2,
+          },
+          576: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          1200: {
+            slidesPerView: 4,
+          },
+        }}
+      >
         {categories.map((item) => (
-          <div className="collection-card" key={item._id}>
-            <img
-              src={`http://localhost:3001/uploads/${item.image}`}
-              alt={item.title}
-            />
+          <SwiperSlide key={item._id}>
+            <div className="collection-card">
 
-            <div className="overlay"></div>
+              <img
+                src={`http://localhost:3001/uploads/${item.image}`}
+                alt={item.title}
+              />
 
-            <div className="content">
-              <h3>{item.title}</h3>
-              <button>Explore</button>
+              <div className="overlay"></div>
+
+              <div className="content">
+                <h3>{item.title}</h3>
+
+                <button
+                  onClick={() =>
+                    navigate(`/category/${item._id}`)
+                  }
+                >
+                  Explore
+                </button>
+              </div>
+
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
+
     </section>
   );
 }

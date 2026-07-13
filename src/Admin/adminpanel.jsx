@@ -5,8 +5,8 @@ import Navbar from "../navbar";
 import Dashboard from "./Dashboard.jsx";
 import Products from "./Products.jsx";
 import Categories from "./Categories.jsx";
-// import Orders from "./Orders";
-// import Customers from "./Customers";
+import Orders from "./Orders.jsx";
+import Deals from "./Deals.jsx";
 // import Settings from "./Settings";
 
 import {
@@ -14,7 +14,7 @@ import {
   FiShoppingBag,
   FiLayers,
   FiClipboard,
-  FiUsers,
+  FiTag,
   FiSettings,
   FiLogOut,
   FiBell,
@@ -40,8 +40,8 @@ function AdminPanel() {
       case "orders":
         return <Orders />;
 
-      case "customers":
-        return <Customers />;
+      case "deals":
+        return <Deals />;
 
       case "settings":
         return <Settings />;
@@ -98,13 +98,21 @@ function AdminPanel() {
               Orders
             </li>
 
-            <li
-              className={page === "customers" ? "active" : ""}
-              onClick={() => setPage("customers")}
-            >
-              <FiUsers />
-              Customers
-            </li>
+           {/* <li
+              className={page === "deals" ? "active" : ""}
+                onClick={() => setPage("deals")}
+                    >
+                  <FiUsers />
+                      Deals
+                        </li> */}
+
+                        <li
+                    className={page === "deals" ? "active" : ""}
+                       onClick={() => setPage("deals")}
+                          >
+                      <FiTag />
+                       Deals
+                          </li>
 
             <li
               className={page === "settings" ? "active" : ""}
