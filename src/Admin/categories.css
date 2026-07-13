@@ -33,7 +33,7 @@
     border: none;
     border-radius: 12px;
 
-    background: #f59e0b;
+    background: #8f3f16;
     color: white;
 
     cursor: pointer;
@@ -45,7 +45,7 @@
 }
 
 .add-category-btn:hover {
-    background: #d97706;
+    background: #8f3f16;
 }
 
 /* ===========================
@@ -215,7 +215,7 @@
 
 .category-modal input:focus{
 
-    border-color:#f59e0b;
+    border-color:#8f3f16;
 }
 
 /* ===========================
@@ -249,13 +249,13 @@
 
 .category-buttons button:first-child{
 
-    background:#f59e0b;
+    background:#8f3f16;
     color:white;
 }
 
 .category-buttons button:first-child:hover{
 
-    background:#d97706;
+    background:#8f3f16;
 }
 
 .category-buttons button:last-child{

@@ -14,7 +14,7 @@
 
 .admin-sidebar {
     width: 270px;
-    background: #1d232f;
+    background: #f0bf75;
     color: white;
     display: flex;
     flex-direction: column;
@@ -28,12 +28,12 @@
 .admin-logo h2 {
     font-size: 28px;
     font-weight: 700;
-    color: #f59e0b;
+    color: #8f3f16;
     margin-bottom: 5px;
 }
 
 .admin-logo p {
-    color: #aab2c3;
+    color: #ffffff;
     font-size: 14px;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .admin-sidebar ul li.active {
-    background: #f59e0b;
+    background: #8f3f16;
     color: #fff;
 }
 
@@ -185,7 +185,7 @@
 }
 
 .admin-bell:hover {
-    background: #f59e0b;
+    background: #8f3f16;
     color: white;
 }
 

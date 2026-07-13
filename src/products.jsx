@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import "./products.css";
+import { useContext } from "react";
+import { CartContext } from "./CartContext";
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     fetch("http://localhost:3001/api/products")
@@ -67,7 +70,7 @@ function Products() {
                 <div className="price-rating">
 
                   <span className="price">
-                    ${product.productPrice}
+                    Rs. {product.productPrice}
                   </span>
 
 
@@ -87,9 +90,12 @@ function Products() {
                   </button>
 
 
-                  <button className="cart-btn">
-                    🛒
-                  </button>
+                 <button
+  className="cart-btn"
+  onClick={() => addToCart(product)}
+>
+  🛒
+</button>
 
                 </div>
 

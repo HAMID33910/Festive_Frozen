@@ -28,7 +28,7 @@
     align-items: center;
     gap: 10px;
 
-    background: #f59e0b;
+    background: #8f3f16;
     color: white;
 
     border: none;
@@ -44,7 +44,7 @@
 }
 
 .add-product-btn:hover {
-    background: #d97706;
+    background: #d8c2a5;
 }
 
 /* ===========================
@@ -221,7 +221,7 @@
 .product-modal input:focus,
 .product-modal textarea:focus,
 .product-modal select:focus{
-    border-color:#f59e0b;
+    border-color:#8f3f16;
 }
 
 /* ===========================
@@ -252,13 +252,13 @@
 
 .modal-buttons button:first-child{
 
-    background:#f59e0b;
+    background:#8f3f16;
     color:white;
 }
 
 .modal-buttons button:first-child:hover{
 
-    background:#d97706;
+    background:#d8c2a5;
 }
 
 .modal-buttons button:last-child{

@@ -5,6 +5,7 @@ import CuratedCollections from "./CuratedCollections";
 import SignupScreen from "./signup.jsx";
 import LoginScreen from "./login.jsx";
 import AdminPanel from "./Admin/adminpanel.jsx";
+import CartSidebar from "./CartSidebar";
 function Home() {
   return <Hero />;
   
@@ -25,6 +26,7 @@ function App() {
         <Route path="/SignupScreen" element={<SignupScreen />} />
         <Route path="/LoginScreen" element={<LoginScreen />} />
         <Route path="/AdminPanel" element={<AdminPanel />} />
+        <Route path="/CartSidebar" element={<CartSidebar />} />
       </Routes>
     </BrowserRouter>
   );
