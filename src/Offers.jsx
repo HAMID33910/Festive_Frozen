@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import Navbar from "./navbar";
 import Footer from "./footer";
@@ -8,7 +8,7 @@ import "./offer.css";
 function Offers() {
   const [offers, setOffers] = useState([]);
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, setShowLoginModal } = useContext(CartContext);
 
   const navigate = useNavigate();
 
@@ -29,10 +29,15 @@ function Offers() {
     imageType: "deal",
   });
 
-  navigate("/checkout");
+  const savedUser =
+    JSON.parse(localStorage.getItem("user")) ||
+    JSON.parse(sessionStorage.getItem("user"));
 
-
+  if (savedUser?.id) {
     navigate("/checkout");
+  } else {
+    setShowLoginModal(true);
+  }
   };
 
   const handleAddToCart = (offer) => {
@@ -126,25 +131,23 @@ function Offers() {
 
                     </div>
 
-                    <div className="offer-buttons">
+                    <div className="offer-actions">
 
-                     <button
-  className="offer-cart-btn"
-  onClick={() => handleAddToCart(offer)}
->
-  Add to Cart
-</button>
+  <button
+    className="offer-buy-btn"
+    onClick={() => handleBuyNow(offer)}
+  >
+    Buy Now
+  </button>
 
-                      <button
-                        className="offer-buy-btn"
-                        onClick={() =>
-                          handleBuyNow(offer)
-                        }
-                      >
-                        Buy Now
-                      </button>
+  <button
+    className="offer-cart-btn"
+    onClick={() => handleAddToCart(offer)}
+  >
+    🛒
+  </button>
 
-                    </div>
+</div>
 
                   </div>
 

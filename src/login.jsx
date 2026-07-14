@@ -57,7 +57,7 @@ export default function LoginScreen() {
   sessionStorage.setItem("user", JSON.stringify(data.user));
 }
 
-alert(data.message);
+sessionStorage.setItem("showLoginToast", "true");
 
 // Redirect after login
 window.location.href = "/"; // Change this to your desired route after login

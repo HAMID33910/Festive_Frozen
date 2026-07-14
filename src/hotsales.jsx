@@ -13,7 +13,7 @@ import "swiper/css";
 function HotSales() {
   const [products, setProducts] = useState([]);
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, addToWishlist } = useContext(CartContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,9 +30,8 @@ function HotSales() {
   }, []);
 
   const handleBuyNow = (product) => {
-    addToCart(product);
-    navigate("/ProductDetails"); // Change to "/checkout" if you have a checkout page
-  };
+  navigate(`/product/${product._id}`);
+};
 
   return (
     <section className="hot-sales-section">
@@ -84,7 +83,7 @@ function HotSales() {
                   <div className="sale-badge">HOT</div>
 
                   <div className="hot-wishlist">
-                    <button>♥</button>
+                    <button onClick={() => addToWishlist(product)} aria-label="Add to wishlist">♥</button>
                   </div>
                 </div>
 

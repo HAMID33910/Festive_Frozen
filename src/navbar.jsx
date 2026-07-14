@@ -22,6 +22,7 @@ function Navbar() {
   removeFromCart,
   increaseQuantity,
   decreaseQuantity,
+  wishlistItems,
 } = useContext(CartContext);
 
   const navigate = useNavigate();
@@ -238,10 +239,15 @@ useEffect(() => {
             </button>
 
             {/* Wishlist */}
-            <button className="icon-btn">
+            <button className="icon-btn" onClick={() => navigate("/wishlist")}>
               <span className="material-symbols-outlined">
                 favorite
               </span>
+              {wishlistItems.length > 0 && (
+                <span className="cart-count">
+                  {wishlistItems.length}
+                </span>
+              )}
             </button>
 
             {/* Login / Logout */}

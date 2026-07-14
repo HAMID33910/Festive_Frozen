@@ -9,7 +9,7 @@ function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, setShowLoginModal } = useContext(CartContext);
 
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
@@ -72,8 +72,6 @@ function ProductDetails() {
       ...product,
       quantity,
     });
-
-    alert("Product Added to Cart");
   };
 
   const handleBuyNow = () => {
@@ -82,7 +80,15 @@ function ProductDetails() {
       quantity,
     });
 
-    navigate("/checkout");
+    const savedUser =
+      JSON.parse(localStorage.getItem("user")) ||
+      JSON.parse(sessionStorage.getItem("user"));
+
+    if (savedUser?.id) {
+      navigate("/checkout");
+    } else {
+      setShowLoginModal(true);
+    }
   };
 
   if (loading) {

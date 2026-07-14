@@ -16,6 +16,7 @@ const dealRoute = require("./routes/deals");
 const orderRoute = require("./routes/orders");
 const cartRoute = require("./routes/cart");
 const searchRoute = require("./routes/search");
+const wishlistRoute = require("./routes/wishlist");
 
 
 const app = express();
@@ -42,6 +43,7 @@ app.use("/dealuploads", express.static(path.join(__dirname, "dealuploads")));
 app.use("/api/orders", orderRoute);
 app.use("/api/cart", cartRoute);
 app.use("/api/search", searchRoute);
+app.use("/api/wishlist", wishlistRoute);
 
 /* ===========================
    MongoDB

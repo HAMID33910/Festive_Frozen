@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Hero from "./hero.jsx";
 import CuratedCollections from "./CuratedCollections";
@@ -14,13 +15,32 @@ import CategoryProducts from "./CategoryProducts.jsx";
 import ProductDetails from "./ProductDetails.jsx";
 import TrackOrder from "./TrackOrder.jsx"
 import HotSalesPage from "./HotSalesPage.jsx"
+import SuccessToast from "./SuccessToast";
+import WishlistPage from "./WishlistPage";
+
 function Home() {
-  return <Hero />;
-  
+  const location = useLocation();
+  const [showLoginToast, setShowLoginToast] = useState(false);
+
+  useEffect(() => {
+    const shouldShowToast = sessionStorage.getItem("showLoginToast") === "true";
+    if (shouldShowToast) {
+      setShowLoginToast(true);
+      sessionStorage.removeItem("showLoginToast");
+    }
+  }, [location.pathname]);
+
+  return (
+    <>
+      <Hero />
+      <SuccessToast
+        isOpen={showLoginToast}
+        message="You are logged in"
+        onClose={() => setShowLoginToast(false)}
+      />
+    </>
+  );
 }
-
-
-
 
 function App() {
   return (
@@ -44,6 +64,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetails />}/>
         <Route path="/TrackOrder" element={<TrackOrder />}/>
         <Route path="/HotSalesPage" element={<HotSalesPage />}/>
+        <Route path="/wishlist" element={<WishlistPage />} />
 
       </Routes>
     </BrowserRouter>

@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 
 function Products() {
   const [products, setProducts] = useState([]);
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, addToWishlist } = useContext(CartContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -71,7 +71,7 @@ function Products() {
                 />
 
                 <div className="wishlist-overlay">
-                  <button>♥</button>
+                  <button onClick={() => addToWishlist(product)} aria-label="Add to wishlist">♥</button>
                 </div>
 
               </div>
