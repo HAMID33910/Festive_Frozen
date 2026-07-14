@@ -174,6 +174,11 @@ body {
   font-size: 24px;
 }
 
+.icon-btn .material-symbols-outlined:hover {
+  font-size: 24px;
+  color :  #ad7b0f;
+}
+
 .cart-count {
   position: absolute;
   top: 2px;
