@@ -56,7 +56,7 @@ function Hero() {
             </Link>
 
             <button className="process-btn">
-              Our Process
+              Contact US
             </button>
           </div>
         </div>

@@ -39,34 +39,7 @@ function Checkout() {
     });
   };
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
 
-//     if (cartItems.length === 0) {
-//       alert("Your cart is empty.");
-//       return;
-//     }
-
-//     console.log({
-//       customer: form,
-//       paymentMethod: payment,
-//       products: cartItems,
-//       total,
-//     });
-
-//     alert("Order Placed Successfully!");
-
-//     clearCart();
-
-//     setForm({
-//       firstName: "",
-//       lastName: "",
-//       email: "",
-//       phone: "",
-//       address: "",
-//       postalCode: "",
-//     });
-//   };
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -86,11 +59,17 @@ const handleSubmit = async (e) => {
     paymentMethod: "Cash On Delivery",
 
     items: cartItems.map((item) => ({
-      productId: item._id,
-      productTitle: item.productTitle,
-      productImage: item.productImage,
-      quantity: item.quantity,
-      price: Number(item.productPrice),
+      // productId: item._id,
+      // productTitle: item.productTitle,
+      // productImage: item.productImage,
+      // quantity: item.quantity,
+      // price: Number(item.productPrice),
+      productId: item.productId,
+  productTitle: item.productTitle,
+  productImage: item.productImage,
+  imageType: item.imageType || "product",
+  quantity: item.quantity,
+  price: Number(item.productPrice),
     })),
 
     totalPrice: total,
@@ -301,13 +280,18 @@ const handleSubmit = async (e) => {
 
                 <div
                   className="checkout-product"
-                  key={item._id}
+                  key={item.productId}
                 >
 
+
                   <img
-                    src={`http://localhost:3001/productuploads/${item.productImage}`}
-                    alt={item.productTitle}
-                  />
+  src={
+  item.imageType === "deal"
+    ? `http://localhost:3001/dealuploads/${item.productImage}`
+    : `http://localhost:3001/productuploads/${item.productImage}`
+}
+  alt={item.productTitle}
+/>
 
                   <div className="checkout-product-info">
 
@@ -322,7 +306,7 @@ const handleSubmit = async (e) => {
                       <button
                         type="button"
                         onClick={() =>
-                          decreaseQuantity(item._id)
+                          decreaseQuantity(item.productId)
                         }
                       >
                         -
@@ -335,7 +319,7 @@ const handleSubmit = async (e) => {
                       <button
                         type="button"
                         onClick={() =>
-                          increaseQuantity(item._id)
+                          increaseQuantity(item.productId)
                         }
                       >
                         +
@@ -360,7 +344,7 @@ const handleSubmit = async (e) => {
                     className="checkout-delete"
                     type="button"
                     onClick={() =>
-                      removeFromCart(item._id)
+                      removeFromCart(item.productId)
                     }
                   >
 

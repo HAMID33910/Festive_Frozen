@@ -1,4 +1,6 @@
-import { createContext, useState } from "react";
+
+
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
@@ -6,77 +8,183 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // Add product to cart
-  const addToCart = (product) => {
-    setCartItems((prev) => {
-      const existingProduct = prev.find(
-        (item) => item._id === product._id
+  const user =
+  JSON.parse(localStorage.getItem("user")) ||
+  JSON.parse(sessionStorage.getItem("user"));
+
+if (!user || !user.id) {
+  alert("Please login first");
+  return;
+}
+
+const userId = user.id;
+
+  /* ==========================
+     LOAD CART FROM DATABASE
+  ========================== */
+
+  useEffect(() => {
+    if (userId) {
+      loadCart();
+    } else {
+      setCartItems([]);
+    }
+  }, [userId]);
+
+  const loadCart = async () => {
+    try {
+      const res = await fetch(
+        `http://localhost:3001/api/cart/${userId}`
       );
 
-      if (existingProduct) {
-        return prev.map((item) =>
-          item._id === product._id
-            ? {
-                ...item,
-                quantity: item.quantity + 1,
-              }
-            : item
-        );
+      const data = await res.json();
+
+      if (res.ok) {
+        setCartItems(data.items || []);
       }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-      return [
-        ...prev,
+  /* ==========================
+     ADD PRODUCT
+  ========================== */
+
+  const addToCart = async (product) => {
+    if (!userId) {
+      alert("Please login first.");
+      return;
+    }
+
+    try {
+      await fetch(
+        "http://localhost:3001/api/cart/add",
         {
-          ...product,
-          quantity: 1,
-        },
-      ];
-    });
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+            productId: product._id,
+            productTitle: product.productTitle,
+            productImage: product.productImage,
+            productPrice: product.productPrice,
+            quantity: product.quantity || 1,
+            imageType: product.imageType || "product",
+          }),
+        }
+      );
 
-    // Open sidebar automatically
-    setIsCartOpen(true);
+      await loadCart();
+
+      setIsCartOpen(true);
+
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  // Remove product
-  const removeFromCart = (id) => {
-    setCartItems((prev) =>
-      prev.filter((item) => item._id !== id)
-    );
+  /* ==========================
+     REMOVE PRODUCT
+  ========================== */
+
+  const removeFromCart = async (productId) => {
+    try {
+      await fetch(
+        "http://localhost:3001/api/cart/remove",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+            productId,
+          }),
+        }
+      );
+
+      await loadCart();
+
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  // Increase quantity
-  const increaseQuantity = (id) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item._id === id
-          ? {
-              ...item,
-              quantity: item.quantity + 1,
-            }
-          : item
-      )
-    );
+  /* ==========================
+     INCREASE QUANTITY
+  ========================== */
+
+  const increaseQuantity = async (productId) => {
+    try {
+      await fetch(
+        "http://localhost:3001/api/cart/increase",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+            productId,
+          }),
+        }
+      );
+
+      await loadCart();
+
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  // Decrease quantity
-  const decreaseQuantity = (id) => {
-    setCartItems((prev) =>
-      prev
-        .map((item) =>
-          item._id === id
-            ? {
-                ...item,
-                quantity: item.quantity - 1,
-              }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
+  /* ==========================
+     DECREASE QUANTITY
+  ========================== */
+
+  const decreaseQuantity = async (productId) => {
+    try {
+      await fetch(
+        "http://localhost:3001/api/cart/decrease",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+            productId,
+          }),
+        }
+      );
+
+      await loadCart();
+
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  // Clear cart
-  const clearCart = () => {
-    setCartItems([]);
+  /* ==========================
+     CLEAR CART
+  ========================== */
+
+  const clearCart = async () => {
+    try {
+      await fetch(
+        `http://localhost:3001/api/cart/${userId}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      setCartItems([]);
+
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -90,6 +198,7 @@ export function CartProvider({ children }) {
         increaseQuantity,
         decreaseQuantity,
         clearCart,
+        loadCart,
       }}
     >
       {children}

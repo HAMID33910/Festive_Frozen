@@ -241,12 +241,7 @@ function Orders() {
 
         <h2>Order Details</h2>
 
-        <button
-          className="close-order-btn"
-          onClick={closeModal}
-        >
-          ×
-        </button>
+       
 
       </div>
 
@@ -284,66 +279,76 @@ function Orders() {
 
       <div className="order-products">
 
-        <h3>Products</h3>
-{selectedOrder.products?.length > 0 ? (
+  <h3>Ordered Products</h3>
 
-  selectedOrder.products.map((item, index) => (
+  {selectedOrder.items?.length > 0 ? (
 
-    <div
-      className="order-product-card"
-      key={index}
-    >
+    <table className="order-products-table">
 
-      <img
-        src={`http://localhost:3001/productuploads/${item.productImage}`}
-        alt={item.productTitle}
-      />
+      <thead>
 
-      <div className="order-product-info">
+        <tr>
 
-        <h4>
-          {item.productTitle}
-        </h4>
+          <th>Image</th>
 
-        <p>
-          Price :
-          <strong>
-            {" "}
-            Rs. {item.productPrice}
-          </strong>
-        </p>
+          <th>Product</th>
 
-        <p>
-          Quantity :
-          <strong>
-            {" "}
-            {item.quantity}
-          </strong>
-        </p>
+          <th>Price</th>
 
-        <p>
-          Subtotal :
-          <strong>
-            {" "}
-            Rs.{" "}
-            {Number(item.productPrice) *
-              item.quantity}
-          </strong>
-        </p>
+          <th>Quantity</th>
 
-      </div>
+          <th>Subtotal</th>
 
-    </div>
+        </tr>
 
-  ))
+      </thead>
 
-) : (
+      <tbody>
 
-  <p>No products found.</p>
+        {selectedOrder.items.map((item, index) => (
 
-)}
+          <tr key={index}>
 
-      </div>
+            <td>
+
+              <img
+  src={
+    item.imageType === "deal"
+      ? `http://localhost:3001/dealuploads/${item.productImage}`
+      : `http://localhost:3001/productuploads/${item.productImage}`
+  }
+  alt={item.productTitle}
+/>
+
+            </td>
+
+            <td>{item.productTitle}</td>
+
+            <td>Rs. {item.price}</td>
+
+            <td>{item.quantity}</td>
+
+            <td>
+
+              Rs. {item.price * item.quantity}
+
+            </td>
+
+          </tr>
+
+        ))}
+
+      </tbody>
+
+    </table>
+
+  ) : (
+
+    <p>No Products Found.</p>
+
+  )}
+
+</div>
 
       <div className="order-summary">
 
@@ -375,16 +380,23 @@ function Orders() {
 
       </div>
 
-      <div className="order-modal-footer">
+    <div className="order-modal-footer">
 
-        <button
-          className="close-modal-btn"
-          onClick={closeModal}
-        >
-          Close
-        </button>
+  <button
+    className="print-modal-btn"
+    onClick={() => window.print()}
+  >
+    Print Bill
+  </button>
 
-      </div>
+  <button
+    className="close-modal-btn"
+    onClick={closeModal}
+  >
+    Close
+  </button>
+
+</div>
 
     </div>
 

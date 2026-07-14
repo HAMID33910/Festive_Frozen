@@ -82,6 +82,7 @@ function CuratedCollections() {
 
                 <button
                   onClick={() =>
+                    // navigate(`/category/${item._id}`)
                     navigate(`/category/${item._id}`)
                   }
                 >

@@ -44,27 +44,56 @@ const upload = multer({ storage });
 
 
 
+// /* GET PRODUCTS */
+
+// router.get("/", async (req,res)=>{
+
+// try{
+
+// const products = await Product.find()
+// .populate("categoryId");
+
+// res.json(products);
+
+
+// }
+// catch(err){
+
+// res.status(500).json({
+// message:err.message
+// });
+
+// }
+
+// });
+
+
 /* GET PRODUCTS */
 
-router.get("/", async (req,res)=>{
+/* GET PRODUCTS */
 
-try{
+router.get("/", async (req, res) => {
+  try {
+    const { categoryId } = req.query;
 
-const products = await Product.find()
-.populate("categoryId");
+    let filter = {};
 
-res.json(products);
+    if (categoryId) {
+      filter.categoryId = categoryId;
+    }
 
+    const products = await Product.find(filter)
+      .populate("categoryId");
 
-}
-catch(err){
+    res.json(products);
 
-res.status(500).json({
-message:err.message
-});
+  } catch (err) {
 
-}
+    res.status(500).json({
+      message: err.message,
+    });
 
+  }
 });
 
 
@@ -228,6 +257,29 @@ res.status(500).json(err);
 }
 
 
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+
+    const product = await Product.findById(req.params.id)
+      .populate("categoryId");
+
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found",
+      });
+    }
+
+    res.json(product);
+
+  } catch (err) {
+
+    res.status(500).json({
+      message: err.message,
+    });
+
+  }
 });
 
 

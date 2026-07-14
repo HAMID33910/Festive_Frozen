@@ -54,6 +54,7 @@ function Categories() {
 
                 <button
                   onClick={() =>
+                    // navigate(`/category/${category._id}`)
                     navigate(`/category/${category._id}`)
                   }
                 >
