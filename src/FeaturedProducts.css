@@ -141,6 +141,7 @@
 
 
 
+
 .wishlist-overlay button {
 
 
@@ -157,6 +158,19 @@
     cursor:pointer;
 
     font-size:20px;
+
+}
+
+.wishlist-overlay button:hover {
+
+
+  
+
+    background-color:#8f3f16;
+    color : white;
+
+
+   
 
 }
 
