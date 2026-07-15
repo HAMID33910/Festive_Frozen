@@ -113,11 +113,11 @@ function DiscountOffers() {
                 <div className="discount-actions">
 
                   <button
-                    className="discount-buy-btn"
-                    onClick={() => navigate("/offers")}
-                  >
-                    View Deal
-                  </button>
+  className="discount-buy-btn"
+  onClick={() => navigate(`/deal/${item._id}`)}
+>
+  View Deal
+</button>
 
                 </div>
 

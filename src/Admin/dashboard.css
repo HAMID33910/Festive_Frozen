@@ -23,7 +23,7 @@
     position:relative;
     overflow:hidden;
     background:#fff;
-    border-radius:22px;
+    border-radius:1.5rem;
     padding:28px;
     border:1px solid #f0e4dc;
     transition:.35s;
@@ -84,7 +84,7 @@
 .dashboard-chart,
 .dashboard-latest{
     background:#fff;
-    border-radius:22px;
+    border-radius:1.5rem;
     padding:30px;
     border:1px solid #f0e4dc;
     box-shadow:0 10px 25px rgba(143,63,22,.08);
@@ -107,7 +107,7 @@
     width:60px;
     height:4px;
     background:#8f3f16;
-    border-radius:20px;
+    border-radius:1.25rem;
 }
 
 /* ===========================
@@ -117,7 +117,7 @@
 .dashboard-placeholder{
     height:350px;
     border:2px dashed #d8b8a3;
-    border-radius:18px;
+    border-radius:1rem;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -164,7 +164,7 @@
     background:#8f3f16;
     color:#fff;
     padding:5px 12px;
-    border-radius:30px;
+    border-radius:1.875rem;
     font-size:12px;
 }
 

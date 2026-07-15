@@ -114,10 +114,10 @@ function HotSales() {
                       </button>
 
                       <button
-                        className="hot-cart"
+                        className="cart-btn"
                         onClick={() => addToCart(product)}
                       >
-                        🛒 Add to Cart
+                        🛒 
                       </button>
                     </div>
                   </div>

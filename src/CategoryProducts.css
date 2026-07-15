@@ -21,7 +21,7 @@
     font-size:42px;
     color:#8f3f16;
     margin-bottom:10px;
-    font-family:"Eb Garamond", serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .category-products-header p{
@@ -37,7 +37,7 @@
 
 .category-product-card{
     background:#fff;
-    border-radius:18px;
+    border-radius:1rem;
     overflow:hidden;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
     transition:.35s;
@@ -110,7 +110,7 @@
     background:#8f3f16;
     color:#fff;
     border:none;
-    border-radius:8px;
+    border-radius:0.5rem;
     padding:12px;
     cursor:pointer;
     font-size:15px;
@@ -126,7 +126,7 @@
     background:#fff;
     color:#8f3f16;
     border:2px solid #8f3f16;
-    border-radius:8px;
+    border-radius:0.5rem;
     padding:12px;
     cursor:pointer;
     font-size:15px;

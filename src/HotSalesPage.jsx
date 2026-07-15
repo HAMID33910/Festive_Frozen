@@ -93,7 +93,7 @@ function HotSalesPage() {
                       className="cart-btn"
                       onClick={() => addToCart(product)}
                     >
-                      🛒 Add to Cart
+                      🛒 
                     </button>
 
                   </div>

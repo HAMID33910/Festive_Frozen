@@ -59,7 +59,7 @@
 
     border: none;
 
-    border-radius: 12px;
+    border-radius: 0.75rem;
 
 
     padding: 12px 22px;
@@ -96,7 +96,7 @@
 
     background: white;
 
-    border-radius: 16px;
+    border-radius: 1rem;
 
     overflow: hidden;
 
@@ -163,7 +163,7 @@
 
     object-fit: cover;
 
-    border-radius: 12px;
+    border-radius: 0.75rem;
 
 }
 
@@ -211,7 +211,7 @@
 
     border: none;
 
-    border-radius: 10px;
+    border-radius: 0.75rem;
 
 
     cursor: pointer;
@@ -318,7 +318,7 @@
     background: white;
 
 
-    border-radius: 18px;
+    border-radius: 1rem;
 
 
     padding: 30px;
@@ -395,7 +395,7 @@
     border:1px solid #ddd;
 
 
-    border-radius:10px;
+    border-radius:0.75rem;
 
 
     outline:none;
@@ -465,7 +465,7 @@
     padding:12px 22px;
 
 
-    border-radius:10px;
+    border-radius:0.75rem;
 
 
     font-size:15px;

@@ -12,7 +12,7 @@
 }
 
 .discount-header h2{
-    font-family:"Eb Garamond",serif;
+    font-family: 'Montserrat', sans-serif;
     font-size:36px;
     color:#8f3f16;
 }
@@ -46,7 +46,7 @@
 
 .discount-card{
     background:#f2ece4;
-    border-radius:12px;
+    border-radius:0.75rem;
     overflow:hidden;
     box-shadow:0 10px 30px rgba(194,101,42,.08);
     transition:.3s;
@@ -81,7 +81,7 @@
     background:#8f3f16;
     color:#fff;
     padding:8px 14px;
-    border-radius:30px;
+    border-radius:1.875rem;
     font-size:13px;
     font-weight:700;
 }
@@ -99,7 +99,7 @@
 .discount-content h3{
     margin:10px 0 20px;
     font-size:24px;
-    font-family:"Eb Garamond",serif;
+    font-family: 'Montserrat', sans-serif;
     color:#3a302a;
 }
 
@@ -133,7 +133,7 @@
     background:#8f3f16;
     color:#fff;
     padding:11px;
-    border-radius:8px;
+    border-radius:0.5rem;
     cursor:pointer;
     font-weight:700;
 }
@@ -141,7 +141,7 @@
 .discount-cart-btn{
     width:50px;
     border:none;
-    border-radius:8px;
+    border-radius:0.5rem;
     background:#eae2da;
     cursor:pointer;
     font-size:18px;

@@ -6,6 +6,10 @@ import {
   FiEdit,
 } from "react-icons/fi";
 
+
+
+
+
 function Deals() {
   const [deals, setDeals] = useState([]);
 
@@ -19,6 +23,29 @@ function Deals() {
     endDate: "",
     status: "Active",
   });
+  const [editId, setEditId] = useState(null);
+
+  const editDeal = (deal) => {
+  setEditId(deal._id);
+
+  setForm({
+    dealName: deal.dealName,
+    description: deal.description,
+    originalPrice: deal.originalPrice,
+    discountedPrice: deal.discountedPrice,
+    discount: deal.discount,
+    startDate: deal.startDate.substring(0, 10),
+    endDate: deal.endDate.substring(0, 10),
+    status: deal.status,
+  });
+
+  setImage(null);
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
   const [image, setImage] = useState(null);
 
@@ -41,57 +68,66 @@ function Deals() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const formData = new FormData();
+  const formData = new FormData();
 
-    formData.append("dealName", form.dealName);
-    formData.append("description", form.description);
-    formData.append("originalPrice", form.originalPrice);
-    formData.append("discountedPrice", form.discountedPrice);
-    formData.append("discount", form.discount);
-    formData.append("startDate", form.startDate);
-    formData.append("endDate", form.endDate);
-    formData.append("status", form.status);
+  formData.append("dealName", form.dealName);
+  formData.append("description", form.description);
+  formData.append("originalPrice", form.originalPrice);
+  formData.append("discountedPrice", form.discountedPrice);
+  formData.append("discount", form.discount);
+  formData.append("startDate", form.startDate);
+  formData.append("endDate", form.endDate);
+  formData.append("status", form.status);
 
-    if (image) {
-      formData.append("dealImage", image);
+  if (image) {
+    formData.append("dealImage", image);
+  }
+
+  try {
+    const url = editId
+      ? `http://localhost:3001/api/deals/${editId}`
+      : "http://localhost:3001/api/deals";
+
+    const method = editId ? "PUT" : "POST";
+
+    const res = await fetch(url, {
+      method,
+      body: formData,
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to save deal");
     }
 
-    try {
-      const res = await fetch(
-        "http://localhost:3001/api/deals",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+    alert(
+      editId
+        ? "Deal Updated Successfully"
+        : "Deal Added Successfully"
+    );
 
-      if (!res.ok) {
-        throw new Error("Failed to save deal");
-      }
+    setForm({
+      dealName: "",
+      description: "",
+      originalPrice: "",
+      discountedPrice: "",
+      discount: "",
+      startDate: "",
+      endDate: "",
+      status: "Active",
+    });
 
-      alert("Deal Added Successfully");
+    setImage(null);
+    setEditId(null);
 
-      setForm({
-        dealName: "",
-        description: "",
-        originalPrice: "",
-        discountedPrice: "",
-        discount: "",
-        startDate: "",
-        endDate: "",
-        status: "Active",
-      });
+    getDeals();
 
-      setImage(null);
-
-      getDeals();
-    } catch (err) {
-      console.log(err);
-      alert("Error Saving Deal");
-    }
-  };
+  } catch (err) {
+    console.log(err);
+    alert("Error Saving Deal");
+  }
+};
 
   const deleteDeal = async (id) => {
     if (!window.confirm("Delete this deal?")) return;
@@ -210,13 +246,11 @@ function Deals() {
             <label>Deal Banner</label>
 
             <input
-              type="file"
-              accept="image/*"
-              onChange={(e) =>
-                setImage(e.target.files[0])
-              }
-              required
-            />
+  type="file"
+  accept="image/*"
+  onChange={(e) => setImage(e.target.files[0])}
+  required={!editId}
+/>
           </div>
         </div>
 
@@ -319,10 +353,11 @@ function Deals() {
               <div className="deal-actions">
 
               <button
-                className="deal-edit-btn"
-                    >
-                        <FiEdit />
-                        </button>
+  className="deal-edit-btn"
+  onClick={() => editDeal(deal)}
+>
+  <FiEdit />
+</button>
 
                 <button
                   className="deal-delete-btn"

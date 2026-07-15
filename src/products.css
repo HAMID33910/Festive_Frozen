@@ -34,7 +34,7 @@
     color:#fff;
     border:none;
     padding:14px 24px;
-    border-radius:8px;
+    border-radius:0.5rem;
     cursor:pointer;
     font-size:16px;
     transition:.3s;
@@ -52,7 +52,7 @@
 
 .product-card{
     background:#fff;
-    border-radius:18px;
+    border-radius:1rem;
     overflow:hidden;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
     transition:.3s;
@@ -124,7 +124,7 @@
     background:#8f3f16;
     color:#fff;
     padding:12px;
-    border-radius:8px;
+    border-radius:0.5rem;
     cursor:pointer;
     font-size:15px;
     transition:.3s;
@@ -134,16 +134,20 @@
     background:#74310f;
 }
 
-.cart-btn{
-    flex:1;
-    border:2px solid #8f3f16;
-    background:#fff;
-    color:#8f3f16;
-    padding:12px;
-    border-radius:8px;
+.cart-btn {
+
+    background:#eae2da;
+
+    color:#605850;
+
+    border:none;
+
+    padding:10px;
+
+    border-radius:0.5rem;
+
     cursor:pointer;
-    font-size:15px;
-    transition:.3s;
+
 }
 
 .cart-btn:hover{

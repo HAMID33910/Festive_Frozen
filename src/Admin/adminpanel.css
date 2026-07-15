@@ -16,13 +16,19 @@
     width: 270px;
     background: #f0bf75;
     color: white;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
+    justify-content: flex-start;   /* Changed */
+
     padding: 30px 22px;
+
     position: sticky;
     top: 0;
-    height: calc(100vh - 80px);
+
+    min-height: calc(100vh - 80px); /* Instead of height */
+    height: auto;
 }
 
 .admin-logo h2 {
@@ -53,7 +59,7 @@
     gap: 14px;
     padding: 14px 16px;
     margin-bottom: 12px;
-    border-radius: 12px;
+    border-radius: 0.75rem;
     cursor: pointer;
     transition: .3s;
     font-size: 16px;
@@ -92,7 +98,7 @@
     background: #dc2626;
     color: white;
 
-    border-radius: 12px;
+    border-radius: 0.75rem;
 
     font-size: 16px;
     cursor: pointer;
@@ -148,7 +154,7 @@
 
     padding: 12px 18px;
 
-    border-radius: 12px;
+    border-radius: 0.75rem;
 
     box-shadow: 0 3px 12px rgba(0,0,0,.05);
 }
@@ -207,7 +213,7 @@
 
 .admin-main::-webkit-scrollbar-thumb {
     background: #cfcfcf;
-    border-radius: 50px;
+    border-radius: 3.125rem;
 }
 
 /* ===========================

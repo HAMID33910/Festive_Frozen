@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   background-color:#faf5ee;
   color: #333;
 }
@@ -41,7 +41,7 @@ body {
 .logo img {
   height: 70px;
   width: auto;
-  border-radius: 10px;
+  border-radius: 0.75rem;
   transition: transform 0.2s ease;
 }
 
@@ -104,7 +104,7 @@ body {
   align-items: center;
   background: #f3e4d0;
   border: 1px solid #c79a5a;
-  border-radius: 999px;
+  border-radius: 9999px;
   padding: 0.45rem 1rem;
   flex: 1 1 auto;
   min-width: 0;
@@ -189,7 +189,7 @@ body {
   font-weight: 700;
   min-width: 17px;
   height: 17px;
-  border-radius: 999px;
+  border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -418,7 +418,7 @@ body {
     left:0;
     width:100%;
     background:#fff;
-    border-radius:15px;
+    border-radius:1rem;
     box-shadow:0 10px 30px rgba(0,0,0,.15);
     z-index:9999;
     overflow:hidden;
@@ -443,7 +443,7 @@ body {
     width:55px;
     height:55px;
     object-fit:cover;
-    border-radius:10px;
+    border-radius:0.75rem;
 }
 
 .search-item h4{

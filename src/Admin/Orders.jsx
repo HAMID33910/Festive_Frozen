@@ -90,6 +90,8 @@ function Orders() {
 
       <th>Customer</th>
 
+       <th>Order ID</th>
+
       <th>Phone</th>
 
       <th>Total</th>
@@ -122,13 +124,16 @@ function Orders() {
 
       orders.map((order) => (
 
-        <tr key={order._id}>
+       <tr key={order._id}>
 
-          <td>
+  
 
-            {order.firstName} {order.lastName}
-
-          </td>
+  <td>
+    {order.firstName} {order.lastName}
+  </td>
+  <td className="order-id-cell">
+    {order.orderId}
+  </td>
 
           <td>
 
@@ -352,35 +357,43 @@ function Orders() {
 
       <div className="order-summary">
 
-        <h3>Order Summary</h3>
+  <h3>Order Summary</h3>
 
-        <p>
+  <p>
+    <strong>Payment :</strong>{" "}
+    {selectedOrder.paymentMethod}
+  </p>
 
-          <strong>Payment :</strong>{" "}
+  <p>
+    <strong>Status :</strong>{" "}
+    {selectedOrder.status}
+  </p>
 
-          {selectedOrder.paymentMethod}
+  <p>
+    <strong>Order ID :</strong>{" "}
+    <span className="order-id-text">
+      {selectedOrder.orderId}
+    </span>
+  </p>
 
-        </p>
+  <p>
+    <strong>Estimated Delivery :</strong>{" "}
+    {selectedOrder.estimatedDelivery
+      ? new Date(
+          selectedOrder.estimatedDelivery
+        ).toLocaleDateString()
+      : "N/A"}
+  </p>
 
-        <p>
+  <p>
+    <strong>Total :</strong>{" "}
+    Rs. {Number(selectedOrder.totalPrice).toLocaleString()}
+  </p>
 
-          <strong>Status :</strong>{" "}
-
-          {selectedOrder.status}
-
-        </p>
-
-        <p>
-
-          <strong>Total :</strong>{" "}
-
-          Rs. {Number(selectedOrder.totalPrice).toLocaleString()}
-
-        </p>
-
-      </div>
+</div>
 
     <div className="order-modal-footer">
+      
 
   <button
     className="print-modal-btn"

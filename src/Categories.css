@@ -33,7 +33,7 @@
 
 .category-card {
     background: white;
-    border-radius: 18px;
+    border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,.08);
     transition: .3s;
@@ -80,7 +80,7 @@
     width: 100%;
     padding: 14px;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     background: #8f3f16;
     color: white;
     font-size: 16px;

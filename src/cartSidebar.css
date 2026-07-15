@@ -94,7 +94,7 @@
 
 .cart-body::-webkit-scrollbar-thumb {
     background: #8f3f16;
-    border-radius: 10px;
+    border-radius: 0.75rem;
 }
 
 /* ===========================
@@ -108,7 +108,7 @@
     padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #eee;
-    border-radius: 12px;
+    border-radius: 0.75rem;
     background: #fafafa;
 }
 
@@ -116,7 +116,7 @@
     width: 85px;
     height: 85px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 0.75rem;
     flex-shrink: 0;
 }
 
@@ -160,7 +160,7 @@
     border: 1px solid #8f3f16;
     background: white;
     color: #8f3f16;
-    border-radius: 6px;
+    border-radius: 0.25rem;
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
@@ -188,7 +188,7 @@
     height: 38px;
     min-width: 38px;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     background: #fff2ec;
     color: #8f3f16;
     cursor: pointer;
@@ -236,7 +236,7 @@
     border: none;
     background: #8f3f16;
     color: white;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;

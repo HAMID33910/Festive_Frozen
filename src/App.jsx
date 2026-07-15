@@ -17,6 +17,7 @@ import TrackOrder from "./TrackOrder.jsx"
 import HotSalesPage from "./HotSalesPage.jsx"
 import SuccessToast from "./SuccessToast";
 import WishlistPage from "./WishlistPage";
+import DealDetails from "./DealDetails.jsx";
 
 function Home() {
   const location = useLocation();
@@ -65,6 +66,7 @@ function App() {
         <Route path="/TrackOrder" element={<TrackOrder />}/>
         <Route path="/HotSalesPage" element={<HotSalesPage />}/>
         <Route path="/wishlist" element={<WishlistPage />} />
+        <Route path="/Deal/:id" element={<DealDetails />} />
 
       </Routes>
     </BrowserRouter>

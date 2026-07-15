@@ -43,11 +43,14 @@ function Footer() {
             </li>
 
             <li>
-              <Link to="/hotsales">Hot Sales</Link>
+              <Link to="/HotsalesPage">Hot Sales</Link>
             </li>
 
             <li>
               <Link to="/offers">Discount Offers</Link>
+            </li>
+            <li>
+              <Link to="/TrackOrder">Track Order</Link>
             </li>
 
           </ul>

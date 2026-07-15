@@ -20,7 +20,7 @@
 
 .details-image-box{
     background:#fff;
-    border-radius:20px;
+    border-radius:1.25rem;
     padding:25px;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
@@ -29,7 +29,7 @@
     width:100%;
     height:520px;
     object-fit:cover;
-    border-radius:15px;
+    border-radius:1rem;
 }
 
 .details-right{
@@ -43,7 +43,7 @@
     background:#f3e5dc;
     color:#8f3f16;
     padding:8px 18px;
-    border-radius:30px;
+    border-radius:1.875rem;
     font-size:14px;
     font-weight:600;
     width:fit-content;
@@ -104,7 +104,7 @@
     width:45px;
     height:45px;
     border:none;
-    border-radius:10px;
+    border-radius:0.75rem;
     background:#8f3f16;
     color:#fff;
     font-size:22px;
@@ -134,7 +134,7 @@
     flex:1;
     padding:15px;
     border:none;
-    border-radius:10px;
+    border-radius:0.75rem;
     font-size:16px;
     cursor:pointer;
     transition:.3s;
@@ -170,7 +170,7 @@
 .info-item{
     background:#fff;
     padding:20px;
-    border-radius:12px;
+    border-radius:0.75rem;
     text-align:center;
     box-shadow:0 8px 20px rgba(0,0,0,.06);
 }
@@ -190,7 +190,7 @@
     margin-top:20px;
     background:#fff;
     padding:25px;
-    border-radius:15px;
+    border-radius:1rem;
     box-shadow:0 8px 20px rgba(0,0,0,.06);
 }
 
@@ -229,7 +229,7 @@
 
 .related-card{
     background:#fff;
-    border-radius:16px;
+    border-radius:1rem;
     overflow:hidden;
     text-align:center;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
@@ -264,7 +264,7 @@
     margin:0 20px 20px;
     padding:13px;
     border:none;
-    border-radius:8px;
+    border-radius:0.5rem;
     background:#8f3f16;
     color:#fff;
     cursor:pointer;

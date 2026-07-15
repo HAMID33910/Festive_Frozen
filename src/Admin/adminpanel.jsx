@@ -7,6 +7,7 @@ import Products from "./Products.jsx";
 import Categories from "./Categories.jsx";
 import Orders from "./Orders.jsx";
 import Deals from "./Deals.jsx";
+// import Footer from "../footer.jsx"
 // import Settings from "./Settings";
 
 import {
@@ -124,7 +125,7 @@ function AdminPanel() {
 
           </ul>
 
-          <Link to="/LoginScreen">
+          {/* <Link to="/LoginScreen">
 
             <button className="admin-logout">
 
@@ -134,7 +135,7 @@ function AdminPanel() {
 
             </button>
 
-          </Link>
+          </Link> */}
 
         </aside>
 
@@ -178,6 +179,7 @@ function AdminPanel() {
         </main>
 
       </div>
+      {/* <Footer/> */}
     </>
   );
 }

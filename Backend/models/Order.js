@@ -2,6 +2,12 @@ const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema(
   {
+    orderId: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+
     firstName: {
       type: String,
       required: true,
@@ -45,39 +51,39 @@ const orderSchema = new mongoose.Schema(
     },
 
     items: [
-  {
-    productId: {
-      type: String,
-      required: true,
-    },
+      {
+        productId: {
+          type: String,
+          required: true,
+        },
 
-    productTitle: {
-      type: String,
-      required: true,
-    },
+        productTitle: {
+          type: String,
+          required: true,
+        },
 
-    productImage: {
-      type: String,
-      required: true,
-    },
+        productImage: {
+          type: String,
+          required: true,
+        },
 
-    imageType: {
-      type: String,
-      enum: ["product", "deal"],
-      default: "product",
-    },
+        imageType: {
+          type: String,
+          enum: ["product", "deal"],
+          default: "product",
+        },
 
-    quantity: {
-      type: Number,
-      required: true,
-    },
+        quantity: {
+          type: Number,
+          required: true,
+        },
 
-    price: {
-      type: Number,
-      required: true,
-    },
-  },
-],
+        price: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
 
     totalPrice: {
       type: Number,
@@ -95,6 +101,20 @@ const orderSchema = new mongoose.Schema(
       ],
       default: "Pending",
     },
+
+    estimatedDelivery: {
+      type: Date,
+    },
+
+    trackingHistory: [
+      {
+        status: String,
+        date: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
   },
   {
     timestamps: true,

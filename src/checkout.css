@@ -23,7 +23,7 @@
 
 .checkout-left{
     background:#fff;
-    border-radius:18px;
+    border-radius:1rem;
     padding:35px;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
@@ -33,7 +33,7 @@
 }
 
 .checkout-header h2{
-    font-family:"Eb Garamond",serif;
+    font-family: 'Montserrat', sans-serif;
     font-size:40px;
     color:#8f3f16;
     margin-bottom:8px;
@@ -74,7 +74,7 @@
 
     border:1px solid #ddd;
 
-    border-radius:10px;
+    border-radius:0.75rem;
 
     outline:none;
 
@@ -105,7 +105,7 @@
     margin-top:30px;
     padding:25px;
     background:#faf5ef;
-    border-radius:14px;
+    border-radius:0.75rem;
     border:1px solid #ece3d8;
 }
 
@@ -142,7 +142,7 @@
 
     padding:16px;
 
-    border-radius:12px;
+    border-radius:0.75rem;
 
     background:#8f3f16;
 
@@ -169,7 +169,7 @@
 
     background:#fff;
 
-    border-radius:18px;
+    border-radius:1rem;
 
     padding:30px;
 
@@ -185,7 +185,7 @@
 .checkout-right h2{
     color:#8f3f16;
     margin-bottom:25px;
-    font-family:"Eb Garamond",serif;
+    font-family: 'Montserrat', sans-serif;
     font-size:34px;
 }
 
@@ -216,7 +216,7 @@
 
     object-fit:cover;
 
-    border-radius:12px;
+    border-radius:0.75rem;
 
     flex-shrink:0;
 }
@@ -278,7 +278,7 @@
 
     border:none;
 
-    border-radius:8px;
+    border-radius:0.5rem;
 
     background:#8f3f16;
 
@@ -317,7 +317,7 @@
 
     border:none;
 
-    border-radius:10px;
+    border-radius:0.75rem;
 
     background:#ef4444;
 

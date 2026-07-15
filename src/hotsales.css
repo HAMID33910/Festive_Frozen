@@ -20,7 +20,7 @@
 }
 
 .hot-sales-header h2 {
-    font-family: "EB Garamond", serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 42px;
     color: #8f3f16;
     margin-bottom: 8px;
@@ -81,7 +81,7 @@
 .hot-product-card {
     width: 100%;
     background: #fff;
-    border-radius: 18px;
+    border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
     display: flex;
@@ -122,7 +122,7 @@
     background: #d64045;
     color: #fff;
     padding: 6px 14px;
-    border-radius: 30px;
+    border-radius: 1.875rem;
     font-size: 12px;
     font-weight: 700;
 }
@@ -170,7 +170,7 @@
     font-size: 23px;
     color: #222;
     min-height: 58px;
-    font-family: "EB Garamond", serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .hot-bottom {
@@ -215,7 +215,7 @@
     background: #8f3f16;
     color: #fff;
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     cursor: pointer;
     font-size: 15px;
     transition: .3s;
@@ -225,21 +225,25 @@
     background: #74310f;
 }
 
-.hot-cart {
-    flex: 1;
-    border: 2px solid #8f3f16;
-    background: #fff;
-    color: #8f3f16;
-    padding: 12px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-    transition: .3s;
+.cart-btn {
+
+    background:#eae2da;
+
+    color:#605850;
+
+    border:none;
+
+    padding:10px;
+
+    border-radius:0.5rem;
+
+    cursor:pointer;
+
 }
 
-.hot-cart:hover {
-    background: #8f3f16;
-    color: #fff;
+.cart-btn:hover{
+    background:#8f3f16;
+    color:#fff;
 }
 
 /* ================= RESPONSIVE ================= */

@@ -46,7 +46,7 @@
 
     background:#fff;
     padding:40px;
-    border-radius:20px;
+    border-radius:1.25rem;
     box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
@@ -68,7 +68,7 @@
     flex:1;
     padding:16px 20px;
     border:2px solid #eee;
-    border-radius:10px;
+    border-radius:0.75rem;
     font-size:16px;
     outline:none;
 
@@ -89,7 +89,7 @@
     color:white;
     border:none;
     padding:0 30px;
-    border-radius:10px;
+    border-radius:0.75rem;
     cursor:pointer;
     font-size:16px;
     transition:.3s;
@@ -151,7 +151,7 @@
     background:#8f3f16;
     color:white;
     padding:10px 20px;
-    border-radius:30px;
+    border-radius:1.875rem;
     font-weight:600;
 
 }

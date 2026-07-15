@@ -31,7 +31,7 @@
     font-size:42px;
     color:#8f3f16;
     margin-bottom:8px;
-    font-family:"Eb Garamond",serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .offers-header p{
@@ -55,7 +55,7 @@
 
 .offer-card{
     background:#fff;
-    border-radius:18px;
+    border-radius:1rem;
     overflow:hidden;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
     transition:.3s;
@@ -96,7 +96,7 @@
     background:#d64045;
     color:#fff;
     padding:6px 14px;
-    border-radius:30px;
+    border-radius:1.875rem;
     font-size:12px;
     font-weight:700;
 }
@@ -125,7 +125,7 @@
     margin:10px 0 20px;
     font-size:23px;
     color:#222;
-    font-family:"Eb Garamond",serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* ===========================
@@ -175,7 +175,7 @@
     background:#8f3f16;
     color:#fff;
     padding:12px;
-    border-radius:8px;
+    border-radius:0.5rem;
     cursor:pointer;
     font-size:15px;
     transition:.3s;
@@ -191,7 +191,7 @@
     background:#fff;
     color:#8f3f16;
     padding:12px;
-    border-radius:8px;
+    border-radius:0.5rem;
     cursor:pointer;
     font-size:15px;
     transition:.3s;
@@ -216,7 +216,7 @@
     background:#8f3f16;
     color:#fff;
     padding:12px;
-    border-radius:8px;
+    border-radius:0.5rem;
     cursor:pointer;
     font-size:15px;
     transition:.3s;
@@ -233,7 +233,7 @@
     border:2px solid #8f3f16;
     background:#fff;
     color:#8f3f16;
-    border-radius:8px;
+    border-radius:0.5rem;
     cursor:pointer;
     font-size:20px;
     display:flex;

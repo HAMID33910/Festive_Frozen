@@ -18,7 +18,7 @@
   font-size: 38px;
   color: #8f3f16;
   margin-bottom: 10px;
-  font-family: "Eb Garamond", serif;
+  font-family: 'Montserrat', sans-serif;
   text-decoration: none;
 }
 
@@ -88,7 +88,7 @@
 .collection-card {
   position: relative;
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 1rem;
   aspect-ratio: 3/4;
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(194, 101, 42, 0.08);
@@ -126,7 +126,7 @@
   color: rgb(0, 0, 0);
   font-size: 32px;
   margin-bottom: 18px;
-  font-family: "Eb Garamond", serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .content button {
@@ -134,7 +134,7 @@
   color: white;
   border: none;
   padding: 12px 26px;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 1px;

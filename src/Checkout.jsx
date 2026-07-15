@@ -1,9 +1,11 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./checkout.css";
 import { CartContext } from "./CartContext";
 import { FiTrash2 } from "react-icons/fi";
 import Navbar from "./navbar.jsx"
 import Footer from "./footer.jsx"
+import TrackOrder from "./TrackOrder.jsx"
 
 function Checkout() {
 
@@ -14,7 +16,7 @@ function Checkout() {
     removeFromCart,
     clearCart,
   } = useContext(CartContext);
-
+  const navigate = useNavigate();
   const [payment] = useState("cod");
 
   const [form, setForm] = useState({
@@ -95,20 +97,27 @@ const handleSubmit = async (e) => {
       return;
     }
 
-    alert("Order Placed Successfully!");
+   alert(
+  `Order Placed Successfully!
 
-    clearCart();
+Order ID: ${data.orderId}
 
-    setForm({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      address: "",
-      postalCode: "",
-    });
+Please save this Order ID to track your order.`
+);
 
-    console.log(data);
+clearCart();
+navigate("/TrackOrder");
+
+setForm({
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  address: "",
+  postalCode: "",
+});
+
+console.log(data);
 
   } catch (err) {
 

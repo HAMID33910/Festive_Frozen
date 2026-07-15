@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Eb+Garamond:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap");
 
 .login-screen {
@@ -21,7 +21,7 @@
   grid-template-columns: 1.1fr 1fr;
   min-height: 100vh;
   background: var(--surface);
-  font-family: "Manrope", sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   color: var(--on-surface);
 }
 
@@ -72,7 +72,7 @@
 }
 
 .login-visual-content h1 {
-  font-family: "Eb Garamond", serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 44px;
   line-height: 1.1;
   margin: 0 0 16px;
@@ -102,7 +102,7 @@
 
 .login-logo {
   display: inline-block;
-  font-family: "Eb Garamond", serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 22px;
   line-height: 1.1;
@@ -113,7 +113,7 @@
 }
 
 .login-form-wrap h2 {
-  font-family: "Eb Garamond", serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   margin: 0 0 8px;
   color: var(--primary);
@@ -154,7 +154,7 @@
 .field input {
   height: 44px;
   padding: 0 14px;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: 1px solid var(--outline-variant);
   background: var(--surface-container-low);
   color: var(--on-surface);
@@ -207,7 +207,7 @@
   background: transparent;
   color: var(--on-surface-variant);
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 0.25rem;
 }
 
 .input-action:hover {
@@ -245,7 +245,7 @@
   height: 46px;
   margin-top: 6px;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: var(--primary);
   color: var(--on-primary);
   font-family: inherit;
@@ -293,7 +293,7 @@
 
 .oauth-btn {
   height: 44px;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   border: 1px solid var(--outline-variant);
   background: var(--surface-container);
   color: var(--on-surface);
