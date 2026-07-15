@@ -105,7 +105,7 @@
   transform: scale(1.1);
 }
 
-.overlay {
+/* .overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -113,7 +113,7 @@
       rgba(143, 63, 22, .95),
       rgba(143, 63, 22, .1)
   );
-}
+} */
 
 .content {
   position: absolute;
@@ -123,7 +123,7 @@
 }
 
 .content h3 {
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 32px;
   margin-bottom: 18px;
   font-family: "Eb Garamond", serif;
