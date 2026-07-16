@@ -15,9 +15,12 @@ import CategoryProducts from "./CategoryProducts.jsx";
 import ProductDetails from "./ProductDetails.jsx";
 import TrackOrder from "./TrackOrder.jsx"
 import HotSalesPage from "./HotSalesPage.jsx"
-import SuccessToast from "./SuccessToast";
+// import SuccessToast from "./SuccessToast";
 import WishlistPage from "./WishlistPage";
 import DealDetails from "./DealDetails.jsx";
+import ForgotPassword from "./ForgotPassword.jsx"
+import OTP from "./Otp.jsx";
+import ResetPassword from "./ResetPassword.jsx";
 
 function Home() {
   const location = useLocation();
@@ -34,11 +37,11 @@ function Home() {
   return (
     <>
       <Hero />
-      <SuccessToast
+      {/* <SuccessToast
         isOpen={showLoginToast}
         message="You are logged in"
         onClose={() => setShowLoginToast(false)}
-      />
+      /> */}
     </>
   );
 }
@@ -67,6 +70,9 @@ function App() {
         <Route path="/HotSalesPage" element={<HotSalesPage />}/>
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/Deal/:id" element={<DealDetails />} />
+        <Route path="/ForgotPassword" element={<ForgotPassword />} />
+        <Route path="/ResetPassword" element={<ResetPassword />} />
+        <Route path="/OTP" element={<OTP />} />
 
       </Routes>
     </BrowserRouter>

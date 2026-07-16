@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./login.css";
 import { Link } from "react-router-dom";
-
+import ForgotPassword from "./ForgotPassword.jsx"
 export default function LoginScreen() {
   const [form, setForm] = useState({
     email: "",
@@ -145,7 +145,8 @@ window.location.href = "/"; // Change this to your desired route after login
                 />
                 <span>Remember me</span>
               </label>
-              <a className="forgot-link" href="#forgot">Forgot password?</a>
+              
+              <Link className="forgot-link" to = "/ForgotPassword">Forgot password</Link>
             </div>
 
             {serverError && <span className="field-error">{serverError}</span>}

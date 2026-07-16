@@ -37,15 +37,17 @@ function HotSales() {
     <section className="hot-sales-section">
       <div className="hot-sales-container">
         <div className="hot-sales-header">
-          <h2>Hot Sales This Week</h2>
 
-          <button
-            className="hot-view-all-btn"
-            onClick={() => navigate("/HotSalesPage")}
-          >
-            View All
-          </button>
-        </div>
+    <div className="hot-header-text">
+        <h2>Hot Sales</h2>
+        <p>Discover our hottest selling frozen products at unbeatable prices.</p>
+    </div>
+
+    <button className="hot-view-all-btn">
+        View All
+    </button>
+
+</div>
 
         <Swiper
           modules={[Autoplay]}

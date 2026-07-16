@@ -45,7 +45,7 @@ function CuratedCollections() {
 
       <Swiper
         modules={[Autoplay]}
-        spaceBetween={25}
+        spaceBetween={18}
         loop={true}
         autoplay={{
           delay: 3000,

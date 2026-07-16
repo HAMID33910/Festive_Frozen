@@ -3,17 +3,21 @@
 body {
   margin: 0;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color:#faf5ee;
+  background-color: #faf5ee;
   color: #333;
 }
+
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
   background: #faf5ee;
-  opacity: 95%;
   box-shadow: 0 4px 20px rgba(11, 61, 92, 0.25);
 }
+
+/* Desktop default: everything in one line (logo, links, search, icons).
+   Only below the mobile breakpoint does this switch to a stacked,
+   two-tier layout (see media query at the bottom). */
 
 .nav-container {
   max-width: 1280px;
@@ -21,8 +25,16 @@ body {
   padding: 0.75rem 1.5rem;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
   flex-wrap: nowrap;
+  gap: clamp(0.4rem, 1.5vw, 1.5rem);
+  min-width: 0;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.nav-container::-webkit-scrollbar {
+  display: none;
 }
 
 /* ===== Logo ===== */
@@ -39,22 +51,22 @@ body {
 }
 
 .logo img {
-  height: 70px;
+  height: clamp(38px, 5vw, 60px);
   width: auto;
   border-radius: 0.75rem;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, height 0.2s ease;
 }
 
 .logo:hover img {
   transform: scale(1.05);
 }
 
-/* ===== Desktop / Always-Visible Links ===== */
+/* ===== Nav Links (inline with everything else on desktop) ===== */
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: clamp(0.6rem, 2vw, 2rem);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -67,15 +79,15 @@ body {
 }
 
 .nav-links li a {
-  color: rgb(0, 0, 0);
+  color: #000;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: clamp(0.72rem, 1vw, 0.95rem);
   letter-spacing: 0.02em;
   position: relative;
   padding: 0.4rem 0;
-  transition: color 0.2s ease, font-size 0.2s ease;
   white-space: nowrap;
+  transition: color 0.2s ease;
 }
 
 .nav-links li a::after {
@@ -97,25 +109,34 @@ body {
   width: 100%;
 }
 
-/* ===== Search Box ===== */
+/* ===== Top-bar icons row (search lives inside this, per markup) ===== */
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  flex-shrink: 0;
+}
 
 .search-box {
+  position: relative;
   display: flex;
   align-items: center;
   background: #f3e4d0;
   border: 1px solid #c79a5a;
   border-radius: 9999px;
   padding: 0.45rem 1rem;
-  flex: 1 1 auto;
-  min-width: 0;
+  flex: 0 1 240px;
+  min-width: 90px;
   max-width: 300px;
   transition: border-color 0.2s ease, background 0.2s ease;
-  
 }
 
 .search-box:focus-within {
   background: #efe0c7;
   border-color: #ad7b0f;
+  box-shadow: 0 0 0 2px rgba(199, 154, 90, 0.3);
 }
 
 .search-box .material-symbols-outlined {
@@ -139,44 +160,89 @@ body {
   color: rgba(0, 0, 0, 0.55);
 }
 
-/* ===== Icons ===== */
+.search-dropdown {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  overflow: hidden;
+  max-height: 350px;
+  overflow-y: auto;
+}
 
-.nav-icons {
+.search-item {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
-  margin-left: auto;
-  flex-shrink: 0;
+  gap: 15px;
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-item:hover {
+  background: #f5f5f5;
+}
+
+.search-item img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.search-item h4 {
+  margin: 0;
+  font-size: 15px;
+  color: #333;
+}
+
+.search-item span {
+  font-size: 12px;
+  color: #888;
+  text-transform: capitalize;
 }
 
 .icon-btn {
   position: relative;
-  background: transparent;
-  border: none;
-  color: #000000;
   width: 42px;
   height: 42px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 50%;
+  color: #000;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .icon-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color:#ad7b0f;
-  transform: translateY(-1px);
+  background-color: transparent !important;
+  color: #af7d11;
+  transform: translateY(-2px);
+}
+
+.icon-btn:focus,
+.icon-btn:active,
+.icon-btn:focus-visible {
+  background-color: transparent !important;
+  outline: none;
+  box-shadow: none;
 }
 
 .icon-btn .material-symbols-outlined {
   font-size: 24px;
-}
-
-.icon-btn .material-symbols-outlined:hover {
-  font-size: 24px;
-  color :  #ad7b0f;
 }
 
 .cart-count {
@@ -196,129 +262,123 @@ body {
   padding: 0 3px;
   border: 2px solid #0b3d5c;
 }
-.icon-btn {
-  position: relative;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  background-color: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
+/* ===== Unused mobile-only elements from markup stay out of the way ===== */
+/* No hamburger/sidebar — links and search always live inline or in the
+   two tiers below, never hidden behind a menu. */
 
-  border-radius: 50%;
-  color: #000;
-  cursor: pointer;
-
-  appearance: none;
-  -webkit-appearance: none;
-
-  transition: color 0.25s ease, transform 0.25s ease;
+.menu-btn,
+.mobile-menu,
+.mobile-search-box {
+  display: none !important;
 }
 
-.icon-btn:hover {
-  background-color: transparent !important;
-  color: #af7d11;
-  transform: translateY(-2px);
-}
+/* =====================================================================
+   TABLET TIGHTENING — covers iPad Mini (768) and similar tablets.
+   Still one line, just tighter, so it never needs to fall back to
+   the overflow-scroll safety net or the mobile stacked layout.
+   ===================================================================== */
 
-.icon-btn:focus,
-.icon-btn:active,
-.icon-btn:focus-visible {
-  background-color: transparent !important;
-  outline: none;
-  box-shadow: none;
-}
-
-/* mobile-search / menu-btn / mobile-menu not needed since nothing hides,
-   kept in markup-compatible state but switched off */
-.mobile-search,
-.menu-btn {
-  display: none;
-}
-
-.mobile-menu {
-  display: none;
-}
-
-/* ===== Responsive Breakpoints (shrink, never hide) ===== */
-
-/* Tablet */
 @media (max-width: 1024px) {
-  .search-box {
-    max-width: 200px;
-  }
-
-  .nav-links {
-    gap: 1.25rem;
-  }
-}
-
-/* Small tablet / large phone */
-@media (max-width: 900px) {
   .nav-container {
     padding: 0.65rem 1rem;
-    gap: 0.75rem;
+    gap: clamp(0.35rem, 1.2vw, 1rem);
   }
 
   .nav-links {
-    gap: 0.8rem;
+    gap: clamp(0.5rem, 1.5vw, 1.25rem);
   }
 
   .nav-links li a {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
   }
 
   .search-box {
-    max-width: 140px;
-    padding: 0.4rem 0.75rem;
+    flex-basis: 150px;
+    min-width: 70px;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .icon-btn .material-symbols-outlined {
+    font-size: 21px;
   }
 
   .logo img {
-    height: 46px;
+    height: 34px;
   }
 }
 
-/* Mobile (e.g. iPhone SE 375px and similar) */
-@media (max-width: 768px) {
+/* =====================================================================
+   MOBILE BREAKPOINT — below this, switch from "one shrinking line" to
+   a stacked two-tier layout (Amazon-style): top bar = logo + search +
+   icons, bottom bar = full-width scrollable links row. This only
+   applies once one line genuinely can't fit everything anymore.
+   ===================================================================== */
+
+@media (max-width: 640px) {
   .nav-container {
-    padding: 0.5rem 0.6rem;
-    gap: 0.4rem;
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+    padding: 0.6rem 0.85rem;
+    overflow-x: visible;
   }
 
-  .logo img {
-    height: 32px;
-  }
-
-  .nav-links {
-    gap: 0.5rem;
-  }
-
-  .nav-links li a {
-    font-size: 0.72rem;
-    padding: 0.25rem 0;
-    letter-spacing: 0;
-  }
-
-  .search-box {
-    max-width: 90px;
-    padding: 0.3rem 0.5rem;
-  }
-
-  .search-box input {
-    font-size: 0.75rem;
-    margin-left: 0.3rem;
-  }
-
-  .search-box .material-symbols-outlined {
-    font-size: 16px;
+  .logo {
+    order: 1;
   }
 
   .nav-icons {
-    gap: 0;
+    order: 2;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-left: 0;
+  }
+
+  .search-box {
+    order: 1;
+    flex: 1 1 220px;
+    min-width: 140px;
+    max-width: none;
+  }
+
+  .icon-btn {
+    order: 2;
+  }
+
+  .nav-links {
+    order: 3;
+    flex: 1 1 100%;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0.5rem 0 0.35rem;
+    margin-top: 0.15rem;
+    border-top: 1px solid rgba(173, 123, 15, 0.15);
+    gap: 1.1rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links li {
+    flex-shrink: 0;
+  }
+
+  .nav-links li a {
+    font-size: 0.8rem;
+  }
+
+  .logo img {
+    height: 34px;
   }
 
   .icon-btn {
@@ -331,37 +391,22 @@ body {
   }
 }
 
-/* Small mobile (iPhone SE portrait ~375px and below) */
 @media (max-width: 400px) {
-  .nav-container {
-    padding: 0.4rem 0.5rem;
-    gap: 0.25rem;
-  }
-
   .logo img {
     height: 28px;
   }
 
-  .nav-links {
-    gap: 0.3rem;
-  }
-
-  .nav-links li a {
-    font-size: 0.62rem;
-  }
-
   .search-box {
-    max-width: 60px;
-    padding: 0.25rem 0.4rem;
-  }
-
-  .search-box input {
-    font-size: 0.68rem;
-    margin-left: 0.2rem;
+    min-width: 100px;
+    padding: 0.35rem 0.7rem;
   }
 
   .search-box .material-symbols-outlined {
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  .search-box input {
+    font-size: 0.75rem;
   }
 
   .icon-btn {
@@ -373,87 +418,11 @@ body {
     font-size: 18px;
   }
 
-  .cart-count {
-    min-width: 14px;
-    height: 14px;
-    font-size: 0.55rem;
-  }
-}
-
-/* Extra small mobile */
-@media (max-width: 340px) {
-  .logo img {
-    height: 24px;
+  .nav-links {
+    gap: 0.85rem;
   }
 
   .nav-links li a {
-    font-size: 0.56rem;
+    font-size: 0.72rem;
   }
-
-  .search-box {
-    max-width: 44px;
-  }
-
-  .search-box input {
-    font-size: 0.6rem;
-  }
-
-  .icon-btn {
-    width: 27px;
-    height: 27px;
-  }
-
-  .icon-btn .material-symbols-outlined {
-    font-size: 16px;
-  }
-}
-
-.search-box{
-    position:relative;
-}
-
-.search-dropdown{
-    position:absolute;
-    top:55px;
-    left:0;
-    width:100%;
-    background:#fff;
-    border-radius:1rem;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-    z-index:9999;
-    overflow:hidden;
-    max-height:350px;
-    overflow-y:auto;
-}
-
-.search-item{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    padding:12px 15px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.search-item:hover{
-    background:#f5f5f5;
-}
-
-.search-item img{
-    width:55px;
-    height:55px;
-    object-fit:cover;
-    border-radius:0.75rem;
-}
-
-.search-item h4{
-    margin:0;
-    font-size:15px;
-    color:#333;
-}
-
-.search-item span{
-    font-size:12px;
-    color:#888;
-    text-transform:capitalize;
 }

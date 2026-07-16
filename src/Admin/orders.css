@@ -74,7 +74,7 @@
 .status-select{
     width:150px;
     padding:10px 14px;
-    border:1px solid #ddd;
+    border:1px solid #000000;
     border-radius:0.5rem;
     outline:none;
     cursor:pointer;
@@ -527,6 +527,7 @@
 
     .status-select{
         width:100%;
+        border: #000000;
     }
 
     .actions-cell{

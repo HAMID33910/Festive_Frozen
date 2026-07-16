@@ -161,6 +161,7 @@ export default function SignupScreen() {
                 {errors.lastName && <span className="field-error">{errors.lastName}</span>}
               </div>
             </div>
+            <div className="field-row">
 
             <div className="field">
               <label htmlFor="phone">Phone number</label>
@@ -189,6 +190,8 @@ export default function SignupScreen() {
               />
               {errors.email && <span className="field-error">{errors.email}</span>}
             </div>
+            </div>
+            <div className="field-row">
 
             <div className="field">
               <label htmlFor="password">Password</label>
@@ -230,6 +233,7 @@ export default function SignupScreen() {
               {errors.confirmPassword && (
                 <span className="field-error">{errors.confirmPassword}</span>
               )}
+            </div>
             </div>
 
             <div className="field-checkbox">

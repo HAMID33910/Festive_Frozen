@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./trackOrder.css";
 import Navbar from "./navbar.jsx";
 import Footer from "./footer.jsx";
+import WhatsAppButton from "./WhatsAppButton.jsx";
 
 function TrackOrder() {
   const [orderId, setOrderId] = useState("");
@@ -309,6 +310,7 @@ function TrackOrder() {
       </div>
 
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }

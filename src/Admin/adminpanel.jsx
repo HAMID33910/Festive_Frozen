@@ -7,8 +7,7 @@ import Products from "./Products.jsx";
 import Categories from "./Categories.jsx";
 import Orders from "./Orders.jsx";
 import Deals from "./Deals.jsx";
-// import Footer from "../footer.jsx"
-// import Settings from "./Settings";
+import Banners from "./Banners.jsx";
 
 import {
   FiGrid,
@@ -19,7 +18,6 @@ import {
   FiSettings,
   FiLogOut,
   FiBell,
-  FiSearch,
 } from "react-icons/fi";
 
 import { Link } from "react-router-dom";
@@ -44,8 +42,8 @@ function AdminPanel() {
       case "deals":
         return <Deals />;
 
-      case "settings":
-        return <Settings />;
+      case "banners":
+  return <Banners />;
 
       default:
         return <Dashboard />;
@@ -116,12 +114,12 @@ function AdminPanel() {
                           </li>
 
             <li
-              className={page === "settings" ? "active" : ""}
-              onClick={() => setPage("settings")}
-            >
-              <FiSettings />
-              Settings
-            </li>
+  className={page === "banners" ? "active" : ""}
+  onClick={() => setPage("banners")}
+>
+  <FiSettings />
+  Hero Banners
+</li>
 
           </ul>
 
@@ -148,17 +146,6 @@ function AdminPanel() {
             </h2>
 
             <div className="admin-header-right">
-
-              <div className="admin-search">
-
-                <FiSearch />
-
-                <input
-                  type="text"
-                  placeholder={`Search ${page}...`}
-                />
-
-              </div>
 
               <div className="admin-bell">
 

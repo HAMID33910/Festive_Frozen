@@ -4,6 +4,7 @@ import { CartContext } from "./CartContext";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import "./Products.css";
+import WhatsAppButton from "./WhatsAppButton";
 
 function HotSalesPage() {
   const [products, setProducts] = useState([]);
@@ -110,6 +111,7 @@ function HotSalesPage() {
       </section>
 
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }

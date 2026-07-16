@@ -17,6 +17,10 @@ const orderRoute = require("./routes/orders");
 const cartRoute = require("./routes/cart");
 const searchRoute = require("./routes/search");
 const wishlistRoute = require("./routes/wishlist");
+const bannerRoute = require("./routes/banners");
+const forgotRoute = require("./routes/forgotPassword");
+const resetPasswordRoute = require("./routes/resetPassword");
+const verifyOtpRoute = require("./routes/verifyOtp");
 
 
 const app = express();
@@ -44,6 +48,8 @@ app.use("/api/orders", orderRoute);
 app.use("/api/cart", cartRoute);
 app.use("/api/search", searchRoute);
 app.use("/api/wishlist", wishlistRoute);
+app.use("/banneruploads", express.static("banneruploads"));
+
 
 /* ===========================
    MongoDB
@@ -77,6 +83,17 @@ app.use("/api/dashboard", dashboardRoute);
 // DEALS
 
 app.use("/api/deals", dealRoute);
+
+// banner
+app.use("/api/banners", bannerRoute);
+// forget password
+
+app.use("/api/auth", forgotRoute);
+
+app.use("/api/auth", resetPasswordRoute);
+
+
+app.use("/api/auth", verifyOtpRoute);
 
 /* ===========================
    Home Route

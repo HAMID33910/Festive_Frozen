@@ -14,12 +14,18 @@
   gap: 20px;
 }
 
-.collections-header h2 {
-  font-size: 38px;
-  color: #8f3f16;
-  margin-bottom: 10px;
-  font-family: 'Montserrat', sans-serif;
-  text-decoration: none;
+.collections-header h2{
+
+    font-size:42px;
+
+    color:#8f3f16;
+
+    font-family:'Montserrat',sans-serif;
+
+    margin-bottom:8px;
+
+    font-weight:800;
+
 }
 
 .collections-header button {
@@ -62,15 +68,22 @@
 }
 
 
-.collections-header p {
-  color: #666;
-  font-size: 16px;
+.collections-header p{
+
+    font-size:16px;
+
+    color:#666;
+
+    max-width:520px;
+
+    line-height:1.6;
+
 }
 
 .view-btn {
   border: none;
   background: transparent;
-  color: #8f3f16;
+  color: C;
   font-weight: bold;
   cursor: pointer;
   transition: .3s;
@@ -85,66 +98,140 @@
   gap: 24px;
 }
 
-.collection-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
-  aspect-ratio: 3/4;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(194, 101, 42, 0.08);
+.collection-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    aspect-ratio:3/4;
+    cursor:pointer;
+    background:#8f3f16;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.08);
+
+    transition:.35s ease;
 }
 
-.collection-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: .7s;
+.collection-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 22px 45px rgba(143,63,22,.18);
+
 }
 
-.collection-card:hover img {
-  transform: scale(1.1);
+.collection-card img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.6s;
+
 }
 
-/* .overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-      to top,
-      rgba(143, 63, 22, .95),
-      rgba(143, 63, 22, .1)
-  );
-} */
+.collection-card:hover img{
 
-.content {
-  position: absolute;
-  left: 25px;
-  bottom: 25px;
-  right: 25px;
+    transform:scale(1.08);
+
 }
 
-.content h3 {
-  color: rgb(0, 0, 0);
-  font-size: 32px;
-  margin-bottom: 18px;
-  font-family: 'Montserrat', sans-serif;
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.75) 0%,
+        rgba(0,0,0,.25) 45%,
+        rgba(0,0,0,0) 100%
+    );
+    z-index:1;
 }
 
-.content button {
-  background: #b85b2b;
-  color: white;
-  border: none;
-  padding: 12px 26px;
-  border-radius: 0.5rem;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: .3s;
+.content{
+
+    position:absolute;
+
+    left:24px;
+    right:24px;
+    bottom:24px;
+
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:25px;
+
 }
 
-.content button:hover {
-  background: white;
-  color: #8f3f16;
+.content h3{
+
+    display:inline-block;
+
+    color:#fff;
+
+    font-family:'Montserrat',sans-serif;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    padding:12px 24px;
+
+    border-radius:12px;
+
+    background:#6b2d12;
+
+    box-shadow:0 8px 18px rgba(107,45,18,.35);
+
+    margin:0;
+
+}
+
+
+.content h3:hover{
+
+    background:#8f3f16;
+
+    transform:translateY(-2px);
+
+}
+.content button{
+
+    border:none;
+
+    padding:12px 24px;
+
+    border-radius:12px;
+
+    background:#b85b2b;
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    
+
+    
+
+}
+
+.content button:hover{
+
+    background:#fff;
+
+    color:#8f3f16;
+
+    transform:translateY(-2px);
+
 }
 
 /* Tablet */
@@ -156,9 +243,15 @@
 
 /* Small tablet / large phone */
 @media (max-width: 768px) {
-  .collections {
-    padding: 60px 24px;
-  }
+  .collections{
+
+    max-width:1320px;
+
+    margin:auto;
+
+    padding:45px 25px 60px;
+
+}
 
   .collections-header h2 {
     font-size: 34px;
@@ -181,10 +274,21 @@
     padding: 50px 20px;
   }
 
-  .collections-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  .collections-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    margin-bottom:28px;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
 
   .collections-grid {
     grid-template-columns: 1fr;
@@ -276,3 +380,4 @@
     font-size: 0.72rem;
   }
 }
+
