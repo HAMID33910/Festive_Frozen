@@ -46,14 +46,16 @@ function CuratedCollections() {
       <Swiper
         modules={[Autoplay]}
         spaceBetween={18}
-        loop={true}
+        loop={categories.length > 4}
         autoplay={{
-          delay: 3000,
+          delay: 2000,
           disableOnInteraction: false,
+          pauseOnMouseEnter: false,
         }}
+        allowTouchMove={true}
         breakpoints={{
           0: {
-            slidesPerView: 1.2,
+            slidesPerView: 1,
           },
           576: {
             slidesPerView: 2,

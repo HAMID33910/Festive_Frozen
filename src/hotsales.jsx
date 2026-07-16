@@ -54,9 +54,11 @@ function HotSales() {
           spaceBetween={25}
           slidesPerView={4}
           loop={products.length > 4}
+          allowTouchMove={true}
           autoplay={{
-            delay: 5000,
+            delay: 3000,
             disableOnInteraction: false,
+            pauseOnMouseEnter: false,
           }}
           breakpoints={{
             0: {

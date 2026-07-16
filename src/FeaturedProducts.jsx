@@ -30,7 +30,7 @@ function Products() {
         <button
           onClick={() => navigate("/products")}
         >
-          See All
+          View All
         </button>
       </div>
 
@@ -39,11 +39,13 @@ function Products() {
   spaceBetween={25}
   slidesPerView={4}
   loop
+  allowTouchMove={true}
   preventClicks={false}
   preventClicksPropagation={false}
   autoplay={{
-    delay: 5000,
+    delay: 3000,
     disableOnInteraction: false,
+    pauseOnMouseEnter: false,
   }}
   breakpoints={{
     0: {

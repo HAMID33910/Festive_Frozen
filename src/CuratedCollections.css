@@ -4,6 +4,15 @@
   padding: 60px 24px;
 }
 
+.collections .swiper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.collections .swiper-slide {
+  width: auto;
+}
+
 .collections-header {
   display: flex;
   justify-content: space-between;
@@ -102,6 +111,7 @@
 
 .collections .content {
   position: absolute;
+  top: 24px;
   left: 24px;
   right: 24px;
   bottom: 24px;
@@ -109,45 +119,60 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 25px;
+  justify-content: space-between;
 }
 
 .collections .content h3 {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  padding: 12px 24px;
-  border-radius: 12px;
-  background: #6b2d12;
-  box-shadow: 0 8px 18px rgba(107, 45, 18, .35);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   margin: 0;
+  transition: all 0.3s ease;
 }
 
 .collections .content h3:hover {
-  background: #8f3f16;
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.45);
   transform: translateY(-2px);
 }
 
 .collections .content button {
   border: none;
-  padding: 12px 24px;
-  border-radius: 12px;
-  background: #b85b2b;
-  color: #fff;
-  font-size: 14px;
+  padding: 13px 28px;
+  border-radius: 50px;
+  background: #fff;
+  color: #1a1a1a;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
   font-weight: 700;
+  letter-spacing: 0.3px;
   cursor: pointer;
-  transition: .35s;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 .collections .content button:hover {
-  background: #fff;
-  color: #8f3f16;
+  background: #b85b2b;
+  color: #fff;
   transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(184, 91, 43, 0.4);
 }
 
+.collections .content button:active {
+  transform: translateY(0);
+}
 
 /* ===========================
    RESPONSIVE — same as HotSales

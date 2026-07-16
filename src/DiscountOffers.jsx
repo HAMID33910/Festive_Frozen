@@ -38,9 +38,11 @@ function DiscountOffers() {
         spaceBetween={25}
         slidesPerView={4}
         loop={true}
+        allowTouchMove={true}
         autoplay={{
-          delay: 5000,
+          delay: 3000,
           disableOnInteraction: false,
+          pauseOnMouseEnter: false,
         }}
         breakpoints={{
           0: {
