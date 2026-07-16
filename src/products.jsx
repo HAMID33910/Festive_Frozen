@@ -71,7 +71,7 @@ function Products() {
 
                 <div className="product-buttons">
 
-                  <button className="buy-btn">
+                  <button className="buy-btn" onClick={() => navigate(`/product/${product._id}`)}>
                     Buy Now
                   </button>
 

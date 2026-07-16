@@ -39,6 +39,8 @@ function Products() {
   spaceBetween={25}
   slidesPerView={4}
   loop
+  preventClicks={false}
+  preventClicksPropagation={false}
   autoplay={{
     delay: 5000,
     disableOnInteraction: false,

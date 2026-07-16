@@ -1,383 +1,212 @@
 .collections {
   max-width: 1280px;
-  margin: auto;
-  padding: 70px 30px;
-  
+  margin: 0 auto;
+  padding: 60px 24px;
 }
 
 .collections-header {
   display: flex;
   justify-content: space-between;
-  align-items: end;
-  margin-bottom: 50px;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 20px;
+  margin-bottom: 28px;
 }
 
-.collections-header h2{
+.collections-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #8f3f16;
+  margin: 0;
+}
 
-    font-size:42px;
-
-    color:#8f3f16;
-
-    font-family:'Montserrat',sans-serif;
-
-    margin-bottom:8px;
-
-    font-weight:800;
-
+.collections-header p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
 }
 
 .collections-header button {
-    position: relative;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: #8f3f16;
-    font-weight: 700;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 0;
-    text-decoration: none;
-    transition: color 0.3s ease;
+  position: relative;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #8f3f16;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .collections-header button::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0;
-    height: 2px;
-    background: #8f3f16;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #8f3f16;
+  transition: width 0.3s ease;
 }
 
 .collections-header button:hover {
-    color: #74310f;
+  color: #74310f;
 }
 
 .collections-header button:hover::after {
-    width: 100%;
-}
-
-.collections-header button:focus,
-.collections-header button:active {
-    outline: none;
-    text-decoration: none;
+  width: 100%;
 }
 
 
-.collections-header p{
-
-    font-size:16px;
-
-    color:#666;
-
-    max-width:520px;
-
-    line-height:1.6;
-
-}
-
-.view-btn {
-  border: none;
-  background: transparent;
-  color: C;
-  font-weight: bold;
+.collection-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  aspect-ratio: 3/4;
   cursor: pointer;
-  transition: .3s;
-  text-decoration: none;
+  background: #8f3f16;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+  transition: .35s ease;
+}
+
+.collection-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 45px rgba(143, 63, 22, .18);
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .6s;
+}
+
+.collection-card:hover img {
+  transform: scale(1.08);
+}
+
+.collections .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, .75) 0%,
+    rgba(0, 0, 0, .25) 45%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+}
+
+.collections .content {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+}
+
+.collections .content h3 {
+  display: inline-block;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: #6b2d12;
+  box-shadow: 0 8px 18px rgba(107, 45, 18, .35);
+  margin: 0;
+}
+
+.collections .content h3:hover {
+  background: #8f3f16;
+  transform: translateY(-2px);
+}
+
+.collections .content button {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: #b85b2b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .35s;
+}
+
+.collections .content button:hover {
+  background: #fff;
+  color: #8f3f16;
+  transform: translateY(-2px);
 }
 
 
-
-.collections-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.collection-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:22px;
-    aspect-ratio:3/4;
-    cursor:pointer;
-    background:#8f3f16;
-
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.08);
-
-    transition:.35s ease;
-}
-
-.collection-card:hover{
-
-    transform:translateY(-8px);
-
-    box-shadow:
-        0 22px 45px rgba(143,63,22,.18);
-
-}
-
-.collection-card img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    transition:.6s;
-
-}
-
-.collection-card:hover img{
-
-    transform:scale(1.08);
-
-}
-
-.overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,.75) 0%,
-        rgba(0,0,0,.25) 45%,
-        rgba(0,0,0,0) 100%
-    );
-    z-index:1;
-}
-
-.content{
-
-    position:absolute;
-
-    left:24px;
-    right:24px;
-    bottom:24px;
-
-    z-index:2;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:25px;
-
-}
-
-.content h3{
-
-    display:inline-block;
-
-    color:#fff;
-
-    font-family:'Montserrat',sans-serif;
-
-    font-size:14px;
-
-    font-weight:700;
-
-    padding:12px 24px;
-
-    border-radius:12px;
-
-    background:#6b2d12;
-
-    box-shadow:0 8px 18px rgba(107,45,18,.35);
-
-    margin:0;
-
-}
-
-
-.content h3:hover{
-
-    background:#8f3f16;
-
-    transform:translateY(-2px);
-
-}
-.content button{
-
-    border:none;
-
-    padding:12px 24px;
-
-    border-radius:12px;
-
-    background:#b85b2b;
-
-    color:#fff;
-
-    font-size:14px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-    
-
-    
-
-}
-
-.content button:hover{
-
-    background:#fff;
-
-    color:#8f3f16;
-
-    transform:translateY(-2px);
-
-}
-
-/* Tablet */
-@media (max-width: 992px) {
-  .collections-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Small tablet / large phone */
-@media (max-width: 768px) {
-  .collections{
-
-    max-width:1320px;
-
-    margin:auto;
-
-    padding:45px 25px 60px;
-
-}
-
-  .collections-header h2 {
-    font-size: 34px;
-  }
-
-  .content h3 {
-    font-size: 30px;
-    margin-bottom: 14px;
-  }
-
-  .content button {
-    padding: 11px 22px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-  .collections {
-    padding: 50px 20px;
-  }
-
-  .collections-header{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-    margin-bottom:28px;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-}
-
-  .collections-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
+/* ===========================
+   RESPONSIVE — same as HotSales
+   =========================== */
+
+@media (max-width: 900px) {
+  .collections-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 24px;
   }
 
   .collections-header h2 {
     font-size: 30px;
   }
-
-  .content {
-    left: 20px;
-    bottom: 20px;
-    right: 20px;
-  }
-
-  .content h3 {
-    font-size: 26px;
-  }
-
-  .content button {
-    padding: 10px 20px;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-  }
 }
 
-/* Small mobile (iPhone SE and similar, ~375px) */
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .collections {
     padding: 40px 16px;
   }
 
-  .collections-header {
-    gap: 12px;
-    margin-bottom: 32px;
-  }
-
   .collections-header h2 {
-    font-size: 25px;
+    font-size: 26px;
   }
 
   .collections-header p {
-    font-size: 14px;
+    font-size: 15px;
   }
 
-  .view-btn {
-    font-size: 14px;
+  .collection-card {
+    aspect-ratio: 3/4;
   }
 
-  .collections-grid {
-    gap: 14px;
-  }
-
-  .content {
+  .collections .content {
     left: 16px;
-    bottom: 16px;
     right: 16px;
+    bottom: 16px;
   }
 
-  .content h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
+  .collections .content h3 {
+    font-size: 13px;
+    padding: 10px 20px;
   }
 
-  .content button {
-    padding: 9px 16px;
-    font-size: 0.78rem;
-    letter-spacing: 0.3px;
-  }
-}
-
-/* Extra small mobile */
-@media (max-width: 340px) {
-  .collections {
-    padding: 32px 12px;
-  }
-
-  .collections-header h2 {
-    font-size: 22px;
-  }
-
-  .content h3 {
-    font-size: 19px;
-  }
-
-  .content button {
-    padding: 8px 14px;
-    font-size: 0.72rem;
+  .collections .content button {
+    padding: 10px 20px;
+    font-size: 13px;
   }
 }
 
+@media (max-width: 380px) {
+  .collections .content h3 {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .collections .content button {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}

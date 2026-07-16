@@ -258,22 +258,9 @@
 
 /* ===========================
    RESPONSIVE
-=========================== */
-
-@media(max-width:1200px){
-
-    .products-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-}
-
+   =========================== */
 
 @media(max-width:900px){
-
-    .featured-section{
-        padding:50px 20px;
-    }
 
     .featured-header{
         flex-direction:column;
@@ -283,15 +270,6 @@
 
     .featured-header h2{
         font-size:30px;
-    }
-
-    .products-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:22px;
-    }
-
-    .product-card{
-        max-width:340px;
     }
 
 }
@@ -305,15 +283,6 @@
 
     .featured-header h2{
         font-size:26px;
-    }
-
-    .products-grid{
-        grid-template-columns:1fr;
-        gap:22px;
-    }
-
-    .product-card{
-        max-width:100%;
     }
 
     .product-image{
@@ -339,7 +308,6 @@
 
     .buy-btn{
         font-size:14px;
-        padding:11px;
     }
 
     .cart-btn{
@@ -348,13 +316,4 @@
         height:44px;
     }
 
-}
-
-
-/* ===========================
-   SWIPER
-=========================== */
-
-.swiper{
-    padding:8px 2px 18px;
 }

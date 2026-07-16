@@ -43,7 +43,7 @@ function HotSales() {
         <p>Discover our hottest selling frozen products at unbeatable prices.</p>
     </div>
 
-    <button className="hot-view-all-btn">
+    <button className="hot-view-all-btn" onClick={() => navigate("/HotSalesPage")}>
         View All
     </button>
 
@@ -59,7 +59,7 @@ function HotSales() {
             disableOnInteraction: false,
           }}
           breakpoints={{
-            320: {
+            0: {
               slidesPerView: 1,
             },
             576: {
@@ -68,7 +68,7 @@ function HotSales() {
             768: {
               slidesPerView: 3,
             },
-            1024: {
+            1200: {
               slidesPerView: 4,
             },
           }}

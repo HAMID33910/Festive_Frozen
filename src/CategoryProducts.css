@@ -35,6 +35,11 @@
     gap:30px;
 }
 
+.category-products-grid .category-product-card:only-child{
+    max-width:380px;
+    margin:0;
+}
+
 .category-product-card{
     background:#fff;
     border-radius:1rem;

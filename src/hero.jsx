@@ -31,7 +31,7 @@ function Hero() {
     <Swiper
       modules={[Autoplay]}
       autoplay={{
-        delay: 2000,
+        delay: 3000,
         disableOnInteraction: false,
       }}
       loop={true}
@@ -40,20 +40,15 @@ function Hero() {
     >
       {banners.map((banner) => (
         <SwiperSlide key={banner._id}>
-
           <div className="hero-bg">
-
             <div
               className="hero-image"
               style={{
                 backgroundImage: `url(http://localhost:3001/banneruploads/${banner.image})`,
               }}
             ></div>
-
             <div className="hero-overlay"></div>
-
           </div>
-
         </SwiperSlide>
       ))}
     </Swiper>
@@ -67,10 +62,6 @@ function Hero() {
             Shop Now
           </button>
         </Link>
-
-        <button className="process-btn">
-          Contact Us
-        </button>
 
       </div>
 

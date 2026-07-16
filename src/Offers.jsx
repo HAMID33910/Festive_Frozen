@@ -21,25 +21,8 @@ function Offers() {
   }, []);
 
  const handleBuyNow = (offer) => {
-  addToCart({
-    _id: offer._id,
-    productTitle: offer.dealName,
-    productPrice: offer.discountedPrice,
-    productImage: offer.dealImage,
-    quantity: 1,
-    imageType: "deal",
-  });
-
-  const savedUser =
-    JSON.parse(localStorage.getItem("user")) ||
-    JSON.parse(sessionStorage.getItem("user"));
-
-  if (savedUser?.id) {
-    navigate("/checkout");
-  } else {
-    setShowLoginModal(true);
-  }
-  };
+  navigate(`/Deal/${offer._id}`);
+ };
 
   const handleAddToCart = (offer) => {
   addToCart({

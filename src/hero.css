@@ -1,40 +1,36 @@
 /* ==========================================================================
-   HERO CONTAINER (Full Size & Rounded Corners)
+   HERO SECTION — Premium v2
    ========================================================================== */
+
 .hero-section-image {
   width: 100%;
-  padding: 0; 
+  padding: 24px 32px 0;
   box-sizing: border-box;
 }
 
 .hero-container {
   position: relative;
-  overflow: hidden; /* Clips image to rounded corners */
-  border-radius: 1.5rem; 
-  height: 500px; /* Base desktop height */
   width: 100%;
-  display: block;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  max-width: 1400px;
+  height: 520px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 24px;
 }
 
 .hero-swiper {
   width: 100%;
   height: 100%;
-  position: relative;
-  border-radius: 1.5rem;
-  overflow: hidden;
 }
 
 /* ==========================================================================
-   BACKGROUND IMAGE (100% Clear - No Overlays)
+   SLIDES
    ========================================================================== */
+
 .hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   height: 100%;
-  z-index: 1;
 }
 
 .hero-image {
@@ -46,230 +42,307 @@
   display: block;
 }
 
-/* Completely clean - no brown gradient or dark overlay covering your food */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: none; 
+  pointer-events: none;
+  background:
+    linear-gradient(160deg, rgba(20, 20, 20, 0.55) 0%, transparent 50%),
+    linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.15) 40%, transparent 65%);
 }
 
 /* ==========================================================================
-   HERO CONTENT (Stays Left-Aligned and Scales Down)
+   CONTENT CONTAINER
    ========================================================================== */
+
 .hero-content {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   z-index: 10;
-  max-width: 600px;
-  padding: 60px 80px;
+  padding: 40px 56px 48px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start; /* Kept left-aligned like desktop */
+  justify-content: flex-end;
+  align-items: flex-start;
   box-sizing: border-box;
+  pointer-events: none;
 }
 
-/* Subtle shadows so white text remains readable over any image background */
-.hero-tag {
-  display: inline-block;
-  margin-bottom: 16px;
-  color: #fbe8d8;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 13px;
-  font-weight: 700;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+.hero-content * {
+  pointer-events: auto;
 }
+
+/* ==========================================================================
+   TAG
+   ========================================================================== */
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding: 9px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50px;
+  color: #f2ede7;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hero-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e07a3f;
+  box-shadow: 0 0 8px rgba(224, 122, 63, 0.9);
+}
+
+/* ==========================================================================
+   HEADING
+   ========================================================================== */
 
 .hero-content h1 {
   color: #fff;
-  font-size: 52px;
-  line-height: 1.15;
-  margin: 0 0 20px 0;
+  font-size: 46px;
+  line-height: 1.1;
+  margin: 0 0 16px 0;
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-}
-
-.hero-content p {
-  color: #ffffff;
-  font-size: 17px;
-  line-height: 1.6;
-  margin: 0 0 32px 0;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  max-width: 560px;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* ==========================================================================
-   BUTTONS (Always side-by-side, never full-width)
+   DESCRIPTION
    ========================================================================== */
+
+.hero-content p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+  max-width: 440px;
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
 .hero-buttons {
   display: flex;
-  flex-direction: row; /* Keeps them side-by-side on ALL screens */
-  gap: 16px;
-  flex-wrap: nowrap; /* Prevents them from wrapping onto two lines */
+  flex-direction: row;
+  gap: 18px;
+  flex-wrap: nowrap;
 }
 
 .shop-btn,
 .process-btn {
-  padding: 14px 30px;
+  position: relative;
+  padding: 17px 38px;
   font-size: 15px;
   font-weight: 600;
-  border-radius: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   text-decoration: none;
-  white-space: nowrap; /* Keeps button text on a single line */
-  width: auto; /* Prevents stretching */
+  white-space: nowrap;
+  letter-spacing: 0.4px;
+  overflow: hidden;
 }
 
+/* Primary button — solid, high contrast, no gradient noise */
 .shop-btn {
-  background: #b85b2b;
-  color: #fff;
-  border: none;
-  box-shadow: 0 4px 14px rgba(184, 91, 43, 0.4);
+  background: #ffffff;
+  color: #1a1a1a;
+  border: 2px solid #ffffff;
 }
 
 .shop-btn:hover {
-  background: #9b471f;
+  background-color: #642b09;
+  color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
 }
 
+.shop-btn:active {
+  transform: translateY(0);
+}
+
+/* Secondary button — outlined, clear on hover */
 .process-btn {
-  background: rgba(255, 255, 255, 0.15);
+  background: transparent;
   color: #fff;
-  border: 2px solid #fff;
-  backdrop-filter: blur(4px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .process-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: #ffffff;
+  color: #1a1a1a;
+  border-color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.process-btn:active {
+  transform: translateY(0);
 }
 
 /* ==========================================================================
-   PROPORTIONAL DECREASING (MEDIA QUERIES)
+   RESPONSIVE
    ========================================================================== */
 
-/* Laptops */
 @media (max-width: 1200px) {
   .hero-container {
-    height: 440px; /* Shrunk height */
+    height: 420px;
+    border-radius: 20px;
   }
 
   .hero-content {
-    padding: 50px 60px;
-    max-width: 500px;
+    padding: 36px 44px 42px;
   }
 
   .hero-content h1 {
-    font-size: 42px; /* Shrunk font */
-  }
-}
-
-/* Tablets */
-@media (max-width: 992px) {
-  .hero-container {
-    height: 380px; /* Shrunk height */
-  }
-
-  .hero-content {
-    max-width: 440px;
-    padding: 40px 50px;
-  }
-
-  .hero-content h1 {
-    font-size: 34px; /* Shrunk font */
-    margin-bottom: 14px;
+    font-size: 38px;
   }
 
   .hero-content p {
-    font-size: 15px; /* Shrunk font */
+    font-size: 15px;
     margin-bottom: 24px;
   }
 
   .shop-btn,
   .process-btn {
-    padding: 12px 24px; /* Shrunk buttons */
+    padding: 15px 32px;
     font-size: 14px;
   }
 }
 
-/* Small Tablets / Landscape Mobile */
-@media (max-width: 768px) {
-  .hero-container {
-    height: 300px; /* Shrunk height */
-    border-radius: 1rem;
+@media (max-width: 992px) {
+  .hero-section-image {
+    padding: 16px 20px 0;
   }
 
-  .hero-swiper {
-    border-radius: 1rem;
+  .hero-container {
+    height: 380px;
+    border-radius: 18px;
   }
 
   .hero-content {
-    max-width: 380px;
-    padding: 30px 40px;
-  }
-
-  .hero-tag {
-    font-size: 11px;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
+    padding: 30px 36px 36px;
   }
 
   .hero-content h1 {
-    font-size: 26px; /* Shrunk font */
-    margin-bottom: 10px;
+    font-size: 32px;
+    margin-bottom: 14px;
   }
 
   .hero-content p {
-    font-size: 13px; /* Shrunk font */
-    line-height: 1.5;
-    margin-bottom: 18px;
-  }
-
-  .hero-buttons {
-    gap: 10px; /* Shrunk gap */
+    font-size: 14px;
+    margin-bottom: 22px;
+    max-width: 380px;
   }
 
   .shop-btn,
   .process-btn {
-    padding: 10px 20px; /* Shrunk buttons */
+    padding: 13px 26px;
     font-size: 13px;
   }
 }
 
-/* Standard Mobile Phones */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .hero-section-image {
+    padding: 14px 16px 0;
+  }
+
   .hero-container {
-    height: 240px; /* Shrunk height */
+    height: 340px;
+    border-radius: 16px;
   }
 
   .hero-content {
-    max-width: 300px;
-    padding: 20px 25px;
+    padding: 26px 26px 32px;
+  }
+
+  .hero-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 7px 16px;
+    margin-bottom: 14px;
+    gap: 7px;
+  }
+
+  .hero-tag::before {
+    width: 5px;
+    height: 5px;
+  }
+
+  .hero-content h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 18px;
+  }
+
+  .hero-buttons {
+    gap: 10px;
+  }
+
+  .shop-btn,
+  .process-btn {
+    padding: 11px 20px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section-image {
+    padding: 10px 12px 0;
+  }
+
+  .hero-container {
+    height: 300px;
+    border-radius: 14px;
+  }
+
+  .hero-content {
+    padding: 20px 20px 26px;
   }
 
   .hero-tag {
     font-size: 9px;
-    margin-bottom: 6px;
+    padding: 6px 14px;
+    margin-bottom: 10px;
   }
 
   .hero-content h1 {
-    font-size: 20px; /* Shrunk font */
+    font-size: 21px;
     margin-bottom: 8px;
   }
 
   .hero-content p {
-    font-size: 11px; /* Shrunk font */
-    line-height: 1.4;
+    font-size: 12px;
+    line-height: 1.45;
     margin-bottom: 14px;
+    max-width: 260px;
   }
 
   .hero-buttons {
@@ -278,35 +351,33 @@
 
   .shop-btn,
   .process-btn {
-    padding: 8px 16px; /* Shrunk buttons to stay side-by-side perfectly */
+    padding: 10px 16px;
     font-size: 11px;
-    border-radius: 0.35rem;
   }
 }
 
-/* Extra Small Mobile */
 @media (max-width: 360px) {
   .hero-container {
-    height: 200px; /* Ultra-compact height */
+    height: 260px;
+    border-radius: 12px;
   }
 
   .hero-content {
-    max-width: 250px;
-    padding: 15px 20px;
+    padding: 16px 16px 22px;
   }
 
   .hero-content h1 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .hero-content p {
-    font-size: 10px;
+    font-size: 11px;
     margin-bottom: 10px;
   }
 
   .shop-btn,
   .process-btn {
-    padding: 6px 12px;
-    font-size: 10px;
+    padding: 8px 14px;
+    font-size: 11px;
   }
 }
