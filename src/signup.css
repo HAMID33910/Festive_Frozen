@@ -321,6 +321,27 @@ transform:translateY(0);
     transition:.3s;
 }
 
+.login-link{
+
+    margin-left:8px;
+
+    text-decoration:none;
+
+    color:var(--primary);
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.login-link:hover{
+
+    color:var(--primary-container);
+
+    text-decoration:underline;
+
+}
+
 .signup-link:hover{
 
     color:var(--primary-container);
@@ -436,9 +457,11 @@ transform:translateY(0);
 
     display:grid;
 
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
 
     gap:15px;
+
+    justify-items:center;
 
 }
 /* =====================================================
@@ -648,6 +671,14 @@ OAUTH BUTTONS
     color:#444;
 
     border:2px solid transparent;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:100%;
 
 }
 
