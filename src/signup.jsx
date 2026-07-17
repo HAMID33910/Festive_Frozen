@@ -24,21 +24,40 @@ export default function SignupScreen() {
 
 
 
-  const googleLogin = async () => {
+ const googleLogin = async () => {
   try {
     const result = await signInWithPopup(auth, provider);
 
-    console.log(result.user);
+    const user = result.user;
 
-    // Send user info to your backend if needed
+    const response = await fetch("http://localhost:3001/api/google-login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: user.displayName?.split(" ")[0] || "",
+        lastName: user.displayName?.split(" ").slice(1).join(" ") || "",
+        email: user.email,
+        uid: user.uid,
+        photo: user.photoURL,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      navigate("/");
+    } else {
+      alert(data.message);
+    }
 
   } catch (err) {
     console.log(err);
   }
 };
-
-
-
 
 
   const handleChange = (e) => {

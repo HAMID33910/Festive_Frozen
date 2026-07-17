@@ -21,7 +21,7 @@ const bannerRoute = require("./routes/banners");
 const forgotRoute = require("./routes/forgotPassword");
 const resetPasswordRoute = require("./routes/resetPassword");
 const verifyOtpRoute = require("./routes/verifyOtp");
-
+const googleLoginRoute = require("./routes/googleLogin");
 
 const app = express();
 
@@ -94,6 +94,8 @@ app.use("/api/auth", resetPasswordRoute);
 
 
 app.use("/api/auth", verifyOtpRoute);
+
+app.use("/api/google-login", googleLoginRoute);
 
 /* ===========================
    Home Route

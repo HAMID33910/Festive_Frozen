@@ -27,6 +27,15 @@ router.post("/", async (req, res) => {
       });
     }
 
+
+     // If the account was created with Google
+    if (user.googleId) {
+      return res.status(400).json({
+        success: false,
+        message: "This account was created using Google. Please continue with Google.",
+      });
+    }
+
     // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
 

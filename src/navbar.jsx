@@ -130,27 +130,8 @@ useEffect(() => {
             )}
           </ul>
 
-          {/* Search */}
-          {/* <div className="search-box">
-            <span className="material-symbols-outlined">
-              search
-            </span>
-
-            <input
-              type="text"
-              placeholder="Search frozen favorites..."
-            />
-          </div> */}
-
           {/* Icons */}
           <div className="nav-icons">
-
-            {/* <button className="icon-btn mobile-search">
-              <span className="material-symbols-outlined">
-                search
-              </span>
-            </button> */}
-
             <div className="search-box">
 
   <span className="material-symbols-outlined">

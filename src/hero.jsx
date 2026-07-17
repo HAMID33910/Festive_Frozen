@@ -31,7 +31,7 @@ function Hero() {
     <Swiper
       modules={[Autoplay]}
       autoplay={{
-        delay: 3000,
+        delay: 2000,
         disableOnInteraction: false,
       }}
       loop={true}

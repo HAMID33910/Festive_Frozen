@@ -97,7 +97,7 @@ function Banners() {
           />
 
           <small className="banner-size">
-            Recommended Size : 1920 × 850 px
+            Recommended Size : 1200px → 420px height
           </small>
 
           <small className="banner-size">
