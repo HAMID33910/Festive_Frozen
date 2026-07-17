@@ -456,3 +456,152 @@
 }
 
 }
+
+/* ===========================
+   ORDER SUCCESS MODAL
+=========================== */
+
+.order-success-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:20px;
+    animation:fadeIn .3s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+.order-success-modal{
+    background:#fff;
+    border-radius:1rem;
+    padding:40px;
+    max-width:440px;
+    width:100%;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+    animation:slideUp .3s ease;
+}
+
+@keyframes slideUp{
+    from{transform:translateY(30px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+}
+
+.order-success-icon{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#dcfce7;
+    color:#16a34a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+    font-size:36px;
+}
+
+.order-success-modal h2{
+    font-family:'Montserrat',sans-serif;
+    font-size:24px;
+    color:#1d232f;
+    margin:0 0 8px;
+}
+
+.order-success-msg{
+    color:#777;
+    font-size:15px;
+    margin:0 0 24px;
+}
+
+.order-success-details{
+    background:#faf5ef;
+    border-radius:0.75rem;
+    padding:20px;
+    margin-bottom:20px;
+    text-align:left;
+}
+
+.order-success-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px solid #ece3d8;
+}
+
+.order-success-row:last-child{
+    border-bottom:none;
+}
+
+.order-success-row span{
+    color:#777;
+    font-size:14px;
+}
+
+.order-success-row strong{
+    color:#1d232f;
+    font-size:15px;
+}
+
+.order-success-id{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.order-success-id strong{
+    color:#8f3f16;
+    font-size:16px;
+    letter-spacing:1px;
+}
+
+.order-copy-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    padding:6px 12px;
+    border:1px solid #ddd;
+    border-radius:0.5rem;
+    background:#fff;
+    color:#555;
+    font-size:12px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.order-copy-btn:hover{
+    border-color:#8f3f16;
+    color:#8f3f16;
+    background:#faf5ef;
+}
+
+.order-success-note{
+    color:#999;
+    font-size:13px;
+    margin:0 0 20px;
+}
+
+.order-success-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:0.75rem;
+    background:#8f3f16;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.order-success-btn:hover{
+    background:#74310f;
+}

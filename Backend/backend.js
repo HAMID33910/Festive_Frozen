@@ -22,6 +22,7 @@ const forgotRoute = require("./routes/forgotPassword");
 const resetPasswordRoute = require("./routes/resetPassword");
 const verifyOtpRoute = require("./routes/verifyOtp");
 const googleLoginRoute = require("./routes/googleLogin");
+const notificationsRoute = require("./routes/notifications");
 
 const app = express();
 
@@ -96,6 +97,9 @@ app.use("/api/auth", resetPasswordRoute);
 app.use("/api/auth", verifyOtpRoute);
 
 app.use("/api/google-login", googleLoginRoute);
+
+// Notifications
+app.use("/api/notifications", notificationsRoute);
 
 /* ===========================
    Home Route

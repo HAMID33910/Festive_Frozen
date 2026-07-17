@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./checkout.css";
 import { CartContext } from "./CartContext";
-import { FiTrash2 } from "react-icons/fi";
+import { FiTrash2, FiCheck, FiCopy, FiCheckCircle } from "react-icons/fi";
 import Navbar from "./navbar.jsx"
 import Footer from "./footer.jsx"
 import TrackOrder from "./TrackOrder.jsx"
@@ -18,6 +18,8 @@ function Checkout() {
   } = useContext(CartContext);
   const navigate = useNavigate();
   const [payment] = useState("cod");
+  const [orderSuccess, setOrderSuccess] = useState(null);
+  const [copied, setCopied] = useState(false);
 
   const [form, setForm] = useState({
     firstName: "",
@@ -39,6 +41,26 @@ function Checkout() {
       ...form,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleCopyOrderId = (orderId) => {
+    navigator.clipboard.writeText(orderId);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleOrderContinue = () => {
+    clearCart();
+    setOrderSuccess(null);
+    setForm({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      address: "",
+      postalCode: "",
+    });
+    navigate("/TrackOrder");
   };
 
 
@@ -97,27 +119,12 @@ const handleSubmit = async (e) => {
       return;
     }
 
-   alert(
-  `Order Placed Successfully!
-
-Order ID: ${data.orderId}
-
-Please save this Order ID to track your order.`
-);
-
-clearCart();
-navigate("/TrackOrder");
-
-setForm({
-  firstName: "",
-  lastName: "",
-  email: "",
-  phone: "",
-  address: "",
-  postalCode: "",
-});
-
-console.log(data);
+   setOrderSuccess({
+     orderId: data.orderId,
+     total: total,
+     items: cartItems.length,
+     name: `${form.firstName} ${form.lastName}`,
+   });
 
   } catch (err) {
 
@@ -385,6 +392,53 @@ console.log(data);
 
     </section>
     <Footer/>
+
+    {orderSuccess && (
+      <div className="order-success-overlay">
+        <div className="order-success-modal">
+          <div className="order-success-icon">
+            <FiCheckCircle />
+          </div>
+          <h2>Order Placed Successfully!</h2>
+          <p className="order-success-msg">Thank you, {orderSuccess.name}. Your order has been confirmed.</p>
+
+          <div className="order-success-details">
+            <div className="order-success-row">
+              <span>Order ID</span>
+              <div className="order-success-id">
+                <strong>{orderSuccess.orderId}</strong>
+                <button
+                  className="order-copy-btn"
+                  onClick={() => handleCopyOrderId(orderSuccess.orderId)}
+                  title="Copy Order ID"
+                >
+                  {copied ? <FiCheck /> : <FiCopy />}
+                  <span>{copied ? "Copied!" : "Copy"}</span>
+                </button>
+              </div>
+            </div>
+            <div className="order-success-row">
+              <span>Items</span>
+              <strong>{orderSuccess.items}</strong>
+            </div>
+            <div className="order-success-row">
+              <span>Total</span>
+              <strong>Rs. {orderSuccess.total.toLocaleString()}</strong>
+            </div>
+            <div className="order-success-row">
+              <span>Payment</span>
+              <strong>Cash On Delivery</strong>
+            </div>
+          </div>
+
+          <p className="order-success-note">Please save your Order ID to track your order.</p>
+
+          <button className="order-success-btn" onClick={handleOrderContinue}>
+            Track My Order
+          </button>
+        </div>
+      </div>
+    )}
     </>
   );
 }
