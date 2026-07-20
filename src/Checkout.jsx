@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import "./checkout.css";
 import { CartContext } from "./CartContext";
 import { FiTrash2, FiCheck, FiCopy, FiCheckCircle } from "react-icons/fi";
 import Navbar from "./navbar.jsx"
@@ -138,34 +137,34 @@ const handleSubmit = async (e) => {
   return (
     <>
     <Navbar/>
-    <section className="checkout-page">
+    <section className="py-12 px-6 max-w-[1280px] mx-auto">
 
-      <div className="checkout-container">
+      <div className="grid grid-cols-[1.2fr_0.8fr] gap-8 max-[768px]:grid-cols-1">
 
-        <div className="checkout-left">
+        <div>
 
-          <div className="checkout-header">
+          <div className="mb-6">
 
-            <h2>Checkout</h2>
+            <h2 className="font-display text-2xl font-bold text-on-surface mb-1">Checkout</h2>
 
-            <p>
+            <p className="text-on-surface-variant text-sm">
               Please fill in your delivery details.
             </p>
 
           </div>
 
           <form
-            className="checkout-form"
             onSubmit={handleSubmit}
           >
 
-            <div className="checkout-grid">
+            <div className="grid grid-cols-2 gap-4 max-[600px]:grid-cols-1">
 
-              <div className="checkout-field">
+              <div className="flex flex-col">
 
-                <label>First Name</label>
+                <label className="text-sm font-semibold text-on-surface mb-1">First Name</label>
 
                 <input
+                  className="py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10 resize-none"
                   type="text"
                   name="firstName"
                   value={form.firstName}
@@ -175,11 +174,12 @@ const handleSubmit = async (e) => {
 
               </div>
 
-              <div className="checkout-field">
+              <div className="flex flex-col">
 
-                <label>Last Name</label>
+                <label className="text-sm font-semibold text-on-surface mb-1">Last Name</label>
 
                 <input
+                  className="py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10 resize-none"
                   type="text"
                   name="lastName"
                   value={form.lastName}
@@ -189,11 +189,12 @@ const handleSubmit = async (e) => {
 
               </div>
 
-              <div className="checkout-field">
+              <div className="flex flex-col">
 
-                <label>Email</label>
+                <label className="text-sm font-semibold text-on-surface mb-1">Email</label>
 
                 <input
+                  className="py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10 resize-none"
                   type="email"
                   name="email"
                   value={form.email}
@@ -203,11 +204,12 @@ const handleSubmit = async (e) => {
 
               </div>
 
-              <div className="checkout-field">
+              <div className="flex flex-col">
 
-                <label>Phone Number</label>
+                <label className="text-sm font-semibold text-on-surface mb-1">Phone Number</label>
 
                 <input
+                  className="py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10 resize-none"
                   type="text"
                   name="phone"
                   value={form.phone}
@@ -217,11 +219,12 @@ const handleSubmit = async (e) => {
 
               </div>
 
-              <div className="checkout-field checkout-full">
+              <div className="flex flex-col col-span-2 max-[600px]:col-span-1">
 
-                <label>Address</label>
+                <label className="text-sm font-semibold text-on-surface mb-1">Address</label>
 
                 <textarea
+                  className="py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10 resize-none"
                   rows="5"
                   name="address"
                   value={form.address}
@@ -231,11 +234,12 @@ const handleSubmit = async (e) => {
 
               </div>
 
-              <div className="checkout-field">
+              <div className="flex flex-col">
 
-                <label>Postal Code</label>
+                <label className="text-sm font-semibold text-on-surface mb-1">Postal Code</label>
 
                 <input
+                  className="py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10 resize-none"
                   type="text"
                   name="postalCode"
                   value={form.postalCode}
@@ -247,11 +251,11 @@ const handleSubmit = async (e) => {
 
             </div>
 
-            <div className="payment-box">
+            <div className="bg-surface-container-low rounded-xl p-5 mt-6">
 
-              <h3>Payment Method</h3>
+              <h3 className="text-lg font-semibold text-on-surface mb-3">Payment Method</h3>
 
-              <label className="payment-option">
+              <label className="flex items-center gap-3 text-sm text-on-surface cursor-pointer">
 
                 <input
                   type="radio"
@@ -266,7 +270,7 @@ const handleSubmit = async (e) => {
             </div>
 
             <button
-              className="place-order-btn"
+              className="w-full bg-primary text-white border-none py-3.5 rounded-lg font-semibold text-base cursor-pointer mt-6 hover:bg-primary-dark"
               type="submit"
             >
               Place Order
@@ -276,15 +280,15 @@ const handleSubmit = async (e) => {
 
         </div>
 
-        <div className="checkout-right">
+        <div className="bg-white rounded-2xl shadow-card p-6">
 
-          <h2>Your Order</h2>
+          <h2 className="font-display text-xl font-bold text-on-surface mb-4">Your Order</h2>
 
           {cartItems.length === 0 ? (
 
-            <div className="checkout-empty">
+            <div className="text-center py-10">
 
-              <h3>Your cart is empty</h3>
+              <h3 className="text-on-surface-variant">Your cart is empty</h3>
 
             </div>
 
@@ -295,12 +299,13 @@ const handleSubmit = async (e) => {
               {cartItems.map((item) => (
 
                 <div
-                  className="checkout-product"
+                  className="flex gap-4 py-4 border-b border-cart-border"
                   key={item.productId}
                 >
 
 
                   <img
+  className="w-[80px] h-[80px] object-cover rounded-lg flex-shrink-0"
   src={
   item.imageType === "deal"
     ? `http://localhost:3001/dealuploads/${item.productImage}`
@@ -309,17 +314,18 @@ const handleSubmit = async (e) => {
   alt={item.productTitle}
 />
 
-                  <div className="checkout-product-info">
+                  <div className="flex-1">
 
-                    <h4>{item.productTitle}</h4>
+                    <h4 className="text-sm font-semibold text-on-surface mb-1">{item.productTitle}</h4>
 
-                    <p>
+                    <p className="text-xs text-on-surface-variant mb-1">
                       Rs. {item.productPrice}
                     </p>
 
-                    <div className="checkout-qty">
+                    <div className="flex items-center gap-2 mt-1">
 
                       <button
+                        className="w-7 h-7 rounded border border-outline-variant bg-white cursor-pointer text-sm hover:bg-surface-container"
                         type="button"
                         onClick={() =>
                           decreaseQuantity(item.productId)
@@ -328,11 +334,12 @@ const handleSubmit = async (e) => {
                         -
                       </button>
 
-                      <span>
+                      <span className="text-sm font-semibold min-w-[24px] text-center">
                         {item.quantity}
                       </span>
 
                       <button
+                        className="w-7 h-7 rounded border border-outline-variant bg-white cursor-pointer text-sm hover:bg-surface-container"
                         type="button"
                         onClick={() =>
                           increaseQuantity(item.productId)
@@ -343,7 +350,7 @@ const handleSubmit = async (e) => {
 
                     </div>
 
-                    <strong>
+                    <strong className="text-sm text-primary">
 
                       Rs.{" "}
 
@@ -357,7 +364,7 @@ const handleSubmit = async (e) => {
                   </div>
 
                   <button
-                    className="checkout-delete"
+                    className="text-error-light bg-transparent border-none cursor-pointer p-1 hover:text-error-hover"
                     type="button"
                     onClick={() =>
                       removeFromCart(item.productId)
@@ -372,11 +379,11 @@ const handleSubmit = async (e) => {
 
               ))}
 
-              <div className="checkout-total">
+              <div className="flex justify-between items-center pt-4 mt-2">
 
-                <span>Total</span>
+                <span className="font-semibold text-on-surface">Total</span>
 
-                <strong>
+                <strong className="text-xl font-bold text-primary">
                   Rs. {total.toLocaleString()}
                 </strong>
 
@@ -394,21 +401,21 @@ const handleSubmit = async (e) => {
     <Footer/>
 
     {orderSuccess && (
-      <div className="order-success-overlay">
-        <div className="order-success-modal">
-          <div className="order-success-icon">
+      <div className="fixed inset-0 bg-black/55 flex items-center justify-center z-[3000] p-4">
+        <div className="bg-white rounded-2xl p-8 max-w-[440px] w-full text-center shadow-modal">
+          <div className="text-success-green text-5xl mb-4">
             <FiCheckCircle />
           </div>
-          <h2>Order Placed Successfully!</h2>
-          <p className="order-success-msg">Thank you, {orderSuccess.name}. Your order has been confirmed.</p>
+          <h2 className="font-display text-2xl font-bold text-on-surface mb-2">Order Placed Successfully!</h2>
+          <p className="text-on-surface-variant text-sm mb-6">Thank you, {orderSuccess.name}. Your order has been confirmed.</p>
 
-          <div className="order-success-details">
-            <div className="order-success-row">
-              <span>Order ID</span>
-              <div className="order-success-id">
-                <strong>{orderSuccess.orderId}</strong>
+          <div className="bg-surface-container-low rounded-xl p-4 mb-6">
+            <div className="flex justify-between items-center py-2">
+              <span className="text-sm text-on-surface-variant">Order ID</span>
+              <div className="flex items-center gap-2">
+                <strong className="text-sm text-on-surface">{orderSuccess.orderId}</strong>
                 <button
-                  className="order-copy-btn"
+                  className="flex items-center gap-1 text-xs bg-transparent border border-outline-variant rounded px-2 py-1 cursor-pointer hover:bg-surface-container"
                   onClick={() => handleCopyOrderId(orderSuccess.orderId)}
                   title="Copy Order ID"
                 >
@@ -417,23 +424,23 @@ const handleSubmit = async (e) => {
                 </button>
               </div>
             </div>
-            <div className="order-success-row">
-              <span>Items</span>
-              <strong>{orderSuccess.items}</strong>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-sm text-on-surface-variant">Items</span>
+              <strong className="text-sm text-on-surface">{orderSuccess.items}</strong>
             </div>
-            <div className="order-success-row">
-              <span>Total</span>
-              <strong>Rs. {orderSuccess.total.toLocaleString()}</strong>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-sm text-on-surface-variant">Total</span>
+              <strong className="text-sm text-on-surface">Rs. {orderSuccess.total.toLocaleString()}</strong>
             </div>
-            <div className="order-success-row">
-              <span>Payment</span>
-              <strong>Cash On Delivery</strong>
+            <div className="flex justify-between items-center py-2">
+              <span className="text-sm text-on-surface-variant">Payment</span>
+              <strong className="text-sm text-on-surface">Cash On Delivery</strong>
             </div>
           </div>
 
-          <p className="order-success-note">Please save your Order ID to track your order.</p>
+          <p className="text-xs text-on-surface-variant mb-4">Please save your Order ID to track your order.</p>
 
-          <button className="order-success-btn" onClick={handleOrderContinue}>
+          <button className="w-full bg-primary text-white border-none py-3 rounded-lg font-semibold cursor-pointer hover:bg-primary-dark" onClick={handleOrderContinue}>
             Track My Order
           </button>
         </div>

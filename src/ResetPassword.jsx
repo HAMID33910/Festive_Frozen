@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./resetpassword.css";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function ResetPassword() {
@@ -74,45 +73,45 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="reset-screen">
-      <div className="reset-visual">
-        <div className="reset-visual-image"></div>
+    <div className="flex min-h-screen max-[768px]:flex-col">
+      <div className="flex-1 relative bg-[url('/src/assets/frozen.jpg')] bg-cover bg-center hidden md:flex items-end p-12">
 
-        <div className="reset-overlay"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
 
-        <div className="reset-content">
-          <span className="reset-eyebrow">
+        <div className="relative z-10 text-white">
+          <span className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 rounded-full py-2 px-5 text-xs font-semibold tracking-widest uppercase mb-6">
             Secure Password Update
           </span>
 
-          <h1>Create New Password</h1>
+          <h1 className="font-display text-5xl font-bold text-white mb-4">Create New Password</h1>
 
-          <p>
+          <p className="text-white/80 text-base leading-relaxed">
             Your new password should be strong and different from your previous
             password.
           </p>
         </div>
       </div>
 
-      <div className="reset-form-panel">
-        <div className="reset-form-wrap">
-          <a href="#" className="reset-logo">
+      <div className="flex-1 flex items-center justify-center p-10 max-[768px]:p-6">
+        <div className="w-full max-w-[420px]">
+          <a href="#" className="block font-display text-2xl font-bold text-primary mb-8 no-underline leading-tight">
             FESTIVE <br />
             FROZEN
           </a>
 
-          <h2>Reset Password</h2>
+          <h2 className="font-display text-2xl font-bold text-on-surface mb-2">Reset Password</h2>
 
-          <p className="reset-subtext">
+          <p className="text-on-surface-variant text-sm mb-6">
             Create a strong password for your account.
           </p>
 
-          <form className="reset-form" onSubmit={handleSubmit}>
-            <div className="field">
-              <label>New Password</label>
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+            <div className="flex flex-col mb-1">
+              <label className="text-sm font-semibold text-on-surface mb-1">New Password</label>
 
-              <div className="input-with-action">
+              <div className="relative">
                 <input
+                  className="w-full pr-10 py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter new password"
                   value={password}
@@ -122,7 +121,7 @@ export default function ResetPassword() {
 
                 <button
                   type="button"
-                  className="input-action"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 bg-transparent border-none cursor-pointer text-on-surface-variant"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? "🙈" : "👁"}
@@ -130,10 +129,11 @@ export default function ResetPassword() {
               </div>
             </div>
 
-            <div className="field">
-              <label>Confirm Password</label>
+            <div className="flex flex-col mb-1">
+              <label className="text-sm font-semibold text-on-surface mb-1">Confirm Password</label>
 
               <input
+                className="py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
                 type={showPassword ? "text" : "password"}
                 placeholder="Confirm password"
                 value={confirmPassword}
@@ -143,13 +143,13 @@ export default function ResetPassword() {
             </div>
 
             {error && (
-              <span className="field-error">
+              <span className="text-error-light text-xs mt-1">
                 {error}
               </span>
             )}
 
             <button
-              className="submit-btn"
+              className="w-full bg-primary text-white border-none py-3.5 rounded-lg font-semibold text-base cursor-pointer mt-2 hover:bg-primary-dark disabled:opacity-50"
               type="submit"
               disabled={loading}
             >
@@ -157,8 +157,8 @@ export default function ResetPassword() {
             </button>
           </form>
 
-          <div className="back-login">
-            <Link to="/LoginScreen">
+          <div className="text-center mt-6">
+            <Link to="/LoginScreen" className="text-primary font-semibold no-underline text-sm hover:underline">
               Back to Login
             </Link>
           </div>

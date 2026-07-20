@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import "./FeaturedProducts.css";
 import { CartContext } from "./CartContext";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,14 +21,16 @@ function Products() {
   }, []);
 
   return (
-    <section className="featured-section">
+    <section className="max-w-[1280px] mx-auto py-[60px] px-6 max-[900px]:py-10 max-[600px]:py-10 max-[600px]:px-4">
 
-      <div className="featured-header">
-        <h2>Our Featured Products</h2>
+      <div className="flex justify-between items-center gap-5 mb-7 max-[900px]:flex-col max-[900px]:items-start max-[900px]:mb-6">
+        <h2 className="font-display text-[34px] font-bold text-primary m-0 max-[900px]:text-[30px] max-[600px]:text-[26px]">Our Featured Products</h2>
 
         <button
+          className="relative border-none bg-transparent text-primary text-[15px] font-bold cursor-pointer p-0 transition-colors duration-300 hover:text-primary-dark group"
           onClick={() => navigate("/products")}
         >
+          <span className="absolute left-0 bottom-[-4px] h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
           View All
         </button>
       </div>
@@ -65,47 +66,48 @@ function Products() {
         {products.map((product) => (
           <SwiperSlide key={product._id}>
 
-            <div className="product-card">
+            <div className="bg-surface-container rounded-2xl overflow-hidden shadow-card-brand transition-all duration-300 flex flex-col max-w-[310px] w-full mx-auto hover:-translate-y-1.5">
 
-              <div className="product-image">
+              <div className="relative h-[230px] overflow-hidden bg-surface-container-low max-[600px]:h-[220px] max-[380px]:h-[200px]">
 
                 <img
                   src={`http://localhost:3001/productuploads/${product.productImage}`}
                   alt={product.productTitle}
+                  className="w-full h-full object-cover transition-transform duration-[0.45s] hover:scale-105"
                 />
 
-                <div className="wishlist-overlay">
-                  <button onClick={() => addToWishlist(product)} aria-label="Add to wishlist">♥</button>
+                <div className="absolute top-3.5 right-3.5">
+                  <button onClick={() => addToWishlist(product)} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-surface/90 text-primary cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
                 </div>
 
               </div>
 
-              <div className="product-content">
+              <div className="p-[18px] flex flex-col flex-1 max-[600px]:p-4">
 
-                <span className="category">
+                <span className="text-on-surface-variant text-xs font-semibold mb-1.5">
                   Frozen Food 
                 </span>
 
-                <h3>{product.productTitle}</h3>
+                <h3 className="font-display text-[22px] text-on-surface m-0 mb-4 leading-[1.35] max-[600px]:text-xl">{product.productTitle}</h3>
 
-                <div className="product-bottom">
+                <div className="mt-auto">
 
-                  <div className="price-rating">
+                  <div className="flex justify-between items-center mb-[18px]">
 
-                    <span className="price">
+                    <span className="text-[21px] font-bold text-primary">
                       Rs. {product.productPrice}
                     </span>
 
-                    <div className="rating">
-                      ★ <span>4.9</span>
+                    <div className="flex gap-1 text-primary-container text-sm">
+                      ★ <span className="text-on-surface">4.9</span>
                     </div>
 
                   </div>
 
-                  <div className="actions">
+                  <div className="flex items-center gap-2.5">
 
                     <button
-  className="buy-btn"
+  className="flex-1 border-none bg-primary text-white py-3 rounded-lg cursor-pointer text-[15px] font-semibold transition-colors duration-300 hover:bg-primary-dark max-[380px]:text-sm"
   onClick={() =>
     navigate(`/product/${product._id}`)
   }
@@ -114,7 +116,7 @@ function Products() {
 </button>
 
                     <button
-                      className="cart-btn"
+                      className="w-[46px] min-w-[46px] h-[46px] border-none rounded-lg bg-card-warm text-on-surface-variant flex items-center justify-center cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white max-[380px]:w-[44px] max-[380px]:min-w-[44px] max-[380px]:h-[44px]"
                       onClick={() => addToCart(product)}
                     >
                       🛒

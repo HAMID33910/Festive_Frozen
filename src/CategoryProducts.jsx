@@ -4,7 +4,6 @@ import { CartContext } from "./CartContext";
 // import { useRef } from "react";
 import Navbar from "./navbar";
 import Footer from "./footer";
-import "./CategoryProducts.css";
 
 function CategoryProducts() {
   const { id } = useParams();
@@ -43,119 +42,116 @@ function CategoryProducts() {
     <>
       <Navbar />
 
-      <section className="category-products-page">
+      <section className="py-16 px-6 max-w-[1280px] mx-auto max-sm:py-10 max-sm:px-4">
 
-        <div className="category-products-container">
+        <div className="text-center mb-10">
 
-          <div className="category-products-header">
+          <h1 className="font-display text-4xl font-bold text-primary mb-2 max-sm:text-3xl">{categoryName}</h1>
 
-            <h1>{categoryName}</h1>
+          <p className="text-on-surface-variant">
+            Browse all products available in this category.
+          </p>
 
-            <p>
-              Browse all products available in this category.
-            </p>
+        </div>
+
+        {products.length === 0 ? (
+
+          <div className="text-center py-20">
+
+            <h2 className="text-2xl text-on-surface-variant">No Products Found</h2>
 
           </div>
 
-          {products.length === 0 ? (
+        ) : (
 
-            <div className="category-empty">
+          <div className="grid grid-cols-4 gap-6 max-[900px]:grid-cols-3 max-[600px]:grid-cols-2 max-[380px]:grid-cols-1">
 
-              <h2>No Products Found</h2>
+            {products.map((product) => (
 
-            </div>
+              <div
+                className="bg-white rounded-2xl overflow-hidden shadow-card transition-transform duration-300 hover:-translate-y-1.5"
+                key={product._id}
+              >
 
-          ) : (
+                <div className="h-[200px] overflow-hidden">
 
-            <div className="category-products-grid">
+                  <img
+                    className="w-full h-full object-cover"
+                    src={`http://localhost:3001/productuploads/${product.productImage}`}
+                    alt={product.productTitle}
+                  />
 
-              {products.map((product) => (
+                </div>
 
-                <div
-                  className="category-product-card"
-                  key={product._id}
-                >
+                <div className="p-4">
 
-                  <div className="category-product-image">
+                  <span className="text-xs font-semibold text-on-surface-variant mb-1.5">
 
-                    <img
-                      src={`http://localhost:3001/productuploads/${product.productImage}`}
-                      alt={product.productTitle}
-                    />
+                    {product.categoryId?.title}
 
-                  </div>
+                  </span>
 
-                  <div className="category-product-content">
+                  <h3 className="font-display text-lg text-on-surface mb-3">
 
-                    <span className="category-name">
+                    {product.productTitle}
 
-                      {product.categoryId?.title}
+                  </h3>
+
+                  <div className="flex justify-between items-center mb-4">
+
+                    <span className="text-lg font-bold text-primary">
+
+                      Rs. {product.productPrice}
 
                     </span>
 
-                    <h3>
+                    <span className="text-sm text-primary-container">
 
-                      {product.productTitle}
+                      ★ 4.9
 
-                    </h3>
+                    </span>
 
-                    <div className="category-price-row">
+                  </div>
 
-                      <span className="category-price">
+                  <div className="flex gap-2.5">
+                    
+                                        {/* <button
+                      className="category-buy-btn"
+                      onClick={() => handleBuyNow(product)}
+                    >
+                      Buy Now
+                    </button> */}
 
-                        Rs. {product.productPrice}
+                    <button
+                      className="flex-1 bg-primary text-white border-none py-2.5 rounded-lg cursor-pointer text-sm font-semibold hover:bg-primary-dark"
+                      onClick={() => navigate(`/product/${product._id}`)}
+                    >
+                      Buy Now
+                    </button>
 
-                      </span>
-
-                      <span className="category-rating">
-
-                        ★ 4.9
-
-                      </span>
-
-                    </div>
-
-                    <div className="category-buttons">
-                      
-                                          {/* <button
-                        className="category-buy-btn"
-                        onClick={() => handleBuyNow(product)}
-                      >
-                        Buy Now
-                      </button> */}
-
-                      <button
-  className="category-buy-btn"
-  onClick={() => navigate(`/product/${product._id}`)}
->
-  Buy Now
-</button>
-
-                      <button
-                        className="category-cart-btn"
-                        onClick={() =>
-                          addToCart({
-                            ...product,
-                            quantity: 1,
-                          })
-                        }
-                      >
-                        🛒 Add to Cart
-                      </button>
-
-                    </div>
+                    <button
+                      className="flex-1 bg-card-warm text-on-surface-variant border-none py-2.5 rounded-lg cursor-pointer text-sm font-semibold hover:bg-primary hover:text-white"
+                      onClick={() =>
+                        addToCart({
+                          ...product,
+                          quantity: 1,
+                        })
+                      }
+                    >
+                      🛒 Add to Cart
+                    </button>
 
                   </div>
 
                 </div>
 
-              ))}
+              </div>
 
-            </div>
+            ))}
 
-          )}
+          </div>
 
-        </div>
+        )}
 
       </section>
 

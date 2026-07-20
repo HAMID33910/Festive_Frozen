@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import "./otp.css";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function OTP() {
@@ -212,25 +211,23 @@ export default function OTP() {
 
   return (
 
-    <div className="otp-screen">
+    <div className="flex min-h-screen max-[768px]:flex-col">
 
-      <div className="otp-visual">
+      <div className="flex-1 relative bg-[url('/src/assets/frozen.jpg')] bg-cover bg-center hidden md:flex items-end p-12">
 
-        <div className="otp-visual-image"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
 
-        <div className="otp-overlay"></div>
+        <div className="relative z-10 text-white">
 
-        <div className="otp-content">
-
-          <span className="otp-eyebrow">
+          <span className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 rounded-full py-2 px-5 text-xs font-semibold tracking-widest uppercase mb-6">
 
             Secure Verification
 
           </span>
 
-          <h1>Email Verification</h1>
+          <h1 className="font-display text-5xl font-bold text-white mb-4">Email Verification</h1>
 
-          <p>
+          <p className="text-white/80 text-base leading-relaxed">
 
             Enter the six digit verification code sent to your email.
 
@@ -240,11 +237,11 @@ export default function OTP() {
 
       </div>
 
-      <div className="otp-form-panel">
+      <div className="flex-1 flex items-center justify-center p-10 max-[768px]:p-6">
 
-        <div className="otp-form-wrap">
+        <div className="w-full max-w-[420px]">
 
-          <a href="#" className="otp-logo">
+          <a href="#" className="block font-display text-2xl font-bold text-primary mb-8 no-underline leading-tight">
 
             FESTIVE <br />
 
@@ -252,9 +249,9 @@ export default function OTP() {
 
           </a>
 
-          <h2>Verify OTP</h2>
+          <h2 className="font-display text-2xl font-bold text-on-surface mb-2">Verify OTP</h2>
 
-          <p className="otp-subtext">
+          <p className="text-on-surface-variant text-sm mb-6">
 
             Verification code sent to
 
@@ -266,24 +263,18 @@ export default function OTP() {
 
           <form onSubmit={verifyOTP}>
 
-            <div className="otp-inputs" onPaste={handlePaste}>
+            <div className="flex gap-3 justify-center mb-6" onPaste={handlePaste}>
 
               {otp.map((digit, index) => (
 
                 <input
-
                   key={index}
-
                   ref={(el) => (inputs.current[index] = el)}
-
+                  className="w-12 h-14 text-center text-xl font-bold border border-otp-border rounded-lg bg-otp-bg text-otp-text focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
                   maxLength="1"
-
                   value={digit}
-
                   onChange={(e) => handleChange(e, index)}
-
                   onKeyDown={(e) => handleKeyDown(e, index)}
-
                 />
 
               ))}
@@ -292,7 +283,7 @@ export default function OTP() {
 
             {error &&
 
-              <p className="otp-error">
+              <p className="text-error-light text-sm text-center mb-3">
 
                 {error}
 
@@ -300,18 +291,15 @@ export default function OTP() {
 
             }
 
-            <div className="timer">
+            <div className="text-center text-on-surface-variant text-lg font-bold mb-6">
 
               {formatTime()}
 
             </div>
 
             <button
-
-              className="submit-btn"
-
+              className="w-full bg-primary text-white border-none py-3.5 rounded-lg font-semibold text-base cursor-pointer mt-2 hover:bg-primary-dark disabled:opacity-50"
               disabled={loading}
-
             >
 
               {
@@ -329,22 +317,18 @@ export default function OTP() {
           </form>
 
           <button
-
-            className="resend-btn"
-
+            className="w-full bg-transparent border border-outline-variant text-on-surface-variant py-3 rounded-lg font-semibold cursor-pointer mt-3 hover:bg-surface-container disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={timer > 0}
-
             onClick={resendOTP}
-
           >
 
             Resend OTP
 
           </button>
 
-          <div className="back-login">
+          <div className="text-center mt-6">
 
-            <Link to="/LoginScreen">
+            <Link to="/LoginScreen" className="text-primary font-semibold no-underline text-sm hover:underline">
 
               Back to Login
 

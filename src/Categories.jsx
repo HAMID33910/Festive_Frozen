@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Categories.css";
 import Navbar from "./navbar.jsx";
 import Footer from "./footer.jsx";
 
@@ -18,55 +17,53 @@ function Categories() {
   return (
     <>
     <Navbar />
-    <section className="categories-page">
+    <section className="py-16 px-6 max-w-[1280px] mx-auto max-sm:py-10 max-sm:px-4">
 
-      <div className="categories-container">
+      <div className="text-center mb-10">
+        <h1 className="font-display text-4xl font-bold text-primary mb-2 max-sm:text-3xl">All Categories</h1>
+        <p className="text-on-surface-variant">
+          Browse our premium frozen food collections.
+        </p>
+      </div>
 
-        <div className="categories-heading">
-          <h1>All Categories</h1>
-          <p>
-            Browse our premium frozen food collections.
-          </p>
-        </div>
+      <div className="grid grid-cols-4 gap-6 max-[900px]:grid-cols-3 max-[600px]:grid-cols-2 max-[380px]:grid-cols-1">
 
-        <div className="categories-grid">
+        {categories.map((category) => (
+          <div
+            className="bg-white rounded-2xl overflow-hidden shadow-card transition-transform duration-300 hover:-translate-y-1.5"
+            key={category._id}
+          >
 
-          {categories.map((category) => (
-            <div
-              className="category-card"
-              key={category._id}
-            >
+            <div className="h-[200px] overflow-hidden">
 
-              <div className="category-image">
-
-                <img
-                  src={`http://localhost:3001/uploads/${category.image}`}
-                  alt={category.title}
-                />
-
-              </div>
-
-              <div className="category-content">
-
-                <h3>{category.title}</h3>
-
-                <p>{category.discount}</p>
-
-                <button
-                  onClick={() =>
-                    // navigate(`/category/${category._id}`)
-                    navigate(`/category/${category._id}`)
-                  }
-                >
-                  Explore Products
-                </button>
-
-              </div>
+              <img
+                className="w-full h-full object-cover"
+                src={`http://localhost:3001/uploads/${category.image}`}
+                alt={category.title}
+              />
 
             </div>
-          ))}
 
-        </div>
+            <div className="p-4 text-center">
+
+              <h3 className="font-display text-xl text-on-surface mb-2">{category.title}</h3>
+
+              <p className="text-sm text-on-surface-variant mb-3">{category.discount}</p>
+
+              <button
+                className="bg-primary text-white border-none py-2.5 px-6 rounded-lg cursor-pointer text-sm font-semibold hover:bg-primary-dark"
+                onClick={() =>
+                  // navigate(`/category/${category._id}`)
+                  navigate(`/category/${category._id}`)
+                }
+              >
+                Explore Products
+              </button>
+
+            </div>
+
+          </div>
+        ))}
 
       </div>
 

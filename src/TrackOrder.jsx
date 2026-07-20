@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./trackOrder.css";
 import Navbar from "./navbar.jsx";
 import Footer from "./footer.jsx";
 import WhatsAppButton from "./WhatsAppButton.jsx";
@@ -60,22 +59,22 @@ function TrackOrder() {
     <>
       <Navbar />
 
-      <div className="track-page">
-        <div className="track-container">
+      <div className="py-16 px-6 max-w-[900px] mx-auto">
 
-          <div className="track-header">
-            <h1>Track Your Order</h1>
+          <div className="text-center mb-10">
+            <h1 className="font-display text-4xl font-bold text-primary mb-2">Track Your Order</h1>
 
-            <p>
+            <p className="text-on-surface-variant">
               Enter your Order ID to check your order status.
             </p>
           </div>
 
-          <div className="track-box">
+          <div className="bg-white rounded-2xl shadow-card p-8">
 
-            <div className="track-input">
+            <div className="flex gap-3 mb-8 max-[600px]:flex-col">
 
               <input
+                className="flex-1 py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
                 type="text"
                 placeholder="Enter Order ID"
                 value={orderId}
@@ -85,6 +84,7 @@ function TrackOrder() {
               />
 
               <button
+                className="bg-primary text-white border-none py-3 px-6 rounded-lg font-semibold cursor-pointer hover:bg-primary-dark disabled:opacity-50"
                 onClick={handleTrack}
                 disabled={loading}
               >
@@ -95,36 +95,36 @@ function TrackOrder() {
 
             {order && (
 
-              <div className="order-result">
+              <div>
 
-                <div className="order-top">
+                <div className="flex justify-between items-center mb-6 pb-4 border-b border-outline-variant">
 
                   <div>
-                    <span>Order ID</span>
+                    <span className="text-sm text-on-surface-variant">Order ID</span>
 
-                    <h3>{order.orderId}</h3>
+                    <h3 className="text-lg font-bold text-on-surface">{order.orderId}</h3>
                   </div>
 
-                  <div className="status">
+                  <div className="bg-primary text-white py-1 px-4 rounded-full text-sm font-bold">
                     {order.status}
                   </div>
 
                 </div>
 
-                <div className="order-details">
+                <div className="grid grid-cols-4 gap-4 mb-8 max-[600px]:grid-cols-2">
 
                   <div>
-                    <span>Customer</span>
+                    <span className="text-xs text-on-surface-variant">Customer</span>
 
-                    <h4>
+                    <h4 className="text-sm font-semibold text-on-surface">
                       {order.firstName} {order.lastName}
                     </h4>
                   </div>
 
                   <div>
-                    <span>Order Date</span>
+                    <span className="text-xs text-on-surface-variant">Order Date</span>
 
-                    <h4>
+                    <h4 className="text-sm font-semibold text-on-surface">
                       {new Date(
                         order.createdAt
                       ).toLocaleDateString()}
@@ -132,15 +132,15 @@ function TrackOrder() {
                   </div>
 
                   <div>
-                    <span>Total Items</span>
+                    <span className="text-xs text-on-surface-variant">Total Items</span>
 
-                    <h4>{totalItems}</h4>
+                    <h4 className="text-sm font-semibold text-on-surface">{totalItems}</h4>
                   </div>
 
                   <div>
-                    <span>Total Amount</span>
+                    <span className="text-xs text-on-surface-variant">Total Amount</span>
 
-                    <h4>
+                    <h4 className="text-sm font-semibold text-on-surface">
                       Rs.{" "}
                       {Number(
                         order.totalPrice
@@ -150,115 +150,109 @@ function TrackOrder() {
 
                 </div>
 
-                <div className="progress">
+                <div className="flex items-center justify-center gap-2 my-8 max-[600px]:gap-1">
 
                   <div
-                    className={`step ${
+                    className={`flex flex-col items-center gap-2 ${
                       isReceived ? "active" : ""
                     }`}
                   >
-                    <div>
+                    <div className={`w-10 h-10 rounded-full border-2 ${isReceived ? "border-primary bg-primary text-white" : "border-outline-variant text-on-surface-variant"} flex items-center justify-center text-sm font-bold`}>
                       {isReceived ? "✓" : "1"}
                     </div>
 
-                    <p>Received</p>
+                    <p className="text-xs text-on-surface-variant m-0">Received</p>
                   </div>
 
                   <div
-                    className={`line ${
+                    className={`w-[60px] h-[2px] ${
                       isProcessing
-                        ? "active-line"
-                        : ""
+                        ? "bg-primary"
+                        : "bg-outline-variant"
                     }`}
                   ></div>
 
                   <div
-                    className={`step ${
+                    className={`flex flex-col items-center gap-2 ${
                       isProcessing
                         ? "active"
                         : ""
                     }`}
                   >
-                    <div>
+                    <div className={`w-10 h-10 rounded-full border-2 ${isProcessing ? "border-primary bg-primary text-white" : "border-outline-variant text-on-surface-variant"} flex items-center justify-center text-sm font-bold`}>
                       {isProcessing ? "✓" : "2"}
                     </div>
 
-                    <p>Processing</p>
+                    <p className="text-xs text-on-surface-variant m-0">Processing</p>
                   </div>
 
                   <div
-                    className={`line ${
+                    className={`w-[60px] h-[2px] ${
                       isShipped
-                        ? "active-line"
-                        : ""
+                        ? "bg-primary"
+                        : "bg-outline-variant"
                     }`}
                   ></div>
 
                   <div
-                    className={`step ${
+                    className={`flex flex-col items-center gap-2 ${
                       isShipped
                         ? "active"
                         : ""
                     }`}
                   >
-                    <div>
+                    <div className={`w-10 h-10 rounded-full border-2 ${isShipped ? "border-primary bg-primary text-white" : "border-outline-variant text-on-surface-variant"} flex items-center justify-center text-sm font-bold`}>
                       {isShipped ? "✓" : "3"}
                     </div>
 
-                    <p>Shipped</p>
+                    <p className="text-xs text-on-surface-variant m-0">Shipped</p>
                   </div>
 
                   <div
-                    className={`line ${
+                    className={`w-[60px] h-[2px] ${
                       isDelivered
-                        ? "active-line"
-                        : ""
+                        ? "bg-primary"
+                        : "bg-outline-variant"
                     }`}
                   ></div>
 
                   <div
-                    className={`step ${
+                    className={`flex flex-col items-center gap-2 ${
                       isDelivered
                         ? "active"
                         : ""
                     }`}
                   >
-                    <div>
+                    <div className={`w-10 h-10 rounded-full border-2 ${isDelivered ? "border-primary bg-primary text-white" : "border-outline-variant text-on-surface-variant"} flex items-center justify-center text-sm font-bold`}>
                       {isDelivered ? "✓" : "4"}
                     </div>
 
-                    <p>Delivered</p>
+                    <p className="text-xs text-on-surface-variant m-0">Delivered</p>
                   </div>
 
                 </div>
 
                 <div
-                  style={{
-                    marginTop: "35px",
-                  }}
+                  className="mt-[35px]"
                 >
 
-                  <h3>Ordered Products</h3>
+                  <h3 className="text-lg font-bold text-on-surface">Ordered Products</h3>
 
                   <table
-                    className="order-products-table"
-                    style={{
-                      width: "100%",
-                      marginTop: "15px",
-                    }}
+                    className="w-full mt-4"
                   >
 
                     <thead>
 
                       <tr>
 
-                        <th>Product</th>
+                        <th className="text-left py-2 px-3 border-b border-outline-variant text-sm font-semibold text-on-surface-variant">Product</th>
 
-                        <th>Qty</th>
+                        <th className="text-left py-2 px-3 border-b border-outline-variant text-sm font-semibold text-on-surface-variant">Qty</th>
 
-                        <th>Price</th>
+                        <th className="text-left py-2 px-3 border-b border-outline-variant text-sm font-semibold text-on-surface-variant">Price</th>
 
-                        <th>Subtotal</th>
+                        <th className="text-left py-2 px-3 border-b border-outline-variant text-sm font-semibold text-on-surface-variant">Subtotal</th>
 
                       </tr>
 
@@ -270,19 +264,19 @@ function TrackOrder() {
 
                         <tr key={item.productId}>
 
-                          <td>
+                          <td className="py-2 px-3 border-b border-outline-variant text-sm text-on-surface">
                             {item.productTitle}
                           </td>
 
-                          <td>
+                          <td className="py-2 px-3 border-b border-outline-variant text-sm text-on-surface">
                             {item.quantity}
                           </td>
 
-                          <td>
+                          <td className="py-2 px-3 border-b border-outline-variant text-sm text-on-surface">
                             Rs. {item.price}
                           </td>
 
-                          <td>
+                          <td className="py-2 px-3 border-b border-outline-variant text-sm text-on-surface">
                             Rs.{" "}
                             {(
                               item.price *
@@ -306,7 +300,6 @@ function TrackOrder() {
 
           </div>
 
-        </div>
       </div>
 
       <Footer />

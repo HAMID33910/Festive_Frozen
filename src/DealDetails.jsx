@@ -3,13 +3,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import Navbar from "./navbar";
 import Footer from "./footer";
-import "./DealDetails.css";
 
 function DealDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, addToWishlist } = useContext(CartContext);
 
   const [deal, setDeal] = useState(null);
   const [relatedDeals, setRelatedDeals] = useState([]);
@@ -63,7 +62,7 @@ function DealDetails() {
     return (
       <>
         <Navbar />
-        <div className="deal-loading">
+        <div className="text-center py-20 text-xl text-on-surface-variant">
           Loading...
         </div>
         <Footer />
@@ -101,75 +100,80 @@ function DealDetails() {
     <>
       <Navbar />
 
-      <section className="deal-details-page">
+      <section className="py-12 px-6 max-w-[1280px] mx-auto">
 
-        <div className="deal-details-container">
+        <div className="grid grid-cols-2 gap-10 max-[768px]:grid-cols-1 mb-16">
 
-          <div className="deal-image-section">
+          <div className="relative rounded-2xl overflow-hidden">
 
-            <span className="deal-discount-badge">
+            <span className="absolute top-4 left-4 bg-primary text-white py-2 px-4 rounded-full text-sm font-bold z-10">
               {deal.discount}% OFF
             </span>
 
             <img
               src={`http://localhost:3001/dealuploads/${deal.dealImage}`}
               alt={deal.dealName}
+              className="w-full h-auto object-cover"
             />
+
+            <div className="absolute top-4 right-4 z-10">
+              <button onClick={() => addToWishlist({ _id: deal._id, productTitle: deal.dealName, productPrice: deal.discountedPrice, productImage: deal.dealImage })} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-surface/90 text-primary cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
+            </div>
 
           </div>
 
-          <div className="deal-info-section">
+          <div className="flex flex-col">
 
-            <span className="deal-category">
+            <span className="text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">
               Limited Time Offer
             </span>
 
-            <h1>{deal.dealName}</h1>
+            <h1 className="font-display text-3xl font-bold text-on-surface mb-3">{deal.dealName}</h1>
 
-            <div className="deal-rating">
+            <div className="text-star mb-4 text-lg">
               ★★★★★
-              <span>(4.9)</span>
+              <span className="text-sm text-on-surface-variant ml-2">(4.9)</span>
             </div>
 
-            <div className="deal-prices">
+            <div className="flex items-center gap-4 mb-3">
 
-              <h2>
+              <h2 className="text-3xl font-bold text-primary">
                 Rs. {deal.discountedPrice}
               </h2>
 
-              <del>
+              <del className="text-gray-400 text-lg">
                 Rs. {deal.originalPrice}
               </del>
 
             </div>
 
-            <div className="deal-saving">
+            <div className="bg-deal-saving/30 text-primary-dark py-2 px-4 rounded-lg font-semibold text-sm mb-4 inline-block">
               You Save Rs.
               {" "}
               {deal.originalPrice -
                 deal.discountedPrice}
             </div>
 
-            <div className="deal-countdown">
+            <div className="bg-primary text-white py-3 px-5 rounded-lg text-center font-bold text-lg mb-6">
               {timeLeft}
             </div>
 
-            <div className="deal-description">
+            <div className="mb-6">
 
-              <h3>Description</h3>
+              <h3 className="font-display text-xl font-bold text-on-surface mb-3">Description</h3>
 
-              <p>
+              <p className="text-on-surface-variant leading-relaxed">
                 {deal.description ||
                   "Enjoy this amazing frozen food deal before the offer ends."}
               </p>
 
             </div>
 
-            <div className="deal-dates">
+            <div className="mb-6">
 
-              <p>
+              <p className="text-sm text-on-surface-variant mb-1">
 
-                <strong>Offer Starts :</strong>{" "}
+                <strong className="text-on-surface">Offer Starts :</strong>{" "}
 
                 {new Date(
                   deal.startDate
@@ -177,9 +181,9 @@ function DealDetails() {
 
               </p>
 
-              <p>
+              <p className="text-sm text-on-surface-variant mb-1">
 
-                <strong>Offer Ends :</strong>{" "}
+                <strong className="text-on-surface">Offer Ends :</strong>{" "}
 
                 {new Date(
                   deal.endDate
@@ -189,9 +193,10 @@ function DealDetails() {
 
             </div>
 
-            <div className="deal-quantity">
+            <div className="flex items-center gap-4 mb-6">
 
               <button
+                className="w-10 h-10 rounded-lg border border-outline-variant bg-white cursor-pointer text-lg font-bold hover:bg-surface-container"
                 onClick={() =>
                   quantity > 1 &&
                   setQuantity(quantity - 1)
@@ -200,9 +205,10 @@ function DealDetails() {
                 -
               </button>
 
-              <span>{quantity}</span>
+              <span className="text-lg font-semibold min-w-[40px] text-center">{quantity}</span>
 
               <button
+                className="w-10 h-10 rounded-lg border border-outline-variant bg-white cursor-pointer text-lg font-bold hover:bg-surface-container"
                 onClick={() =>
                   setQuantity(quantity + 1)
                 }
@@ -212,17 +218,17 @@ function DealDetails() {
 
             </div>
 
-            <div className="deal-buttons">
+            <div className="flex gap-3">
 
               <button
-                className="deal-buy-btn"
+                className="flex-1 bg-primary text-white border-none py-3 rounded-lg cursor-pointer font-semibold hover:bg-primary-dark"
                 onClick={handleBuyNow}
               >
                 Buy Now
               </button>
 
               <button
-                className="deal-cart-btn"
+                className="flex-1 bg-card-warm text-on-surface border-none py-3 rounded-lg cursor-pointer font-semibold hover:bg-primary hover:text-white"
                 onClick={handleAddToCart}
               >
                 Add To Cart
@@ -234,11 +240,11 @@ function DealDetails() {
 
         </div>
 
-        <div className="related-deals">
+        <div className="mt-16">
 
-          <h2>Related Deals</h2>
+          <h2 className="font-display text-2xl font-bold text-on-surface mb-6">Related Deals</h2>
 
-          <div className="related-grid">
+          <div className="grid grid-cols-4 gap-5 max-[900px]:grid-cols-3 max-[600px]:grid-cols-2 max-[380px]:grid-cols-1">
 
             {relatedDeals
               .filter((item) => item._id !== deal._id)
@@ -246,7 +252,7 @@ function DealDetails() {
               .map((item) => (
 
                 <div
-                  className="related-card"
+                  className="bg-white rounded-xl p-4 shadow-card text-center cursor-pointer"
                   key={item._id}
                   onClick={() =>
                     navigate(`/deal/${item._id}`)
@@ -256,11 +262,12 @@ function DealDetails() {
                   <img
                     src={`http://localhost:3001/dealuploads/${item.dealImage}`}
                     alt={item.dealName}
+                    className="w-full h-[180px] object-cover rounded-lg mb-3"
                   />
 
-                  <h4>{item.dealName}</h4>
+                  <h4 className="font-display text-base text-on-surface mb-1">{item.dealName}</h4>
 
-                  <p>
+                  <p className="text-primary font-bold">
                     Rs. {item.discountedPrice}
                   </p>
 

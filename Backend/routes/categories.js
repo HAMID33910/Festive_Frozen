@@ -4,6 +4,7 @@ const path = require("path");
 const fs = require("fs");
 
 const Category = require("../models/Category");
+const Product = require("../models/Product");
 
 const router = express.Router();
 
@@ -341,9 +342,22 @@ message:"Category not found"
 
 
 
+// Delete all products under this category and their images
+const products = await Product.find({ categoryId: req.params.id });
+const productUploadPath = path.join(__dirname, "../productuploads");
 
-// Delete image from folder
+for (const product of products) {
+  if (product.productImage) {
+    const imgPath = path.join(productUploadPath, product.productImage);
+    if (fs.existsSync(imgPath)) {
+      fs.unlinkSync(imgPath);
+    }
+  }
+}
 
+await Product.deleteMany({ categoryId: req.params.id });
+
+// Delete category image from folder
 if(category.image){
 
 

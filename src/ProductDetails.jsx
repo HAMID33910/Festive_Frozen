@@ -3,13 +3,12 @@ import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import Navbar from "./navbar";
 import Footer from "./footer";
-import "./ProductDetails.css";
 
 function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const { addToCart, setShowLoginModal } = useContext(CartContext);
+  const { addToCart, addToWishlist, setShowLoginModal } = useContext(CartContext);
 
   const [product, setProduct] = useState(null);
   const [relatedProducts, setRelatedProducts] = useState([]);
@@ -96,8 +95,8 @@ function ProductDetails() {
       <>
         <Navbar />
 
-        <div className="product-loading">
-          <h2>Loading Product...</h2>
+        <div className="text-center py-20">
+          <h2 className="text-2xl text-on-surface-variant">Loading Product...</h2>
         </div>
 
         <Footer />
@@ -110,8 +109,8 @@ function ProductDetails() {
       <>
         <Navbar />
 
-        <div className="product-loading">
-          <h2>Product Not Found</h2>
+        <div className="text-center py-20">
+          <h2 className="text-2xl text-on-surface-variant">Product Not Found</h2>
         </div>
 
         <Footer />
@@ -123,20 +122,25 @@ function ProductDetails() {
     <>
       <Navbar />
 
-      <section className="product-details-page">
+      <section className="py-12 px-6 max-w-[1280px] mx-auto">
 
-        <div className="product-details-container">
+        <div className="grid grid-cols-2 gap-10 max-[768px]:grid-cols-1">
 
           {/* LEFT SIDE */}
 
-          <div className="details-left">
+          <div>
 
-            <div className="details-image-box">
+            <div className="relative rounded-2xl overflow-hidden">
 
               <img
                 src={`http://localhost:3001/productuploads/${product.productImage}`}
                 alt={product.productTitle}
+                className="w-full h-auto object-cover"
               />
+
+              <div className="absolute top-3.5 right-3.5">
+                <button onClick={() => addToWishlist(product)} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-surface/90 text-primary cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
+              </div>
 
             </div>
 
@@ -144,107 +148,107 @@ function ProductDetails() {
 
           {/* RIGHT SIDE */}
 
-          <div className="details-right">
+          <div className="flex flex-col">
 
-            <span className="details-category">
+            <span className="text-xs font-semibold text-on-surface-variant mb-2 uppercase tracking-wider">
               {product.categoryId?.title || "Frozen Food"}
             </span>
 
-            <h1>{product.productTitle}</h1>
+            <h1 className="font-display text-3xl font-bold text-on-surface mb-3">{product.productTitle}</h1>
 
-            <div className="details-rating">
+            <div className="text-star mb-4 text-lg">
               ★★★★★
-              <span>(4.9 Rating)</span>
+              <span className="text-sm text-on-surface-variant ml-2">(4.9 Rating)</span>
             </div>
 
-            <div className="details-price">
+            <div className="text-3xl font-bold text-primary mb-4">
               Rs. {product.productPrice}
             </div>
 
-            <p className="details-description">
+            <p className="text-on-surface-variant mb-6 leading-relaxed">
               {product.description}
             </p>
 
-            <div className="stock-box">
+            <div className="mb-6">
 
               {product.stock > 0 ? (
-                <span className="in-stock">
+                <span className="text-success-green font-semibold">
                   In Stock ({product.stock})
                 </span>
               ) : (
-                <span className="out-stock">
+                <span className="text-error-light font-semibold">
                   Out of Stock
                 </span>
               )}
 
             </div>
 
-            <div className="quantity-section">
+            <div className="flex items-center gap-4 mb-6">
 
-              <button onClick={decreaseQty}>
+              <button className="w-10 h-10 rounded-lg border border-outline-variant bg-white cursor-pointer text-lg font-bold hover:bg-surface-container" onClick={decreaseQty}>
                 -
               </button>
 
-              <span>{quantity}</span>
+              <span className="text-lg font-semibold min-w-[40px] text-center">{quantity}</span>
 
-              <button onClick={increaseQty}>
+              <button className="w-10 h-10 rounded-lg border border-outline-variant bg-white cursor-pointer text-lg font-bold hover:bg-surface-container" onClick={increaseQty}>
                 +
               </button>
 
             </div>
 
-            <div className="details-buttons">
+            <div className="flex gap-3 mb-6">
 
               <button
-                className="details-cart-btn"
+                className="flex-1 bg-card-warm text-on-surface border-none py-3 rounded-lg cursor-pointer font-semibold hover:bg-primary hover:text-white"
                 onClick={handleAddToCart}
               >
                 Add to Cart
               </button>
 
               <button
-                className="details-buy-btn"
+                className="flex-1 bg-primary text-white border-none py-3 rounded-lg cursor-pointer font-semibold hover:bg-primary-dark"
                 onClick={handleBuyNow}
               >
                 Buy Now
               </button>
 
             </div>
-                        <div className="details-info-box">
+                        <div className="bg-surface-container-low rounded-xl p-5 mb-6">
 
-              <div className="info-item">
-                <h4>Category</h4>
-                <p>
+              <div className="flex justify-between py-2 border-b border-outline-variant/50 last:border-b-0">
+                <h4 className="text-sm font-semibold text-on-surface-variant">Category</h4>
+                <p className="text-sm text-on-surface">
                   {product.categoryId?.title || "Frozen Food"}
                 </p>
               </div>
 
-              <div className="info-item">
-                <h4>Availability</h4>
-                <p>
+              <div className="flex justify-between py-2 border-b border-outline-variant/50 last:border-b-0">
+                <h4 className="text-sm font-semibold text-on-surface-variant">Availability</h4>
+                <p className="text-sm text-on-surface">
                   {product.stock > 0
                     ? "Available"
                     : "Out of Stock"}
                 </p>
               </div>
 
-              <div className="info-item">
-                <h4>Delivery</h4>
-                <p>Delivery in 1–3 working days.</p>
+              <div className="flex justify-between py-2 border-b border-outline-variant/50 last:border-b-0">
+                <h4 className="text-sm font-semibold text-on-surface-variant">Delivery</h4>
+                <p className="text-sm text-on-surface">Delivery in 1–3 working days.</p>
               </div>
 
             </div>
 
-            <div className="details-features">
+            <div className="mb-8">
 
-              <h3>Why You'll Love It</h3>
+              <h3 className="font-display text-xl font-bold text-on-surface mb-3">Why You'll Love It</h3>
 
-              <ul>
-                <li>Premium quality frozen food.</li>
-                <li>Freshly packed and hygienically processed.</li>
-                <li>Rich taste with long shelf life.</li>
-                <li>Perfect for quick family meals.</li>
-                <li>Stored at optimum freezing temperature.</li>
+              <ul className="list-none p-0 m-0">
+                <li className="py-1.5 text-on-surface-variant">Premium quality frozen food.</li>
+                <li className="py-1.5 text-on-surface-variant">Freshly packed and hygienically processed.</li>
+                <li className="py-1.5 text-on-surface-variant">Rich taste with long shelf life.</li>
+                <li className="py-1.5 text-on-surface-variant">Perfect for quick family meals.</li>
+                <li className="py-1.5 text-on-surface-variant">Stored at optimum freezing temperature.</li>
               </ul>
 
             </div>
@@ -255,31 +259,33 @@ function ProductDetails() {
 
         {relatedProducts.length > 0 && (
 
-          <div className="related-products">
+          <div className="mt-16">
 
-            <h2>Related Products</h2>
+            <h2 className="font-display text-2xl font-bold text-on-surface mb-6">Related Products</h2>
 
-            <div className="related-grid">
+            <div className="grid grid-cols-4 gap-5 max-[900px]:grid-cols-3 max-[600px]:grid-cols-2 max-[380px]:grid-cols-1">
 
               {relatedProducts.map((item) => (
 
                 <div
-                  className="related-card"
+                  className="bg-white rounded-xl p-4 shadow-card text-center"
                   key={item._id}
                 >
 
                   <img
                     src={`http://localhost:3001/productuploads/${item.productImage}`}
                     alt={item.productTitle}
+                    className="w-full h-[180px] object-cover rounded-lg mb-3"
                   />
 
-                  <h4>{item.productTitle}</h4>
+                  <h4 className="font-display text-base text-on-surface mb-1">{item.productTitle}</h4>
 
-                  <p>
+                  <p className="text-primary font-bold mb-3">
                     Rs. {item.productPrice}
                   </p>
 
                   <button
+                    className="bg-primary text-white border-none py-2 px-4 rounded-lg cursor-pointer text-sm font-semibold hover:bg-primary-dark"
                     onClick={() =>
                       navigate(`/product/${item._id}`)
                     }
@@ -306,5 +312,3 @@ function ProductDetails() {
 }
 
 export default ProductDetails;
-
-            
