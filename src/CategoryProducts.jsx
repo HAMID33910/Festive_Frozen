@@ -69,7 +69,7 @@ function CategoryProducts() {
             {products.map((product) => (
 
               <div
-                className="bg-white rounded-2xl overflow-hidden shadow-card transition-transform duration-300 hover:-translate-y-1.5"
+                className="bg-white rounded-2xl overflow-hidden shadow-card transition-transform duration-300 hover:-translate-y-1.5 flex flex-col"
                 key={product._id}
               >
 
@@ -83,7 +83,7 @@ function CategoryProducts() {
 
                 </div>
 
-                <div className="p-4">
+                <div className="p-4 flex flex-col flex-1">
 
                   <span className="text-xs font-semibold text-on-surface-variant mb-1.5">
 
@@ -113,7 +113,7 @@ function CategoryProducts() {
 
                   </div>
 
-                  <div className="flex gap-2.5">
+                  <div className="flex gap-2.5 mt-auto">
                     
                                         {/* <button
                       className="category-buy-btn"

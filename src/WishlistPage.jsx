@@ -28,7 +28,7 @@ function WishlistPage() {
               {wishlistItems.map((item) => (
                 <div className="bg-white rounded-xl overflow-hidden shadow-card border border-wishlist-border" key={item._id}>
                   <img
-                    src={`http://localhost:3001/productuploads/${item.productImage}`}
+                    src={item.imageType === "deal" ? `http://localhost:3001/dealuploads/${item.productImage}` : `http://localhost:3001/productuploads/${item.productImage}`}
                     alt={item.productTitle}
                     className="w-full h-[220px] object-cover"
                   />

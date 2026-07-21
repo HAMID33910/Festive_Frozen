@@ -163,6 +163,10 @@
 }
 
 @layer components {
+  .swiper-slide > div {
+    height: 100% !important;
+  }
+
   .swiper-pagination-bullet-active {
     background: var(--color-primary) !important;
   }

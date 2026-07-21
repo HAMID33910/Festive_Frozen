@@ -36,7 +36,7 @@ function Products() {
 
         {products.map((product) => (
           <div
-            className="bg-white rounded-2xl overflow-hidden shadow-card transition-transform duration-300 hover:-translate-y-1.5"
+            className="bg-white rounded-2xl overflow-hidden shadow-card transition-transform duration-300 hover:-translate-y-1.5 flex flex-col"
             key={product._id}
           >
 
@@ -54,7 +54,7 @@ function Products() {
 
             </div>
 
-            <div className="p-4">
+            <div className="p-4 flex flex-col flex-1">
 
               <span className="text-xs font-semibold text-on-surface-variant mb-1.5">
                 {product.categoryId?.title || "Frozen Food"}
@@ -72,7 +72,7 @@ function Products() {
                 </span>
               </div>
 
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 mt-auto">
 
                 <button className="flex-1 border-none bg-primary text-white py-3 rounded-lg cursor-pointer text-sm font-semibold hover:bg-primary-dark" onClick={() => navigate(`/product/${product._id}`)}>
                   Buy Now

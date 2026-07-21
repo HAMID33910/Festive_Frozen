@@ -81,7 +81,7 @@ function DiscountOffers() {
                 </div>
 
                 <div className="absolute top-3.5 right-3.5">
-                  <button onClick={() => addToWishlist({ _id: item._id, productTitle: item.dealName, productPrice: item.discountedPrice, productImage: item.dealImage })} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-surface/90 text-primary cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
+                  <button onClick={() => addToWishlist({ _id: item._id, productTitle: item.dealName, productPrice: item.discountedPrice, productImage: item.dealImage, imageType: "deal" })} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-surface/90 text-primary cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
                 </div>
 
               </div>

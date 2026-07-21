@@ -58,7 +58,7 @@ function Offers() {
               {offers.map((offer) => (
 
                 <div
-                  className="bg-white rounded-2xl overflow-hidden shadow-card transition-transform duration-300 hover:-translate-y-1.5"
+                  className="bg-white rounded-2xl overflow-hidden shadow-card transition-transform duration-300 hover:-translate-y-1.5 flex flex-col"
                   key={offer._id}
                 >
 
@@ -75,12 +75,12 @@ function Offers() {
                     </span>
 
                     <div className="absolute top-3.5 right-3.5">
-                      <button onClick={() => addToWishlist({ _id: offer._id, productTitle: offer.dealName, productPrice: offer.discountedPrice, productImage: offer.dealImage })} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-surface/90 text-primary cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
+                      <button onClick={() => addToWishlist({ _id: offer._id, productTitle: offer.dealName, productPrice: offer.discountedPrice, productImage: offer.dealImage, imageType: "deal" })} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-surface/90 text-primary cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
                     </div>
 
                   </div>
 
-                  <div className="p-4">
+                  <div className="p-4 flex flex-col flex-1">
 
                     <span className="text-xs font-semibold text-on-surface-variant mb-1.5">
                       Limited Time Offer
@@ -118,7 +118,7 @@ function Offers() {
 
                     </div>
 
-                    <div className="flex items-center gap-2.5 mt-4">
+                    <div className="flex items-center gap-2.5 mt-auto">
 
   <button
     className="flex-1 bg-primary text-white border-none py-3 rounded-lg cursor-pointer text-sm font-semibold hover:bg-primary-dark"

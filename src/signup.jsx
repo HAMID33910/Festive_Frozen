@@ -140,8 +140,8 @@ export default function SignupScreen() {
         </div>
       </div>
 
-      <div className="flex-1 flex items-center justify-center p-10 max-[768px]:p-6 max-[480px]:p-4 max-[768px]:overflow-y-auto">
-        <div className="w-full max-w-[420px]">
+      <div className="flex-1 flex items-start justify-start pt-12 p-10 max-[768px]:items-center max-[768px]:justify-center max-[768px]:pt-0 max-[768px]:p-6 max-[480px]:p-4 max-[768px]:overflow-y-auto">
+        <div className="w-full max-w-[520px]">
           <Link to="/" className="block font-display text-2xl font-bold text-primary mb-8 no-underline leading-tight">FESTIVE <br />FROZEN</Link>
 
           <h2 className="font-display text-2xl font-bold text-on-surface mb-2 max-[480px]:text-xl">Create your account</h2>
@@ -154,7 +154,7 @@ export default function SignupScreen() {
               <div className="flex flex-col mb-1">
                 <label className="text-sm font-semibold text-on-surface mb-1" htmlFor="firstName">First name</label>
                 <input
-                  className="w-full py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                  className="w-full py-3.5 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
                   id="firstName"
                   name="firstName"
                   type="text"
@@ -169,7 +169,7 @@ export default function SignupScreen() {
               <div className="flex flex-col mb-1">
                 <label className="text-sm font-semibold text-on-surface mb-1" htmlFor="lastName">Last name</label>
                 <input
-                  className="w-full py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                  className="w-full py-3.5 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
                   id="lastName"
                   name="lastName"
                   type="text"
@@ -186,7 +186,7 @@ export default function SignupScreen() {
             <div className="flex flex-col mb-1">
               <label className="text-sm font-semibold text-on-surface mb-1" htmlFor="phone">Phone number</label>
               <input
-                className="w-full py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                className="w-full py-3.5 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
                 id="phone"
                 name="phone"
                 type="tel"
@@ -201,7 +201,7 @@ export default function SignupScreen() {
             <div className="flex flex-col mb-1">
               <label className="text-sm font-semibold text-on-surface mb-1" htmlFor="email">Email</label>
               <input
-                className="w-full py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                className="w-full py-3.5 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
                 id="email"
                 name="email"
                 type="email"
@@ -219,7 +219,7 @@ export default function SignupScreen() {
               <label className="text-sm font-semibold text-on-surface mb-1" htmlFor="password">Password</label>
               <div className="relative">
                 <input
-                  className="w-full pr-10 py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                  className="w-full pr-10 py-3.5 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
                   id="password"
                   name="password"
                   type={showPassword ? "text" : "password"}
@@ -245,7 +245,7 @@ export default function SignupScreen() {
             <div className="flex flex-col mb-1">
               <label className="text-sm font-semibold text-on-surface mb-1" htmlFor="confirmPassword">Confirm password</label>
               <input
-                className="w-full py-3 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                className="w-full py-3.5 px-4 border border-outline-variant rounded-lg text-base focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
                 id="confirmPassword"
                 name="confirmPassword"
                 type={showPassword ? "text" : "password"}

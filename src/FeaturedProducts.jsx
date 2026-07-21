@@ -66,7 +66,7 @@ function Products() {
         {products.map((product) => (
           <SwiperSlide key={product._id}>
 
-            <div className="bg-surface-container rounded-2xl overflow-hidden shadow-card-brand transition-all duration-300 flex flex-col max-w-[310px] w-full mx-auto hover:-translate-y-1.5">
+            <div className="bg-surface-container rounded-2xl overflow-hidden shadow-card-brand transition-all duration-300 h-full flex flex-col hover:-translate-y-1.5">
 
               <div className="relative h-[230px] overflow-hidden bg-surface-container-low max-[600px]:h-[220px] max-[380px]:h-[200px]">
 
@@ -88,23 +88,21 @@ function Products() {
                   Frozen Food 
                 </span>
 
-                <h3 className="font-display text-[22px] text-on-surface m-0 mb-4 leading-[1.35] max-[600px]:text-xl">{product.productTitle}</h3>
+                <h3 className="font-display text-[22px] text-on-surface m-0 mb-3.5 leading-[1.3] max-[600px]:text-xl">{product.productTitle}</h3>
 
-                <div className="mt-auto">
+                <div className="flex items-center gap-2.5 mb-[18px]">
 
-                  <div className="flex justify-between items-center mb-[18px]">
+                  <span className="text-[21px] font-bold text-primary">
+                    Rs. {product.productPrice}
+                  </span>
 
-                    <span className="text-[21px] font-bold text-primary">
-                      Rs. {product.productPrice}
-                    </span>
-
-                    <div className="flex gap-1 text-primary-container text-sm">
-                      ★ <span className="text-on-surface">4.9</span>
-                    </div>
-
+                  <div className="flex gap-1 text-primary-container text-sm">
+                    ★ <span className="text-on-surface">4.9</span>
                   </div>
 
-                  <div className="flex items-center gap-2.5">
+                </div>
+
+                <div className="flex items-center gap-2.5 mt-auto">
 
                     <button
   className="flex-1 border-none bg-primary text-white py-3 rounded-lg cursor-pointer text-[15px] font-semibold transition-colors duration-300 hover:bg-primary-dark max-[380px]:text-sm"
@@ -121,8 +119,6 @@ function Products() {
                     >
                       🛒
                     </button>
-
-                  </div>
 
                 </div>
 

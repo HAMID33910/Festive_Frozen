@@ -117,7 +117,7 @@ function DealDetails() {
             />
 
             <div className="absolute top-4 right-4 z-10">
-              <button onClick={() => addToWishlist({ _id: deal._id, productTitle: deal.dealName, productPrice: deal.discountedPrice, productImage: deal.dealImage })} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-surface/90 text-primary cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
+              <button onClick={() => addToWishlist({ _id: deal._id, productTitle: deal.dealName, productPrice: deal.discountedPrice, productImage: deal.dealImage, imageType: "deal" })} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-surface/90 text-primary cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
             </div>
 
           </div>

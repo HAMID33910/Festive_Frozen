@@ -77,8 +77,8 @@ function HotSales() {
         >
           {products.map((product) => (
             <SwiperSlide key={product._id}>
-              <div className="w-full max-w-[310px] mx-auto bg-white rounded-2xl overflow-hidden flex flex-col shadow-card transition-all duration-300 hover:-translate-y-1.5">
-                <div className="relative h-[230px] overflow-hidden bg-gray-100 max-[600px]:h-[220px] max-[380px]:h-[200px]">
+              <div className="bg-surface-container rounded-2xl overflow-hidden shadow-card-brand transition-all duration-300 h-full flex flex-col hover:-translate-y-1.5">
+                <div className="relative h-[230px] overflow-hidden bg-surface-container-low max-[600px]:h-[220px] max-[380px]:h-[200px]">
                   <img
                     src={`http://localhost:3001/productuploads/${product.productImage}`}
                     alt={product.productTitle}
@@ -88,29 +88,28 @@ function HotSales() {
                   <div className="absolute top-3.5 left-3.5 bg-sale text-white py-[7px] px-3.5 rounded-[30px] text-xs font-bold">HOT</div>
 
                   <div className="absolute top-3.5 right-3.5">
-                    <button onClick={() => addToWishlist(product)} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-white/95 text-primary font-[18px] cursor-pointer transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
+                    <button onClick={() => addToWishlist(product)} aria-label="Add to wishlist" className="w-10 h-10 border-none rounded-full bg-surface/90 text-primary cursor-pointer text-lg transition-all duration-300 hover:bg-primary hover:text-white">♥</button>
                   </div>
                 </div>
 
                 <div className="p-[18px] flex flex-col flex-1 max-[600px]:p-4">
-                  <span className="text-primary text-[13px] font-semibold mb-1.5">
+                  <span className="text-on-surface-variant text-xs font-semibold mb-1.5">
                     {product.categoryId?.title || "Frozen Food"}
                   </span>
 
-                  <h3 className="m-0 mb-4 text-[22px] text-[#222] leading-[1.35] font-display max-[600px]:text-xl">{product.productTitle}</h3>
+                  <h3 className="m-0 mb-3.5 text-[22px] text-on-surface leading-[1.3] font-display max-[600px]:text-xl">{product.productTitle}</h3>
 
-                  <div className="mt-auto">
-                    <div className="flex justify-between items-center mb-[18px]">
+                  <div className="flex items-center gap-2.5 mb-[18px]">
                       <span className="text-primary text-[21px] font-bold">
                         Rs. {product.productPrice}
                       </span>
 
-                      <div className="flex items-center gap-1 text-star">
-                        ★ <span className="text-[#444]">4.9</span>
+                      <div className="flex items-center gap-1 text-primary-container text-sm">
+                        ★ <span className="text-on-surface">4.9</span>
                       </div>
-                    </div>
+                  </div>
 
-                    <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-2.5 mt-auto">
                       <button
                         className="flex-1 border-none bg-primary text-white py-3 rounded-lg cursor-pointer text-[15px] font-semibold transition-colors duration-300 hover:bg-primary-dark max-[380px]:text-sm"
                         onClick={() => handleBuyNow(product)}
@@ -124,7 +123,6 @@ function HotSales() {
                       >
                         🛒 
                       </button>
-                    </div>
                   </div>
                 </div>
               </div>
