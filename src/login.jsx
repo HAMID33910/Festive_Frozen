@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "./firebase";
+import { API_URL } from "./config";
 
 export default function LoginScreen() {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ export default function LoginScreen() {
     setSubmitting(true);
     setServerError("");
     try {
-     const res = await fetch("http://localhost:3001/api/auth/login", {
+     const res = await fetch(`${API_URL}/api/auth/login`, {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -73,10 +74,11 @@ window.location.href = "/"; // Change this to your desired route after login
   };
 
   const googleLogin = async () => {
+    setServerError("");
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      const response = await fetch("http://localhost:3001/api/google-login", {
+      const response = await fetch(`${API_URL}/api/google-login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -91,12 +93,14 @@ window.location.href = "/"; // Change this to your desired route after login
       if (data.success) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
+        sessionStorage.setItem("showLoginToast", "true");
         navigate("/");
       } else {
-        alert(data.message);
+        setServerError(data.message);
       }
     } catch (err) {
       console.log(err);
+      setServerError(err.message || "Google login failed. Please try again.");
     }
   };
 
@@ -203,6 +207,7 @@ window.location.href = "/"; // Change this to your desired route after login
               </svg>
               Continue with Google
             </button>
+            {serverError && <span className="text-error-light text-xs mt-1 text-center">{serverError}</span>}
           </div>
         </div>
       </div>

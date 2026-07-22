@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { API_URL } from "./config";
 import { Autoplay } from "swiper/modules";
 import { CartContext } from "./CartContext";
 
@@ -13,7 +14,7 @@ function DiscountOffers() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/deals")
+    fetch(`${API_URL}/api/deals`)
       .then((res) => res.json())
       .then((data) => setOffers(data))
       .catch((err) => console.log(err));
@@ -71,7 +72,7 @@ function DiscountOffers() {
               <div className="relative h-[230px] overflow-hidden bg-surface-container-low max-[600px]:h-[220px] max-[380px]:h-[200px]">
 
                 <img
-                  src={`http://localhost:3001/dealuploads/${item.dealImage}`}
+                  src={`${API_URL}/dealuploads/${item.dealImage}`}
                   alt={item.dealName}
                   className="w-full h-full object-cover transition-transform duration-[0.45s] hover:scale-105"
                 />

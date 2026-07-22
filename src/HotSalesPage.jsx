@@ -1,7 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
-import Navbar from "./navbar";
+import { API_URL } from "./config";
+import Navbar from "./Navbar";
 import Footer from "./footer";
 import WhatsAppButton from "./WhatsAppButton";
 
@@ -12,7 +13,7 @@ function HotSalesPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/products")
+    fetch(`${API_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => {
         const latestProducts = [...data].sort(
@@ -51,7 +52,7 @@ function HotSalesPage() {
 
                 <img
                   className="w-full h-full object-cover"
-                  src={`http://localhost:3001/productuploads/${product.productImage}`}
+                  src={`${API_URL}/productuploads/${product.productImage}`}
                   alt={product.productTitle}
                 />
 

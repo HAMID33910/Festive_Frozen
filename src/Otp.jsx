@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { API_URL } from "./config";
 
 export default function OTP() {
 
@@ -121,7 +122,7 @@ export default function OTP() {
 
     try {
 
-      const res = await fetch("http://localhost:3001/api/auth/verify-otp", {
+      const res = await fetch(`${API_URL}/api/auth/verify-otp`, {
 
         method: "POST",
 
@@ -175,7 +176,7 @@ export default function OTP() {
 
     try {
 
-      await fetch("http://localhost:3001/api/auth/send-otp", {
+      await fetch(`${API_URL}/api/auth/send-otp`, {
 
         method: "POST",
 
@@ -213,7 +214,7 @@ export default function OTP() {
 
     <div className="flex min-h-screen max-[768px]:flex-col">
 
-      <div className="flex-1 relative bg-[url('/src/assets/frozen.jpg')] bg-cover bg-center hidden md:flex items-end p-12">
+      <div className="flex-1 relative bg-[url('/src/assets/frozen.png')] bg-cover bg-center hidden md:flex items-end p-12">
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
 

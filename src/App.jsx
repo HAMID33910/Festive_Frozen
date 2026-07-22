@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar.jsx";
 import Hero from "./hero.jsx";
 import CuratedCollections from "./CuratedCollections";
 import SignupScreen from "./signup.jsx";
@@ -8,7 +8,7 @@ import LoginScreen from "./login.jsx";
 import AdminPanel from "./Admin/adminpanel.jsx";
 import CartSidebar from "./CartSidebar";
 import Categories from "./Categories.jsx";
-import Products from "./Products";
+import Products from "./Products.jsx";
 import Checkout from "./Checkout.jsx"
 import Offers from "./Offers.jsx";
 import CategoryProducts from "./CategoryProducts.jsx";

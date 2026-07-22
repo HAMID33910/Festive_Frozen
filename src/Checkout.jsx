@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
+import { API_URL } from "./config";
 import { FiTrash2, FiCheck, FiCopy, FiCheckCircle } from "react-icons/fi";
-import Navbar from "./navbar.jsx"
+import Navbar from "./Navbar.jsx"
 import Footer from "./footer.jsx"
 import TrackOrder from "./TrackOrder.jsx"
 
@@ -101,7 +102,7 @@ const handleSubmit = async (e) => {
   try {
 
     const res = await fetch(
-      "http://localhost:3001/api/orders",
+      `${API_URL}/api/orders`,
       {
         method: "POST",
         headers: {
@@ -308,8 +309,8 @@ const handleSubmit = async (e) => {
   className="w-[80px] h-[80px] object-cover rounded-lg flex-shrink-0"
   src={
   item.imageType === "deal"
-    ? `http://localhost:3001/dealuploads/${item.productImage}`
-    : `http://localhost:3001/productuploads/${item.productImage}`
+    ? `${API_URL}/dealuploads/${item.productImage}`
+    : `${API_URL}/productuploads/${item.productImage}`
 }
   alt={item.productTitle}
 />

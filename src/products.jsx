@@ -1,8 +1,9 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { CartContext } from "./CartContext";
-import Navbar from "./navbar.jsx";
+import { CartContext } from "./CartContext.jsx";
+import Navbar from "./Navbar.jsx";
 import Footer from "./footer.jsx";
+import { API_URL } from "./config";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -10,7 +11,7 @@ function Products() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/products")
+    fetch(`${API_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log(err));
@@ -44,7 +45,7 @@ function Products() {
 
               <img
                 className="w-full h-full object-cover"
-                src={`http://localhost:3001/productuploads/${product.productImage}`}
+                src={`${API_URL}/productuploads/${product.productImage}`}
                 alt={product.productTitle}
               />
 

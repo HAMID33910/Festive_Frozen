@@ -10,6 +10,7 @@ import {
   Filler,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { API_URL } from "../config";
 
 ChartJS.register(
   CategoryScale,
@@ -37,7 +38,7 @@ function Dashboard() {
 
   const getDashboard = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/dashboard");
+      const res = await fetch(`${API_URL}/api/dashboard`);
       const data = await res.json();
       setStats({
         totalSales: data.totalSales || 0,

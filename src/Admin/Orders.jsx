@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FiEye, FiTrash2 } from "react-icons/fi";
+import { API_URL } from "../config";
 
 function Orders() {
   const [orders, setOrders] = useState([]);
@@ -12,7 +13,7 @@ function Orders() {
 
   const getOrders = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/orders");
+      const res = await fetch(`${API_URL}/api/orders`);
       const data = await res.json();
       setOrders(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -33,7 +34,7 @@ function Orders() {
   const deleteOrder = async (id) => {
     if (!window.confirm("Delete this order?")) return;
     try {
-      await fetch(`http://localhost:3001/api/orders/${id}`, { method: "DELETE" });
+      await fetch(`${API_URL}/api/orders/${id}`, { method: "DELETE" });
       getOrders();
     } catch (err) {
       console.log(err);
@@ -42,7 +43,7 @@ function Orders() {
 
   const updateStatus = async (id, status) => {
     try {
-      await fetch(`http://localhost:3001/api/orders/${id}`, {
+      await fetch(`${API_URL}/api/orders/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status }),
@@ -190,8 +191,8 @@ function Orders() {
                             <img
                               src={
                                 item.imageType === "deal"
-                                  ? `http://localhost:3001/dealuploads/${item.productImage}`
-                                  : `http://localhost:3001/productuploads/${item.productImage}`
+                                  ? `${API_URL}/dealuploads/${item.productImage}`
+                                  : `${API_URL}/productuploads/${item.productImage}`
                               }
                               alt={item.productTitle}
                               className="w-14 h-14 object-cover rounded-lg max-md:w-12 max-md:h-12"

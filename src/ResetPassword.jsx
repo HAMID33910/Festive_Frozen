@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { API_URL } from "./config";
 
 export default function ResetPassword() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ export default function ResetPassword() {
 
     try {
       const res = await fetch(
-        "http://localhost:3001/api/auth/reset-password",
+        `${API_URL}/api/auth/reset-password`,
         {
           method: "POST",
           headers: {
@@ -74,7 +75,7 @@ export default function ResetPassword() {
 
   return (
     <div className="flex min-h-screen max-[768px]:flex-col">
-      <div className="flex-1 relative bg-[url('/src/assets/frozen.jpg')] bg-cover bg-center hidden md:flex items-end p-12">
+      <div className="flex-1 relative bg-[url('/src/assets/frozen.png')] bg-cover bg-center hidden md:flex items-end p-12">
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
 

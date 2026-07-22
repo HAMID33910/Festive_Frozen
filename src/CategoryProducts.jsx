@@ -2,8 +2,9 @@ import { useEffect, useState, useContext, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
 // import { useRef } from "react";
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import Footer from "./footer";
+import { API_URL } from "./config";
 
 function CategoryProducts() {
   const { id } = useParams();
@@ -15,7 +16,7 @@ function CategoryProducts() {
   const { addToCart } = useContext(CartContext);
   const printRef = useRef();
   useEffect(() => {
-    fetch(`http://localhost:3001/api/products?categoryId=${id}`)
+    fetch(`${API_URL}/api/products?categoryId=${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -77,7 +78,7 @@ function CategoryProducts() {
 
                   <img
                     className="w-full h-full object-cover"
-                    src={`http://localhost:3001/productuploads/${product.productImage}`}
+                    src={`${API_URL}/productuploads/${product.productImage}`}
                     alt={product.productTitle}
                   />
 

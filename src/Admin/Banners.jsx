@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiPlus, FiTrash2 } from "react-icons/fi";
+import { API_URL } from "../config";
 
 function Banners() {
   const [banners, setBanners] = useState([]);
@@ -11,7 +12,7 @@ function Banners() {
 
   const getBanners = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/banners");
+      const res = await fetch(`${API_URL}/api/banners`);
       const data = await res.json();
       setBanners(data);
     } catch (err) {
@@ -31,7 +32,7 @@ function Banners() {
     formData.append("image", image);
 
     try {
-      const res = await fetch("http://localhost:3001/api/banners", {
+      const res = await fetch(`${API_URL}/api/banners`, {
         method: "POST",
         body: formData,
       });
@@ -50,7 +51,7 @@ function Banners() {
 
   const deleteBanner = async (id) => {
     if (!window.confirm("Delete Banner?")) return;
-    await fetch(`http://localhost:3001/api/banners/${id}`, { method: "DELETE" });
+    await fetch(`${API_URL}/api/banners/${id}`, { method: "DELETE" });
     getBanners();
   };
 
@@ -95,7 +96,7 @@ function Banners() {
                 key={banner._id}
               >
                 <img
-                  src={`http://localhost:3001/banneruploads/${banner.image}`}
+                  src={`${API_URL}/banneruploads/${banner.image}`}
                   alt=""
                   className="w-full h-[180px] object-cover"
                 />

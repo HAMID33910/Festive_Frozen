@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FiPlus, FiTrash2, FiEdit } from "react-icons/fi";
+import { API_URL } from "../config";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -23,7 +24,7 @@ function Products() {
 
   const getProducts = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/products");
+      const res = await fetch(`${API_URL}/api/products`);
       const data = await res.json();
       setProducts(data);
     } catch (error) {
@@ -33,7 +34,7 @@ function Products() {
 
   const getCategories = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/categories");
+      const res = await fetch(`${API_URL}/api/categories`);
       const data = await res.json();
       setCategories(data);
     } catch (error) {
@@ -66,8 +67,8 @@ function Products() {
 
     try {
       const url = editId
-        ? `http://localhost:3001/api/products/${editId}`
-        : "http://localhost:3001/api/products";
+        ? `${API_URL}/api/products/${editId}`
+        : `${API_URL}/api/products`;
       const method = editId ? "PUT" : "POST";
       const res = await fetch(url, { method, body: data });
       const result = await res.json();
@@ -98,7 +99,7 @@ function Products() {
 
   const deleteProduct = async (id) => {
     try {
-      await fetch(`http://localhost:3001/api/products/${id}`, { method: "DELETE" });
+      await fetch(`${API_URL}/api/products/${id}`, { method: "DELETE" });
       getProducts();
     } catch (error) {
       console.log(error);
@@ -162,7 +163,7 @@ function Products() {
                   >
                     <td className="py-3 px-5">
                       <img
-                        src={`http://localhost:3001/productuploads/${product.productImage}`}
+                        src={`${API_URL}/productuploads/${product.productImage}`}
                         alt=""
                         className="w-14 h-14 object-cover rounded-lg"
                       />

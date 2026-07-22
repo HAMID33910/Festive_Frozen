@@ -8,15 +8,22 @@ router.post("/", async (req, res) => {
   try {
     const { firstName, lastName, email, uid, photo } = req.body;
 
+    if (!email || !uid) {
+      return res.status(400).json({
+        success: false,
+        message: "Email and UID are required.",
+      });
+    }
+
     let user = await User.findOne({ email });
 
     if (!user) {
       user = await User.create({
-        firstName,
-        lastName,
+        firstName: firstName || "Google",
+        lastName: lastName || "User",
         email,
         googleId: uid,
-        photo,
+        photo: photo || "",
       });
     }
 
@@ -51,7 +58,7 @@ router.post("/", async (req, res) => {
 
     res.status(500).json({
       success: false,
-      message: "Server Error",
+      message: err.message || "Server Error",
     });
   }
 });

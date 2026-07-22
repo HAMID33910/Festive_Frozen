@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "./firebase";
+import { API_URL } from "./config";
 import { Link, useNavigate } from "react-router-dom";
 
 
@@ -29,7 +30,7 @@ export default function SignupScreen() {
 
     const user = result.user;
 
-    const response = await fetch("http://localhost:3001/api/google-login", {
+    const response = await fetch(`${API_URL}/api/google-login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +87,7 @@ export default function SignupScreen() {
   setSubmitting(true);
 
   try {
-    const response = await fetch("http://localhost:3001/api/signup", {
+    const response = await fetch(`${API_URL}/api/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

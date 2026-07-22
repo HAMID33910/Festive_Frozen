@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
+import { API_URL } from "./config";
 import HotSalesPage from "./HotSalesPage.jsx"
 import ProductDetails from "./ProductDetails.jsx"
 
@@ -16,7 +17,7 @@ function HotSales() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/products")
+    fetch(`${API_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => {
         const latestProducts = [...data].sort(
@@ -80,7 +81,7 @@ function HotSales() {
               <div className="bg-surface-container rounded-2xl overflow-hidden shadow-card-brand transition-all duration-300 h-full flex flex-col hover:-translate-y-1.5">
                 <div className="relative h-[230px] overflow-hidden bg-surface-container-low max-[600px]:h-[220px] max-[380px]:h-[200px]">
                   <img
-                    src={`http://localhost:3001/productuploads/${product.productImage}`}
+                    src={`${API_URL}/productuploads/${product.productImage}`}
                     alt={product.productTitle}
                     className="w-full h-full object-cover transition-transform duration-[0.45s] hover:scale-105"
                   />

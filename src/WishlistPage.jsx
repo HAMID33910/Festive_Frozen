@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
-import Navbar from "./navbar";
+import { API_URL } from "./config";
+import Navbar from "./Navbar";
 import Footer from "./footer";
 
 function WishlistPage() {
@@ -28,7 +29,7 @@ function WishlistPage() {
               {wishlistItems.map((item) => (
                 <div className="bg-white rounded-xl overflow-hidden shadow-card border border-wishlist-border" key={item._id}>
                   <img
-                    src={item.imageType === "deal" ? `http://localhost:3001/dealuploads/${item.productImage}` : `http://localhost:3001/productuploads/${item.productImage}`}
+                    src={item.imageType === "deal" ? `${API_URL}/dealuploads/${item.productImage}` : `${API_URL}/productuploads/${item.productImage}`}
                     alt={item.productTitle}
                     className="w-full h-[220px] object-cover"
                   />

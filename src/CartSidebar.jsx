@@ -1,5 +1,6 @@
 import { FiX, FiTrash2 } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import { API_URL } from "./config";
 
 function CartSidebar({
   isOpen,
@@ -81,8 +82,8 @@ function CartSidebar({
                   className="w-[80px] h-[80px] object-cover rounded-lg flex-shrink-0"
                   src={
                     item.imageType === "deal"
-                      ? `http://localhost:3001/dealuploads/${item.productImage}`
-                      : `http://localhost:3001/productuploads/${item.productImage}`
+                      ? `${API_URL}/dealuploads/${item.productImage}`
+                      : `${API_URL}/productuploads/${item.productImage}`
                   }
                   alt={item.productTitle}
 

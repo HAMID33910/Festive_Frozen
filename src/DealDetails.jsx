@@ -1,7 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
-import Navbar from "./navbar";
+import { API_URL } from "./config";
+import Navbar from "./Navbar";
 import Footer from "./footer";
 
 function DealDetails() {
@@ -16,14 +17,14 @@ function DealDetails() {
   const [timeLeft, setTimeLeft] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/deals/${id}`)
+    fetch(`${API_URL}/api/deals/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setDeal(data);
       })
       .catch((err) => console.log(err));
 
-    fetch("http://localhost:3001/api/deals")
+    fetch(`${API_URL}/api/deals`)
       .then((res) => res.json())
       .then((data) => {
         setRelatedDeals(data);
@@ -111,7 +112,7 @@ function DealDetails() {
             </span>
 
             <img
-              src={`http://localhost:3001/dealuploads/${deal.dealImage}`}
+              src={`${API_URL}/dealuploads/${deal.dealImage}`}
               alt={deal.dealName}
               className="w-full h-auto object-cover"
             />
@@ -260,7 +261,7 @@ function DealDetails() {
                 >
 
                   <img
-                    src={`http://localhost:3001/dealuploads/${item.dealImage}`}
+                    src={`${API_URL}/dealuploads/${item.dealImage}`}
                     alt={item.dealName}
                     className="w-full h-[180px] object-cover rounded-lg mb-3"
                   />

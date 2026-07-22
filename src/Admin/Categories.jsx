@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FiPlus, FiTrash2, FiEdit } from "react-icons/fi";
+import { API_URL } from "../config";
 
 function Categories() {
   const [categories, setCategories] = useState([]);
@@ -14,7 +15,7 @@ function Categories() {
 
   const getCategories = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/categories");
+      const res = await fetch(`${API_URL}/api/categories`);
       const data = await res.json();
       setCategories(data);
     } catch (error) {
@@ -38,8 +39,8 @@ function Categories() {
 
     try {
       const url = editId
-        ? `http://localhost:3001/api/categories/${editId}`
-        : "http://localhost:3001/api/categories";
+        ? `${API_URL}/api/categories/${editId}`
+        : `${API_URL}/api/categories`;
       const method = editId ? "PUT" : "POST";
       const res = await fetch(url, { method, body: formData });
       const data = await res.json();
@@ -58,7 +59,7 @@ function Categories() {
 
   const deleteCategory = async (id) => {
     try {
-      await fetch(`http://localhost:3001/api/categories/${id}`, { method: "DELETE" });
+      await fetch(`${API_URL}/api/categories/${id}`, { method: "DELETE" });
       getCategories();
     } catch (error) {
       console.log(error);
@@ -120,7 +121,7 @@ function Categories() {
                   >
                     <td className="py-3 px-5">
                       <img
-                        src={`http://localhost:3001/uploads/${category.image}`}
+                        src={`${API_URL}/uploads/${category.image}`}
                         alt={category.title}
                         className="w-16 h-16 rounded-lg object-cover"
                       />

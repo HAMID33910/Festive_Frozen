@@ -1,9 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-import logo from "./assets/Logo.png";
+import logo from "./assets/logo.png";
 import CartSidebar from "./CartSidebar";
 import { CartContext } from "./CartContext";
+import { API_URL } from "./config";
 
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,7 +35,7 @@ function Navbar() {
       return;
     }
     const timer = setTimeout(async () => {
-      const res = await fetch(`http://localhost:3001/api/search?q=${search}`);
+      const res = await fetch(`${API_URL}/api/search?q=${search}`);
       const data = await res.json();
       setSearchResults(data);
     }, 300);
@@ -117,10 +118,10 @@ function Navbar() {
                       <img
                         src={
                           item.type === "deal"
-                            ? `http://localhost:3001/dealuploads/${item.image}`
+                            ? `${API_URL}/dealuploads/${item.image}`
                             : item.type === "category"
-                            ? `http://localhost:3001/uploads/${item.image}`
-                            : `http://localhost:3001/productuploads/${item.image}`
+                            ? `${API_URL}/uploads/${item.image}`
+                            : `${API_URL}/productuploads/${item.image}`
                         }
                         alt={item.title}
                       />

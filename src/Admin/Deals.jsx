@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiPlus, FiTrash2, FiEdit } from "react-icons/fi";
+import { API_URL } from "../config";
 
 function Deals() {
   const [deals, setDeals] = useState([]);
@@ -23,7 +24,7 @@ function Deals() {
 
   const getDeals = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/deals");
+      const res = await fetch(`${API_URL}/api/deals`);
       const data = await res.json();
       setDeals(data);
     } catch (err) {
@@ -62,8 +63,8 @@ function Deals() {
 
     try {
       const url = editId
-        ? `http://localhost:3001/api/deals/${editId}`
-        : "http://localhost:3001/api/deals";
+        ? `${API_URL}/api/deals/${editId}`
+        : `${API_URL}/api/deals`;
       const method = editId ? "PUT" : "POST";
       const res = await fetch(url, { method, body: formData });
 
@@ -97,7 +98,7 @@ function Deals() {
   const deleteDeal = async (id) => {
     if (!window.confirm("Delete this deal?")) return;
     try {
-      await fetch(`http://localhost:3001/api/deals/${id}`, { method: "DELETE" });
+      await fetch(`${API_URL}/api/deals/${id}`, { method: "DELETE" });
       getDeals();
     } catch (err) {
       console.log(err);
@@ -170,7 +171,7 @@ function Deals() {
                     <td className="py-3 px-5">
                       <img
                         className="w-14 h-14 object-cover rounded-lg"
-                        src={`http://localhost:3001/dealuploads/${deal.dealImage}`}
+                        src={`${API_URL}/dealuploads/${deal.dealImage}`}
                         alt={deal.dealName}
                       />
                     </td>

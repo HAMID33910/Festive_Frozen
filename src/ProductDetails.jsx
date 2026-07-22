@@ -1,8 +1,9 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
 import Footer from "./footer";
+import { API_URL } from "./config";
 
 function ProductDetails() {
   const { id } = useParams();
@@ -24,7 +25,7 @@ function ProductDetails() {
       setLoading(true);
 
       const res = await fetch(
-        `http://localhost:3001/api/products/${id}`
+        `${API_URL}/api/products/${id}`
       );
 
       const data = await res.json();
@@ -33,7 +34,7 @@ function ProductDetails() {
 
       if (data.categoryId?._id) {
         const relatedRes = await fetch(
-          `http://localhost:3001/api/products?categoryId=${data.categoryId._id}`
+          `${API_URL}/api/products?categoryId=${data.categoryId._id}`
         );
 
         const relatedData = await relatedRes.json();
@@ -133,7 +134,7 @@ function ProductDetails() {
             <div className="relative rounded-2xl overflow-hidden">
 
               <img
-                src={`http://localhost:3001/productuploads/${product.productImage}`}
+                src={`${API_URL}/productuploads/${product.productImage}`}
                 alt={product.productTitle}
                 className="w-full h-auto object-cover"
               />
@@ -273,7 +274,7 @@ function ProductDetails() {
                 >
 
                   <img
-                    src={`http://localhost:3001/productuploads/${item.productImage}`}
+                    src={`${API_URL}/productuploads/${item.productImage}`}
                     alt={item.productTitle}
                     className="w-full h-[180px] object-cover rounded-lg mb-3"
                   />

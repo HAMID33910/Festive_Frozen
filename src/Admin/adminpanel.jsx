@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import Navbar from "../navbar";
+import Navbar from "../Navbar.jsx";
+import { API_URL } from "../config";
 
 import Dashboard from "./Dashboard.jsx";
 import Products from "./Products.jsx";
@@ -52,7 +53,7 @@ function AdminPanel() {
 
   const fetchNotifications = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/notifications");
+      const res = await fetch(`${API_URL}/api/notifications`);
       const data = await res.json();
       setNotifications(data);
     } catch (err) {

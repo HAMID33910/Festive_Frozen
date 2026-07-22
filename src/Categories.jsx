@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "./navbar.jsx";
+import Navbar from "./Navbar.jsx";
 import Footer from "./footer.jsx";
+import { API_URL } from "./config";
 
 function Categories() {
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/categories")
+    fetch(`${API_URL}/api/categories`)
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.log(err));
@@ -38,7 +39,7 @@ function Categories() {
 
               <img
                 className="w-full h-full object-cover"
-                src={`http://localhost:3001/uploads/${category.image}`}
+                src={`${API_URL}/uploads/${category.image}`}
                 alt={category.title}
               />
 

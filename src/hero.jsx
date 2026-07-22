@@ -4,19 +4,20 @@ import Products from "./FeaturedProducts.jsx";
 import HotSales from "./hotsales.jsx";
 import Values from "./values.jsx";
 import Footer from "./footer.jsx";
-import Navbar from "./navbar.jsx";
+import Navbar from "./Navbar.jsx";
 import DiscountOffers from "./DiscountOffers.jsx";
 import { Link } from "react-router-dom";
 import WhatsAppButton from "./WhatsAppButton";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { API_URL } from "./config";
 
 
 function Hero() {
   const [banners, setBanners] = useState([]);
   useEffect(() => {
-  fetch("http://localhost:3001/api/banners")
+  fetch(`${API_URL}/api/banners`)
     .then((res) => res.json())
     .then((data) => setBanners(data))
     .catch((err) => console.log(err));
@@ -43,7 +44,7 @@ function Hero() {
             <div
               className="w-full h-full bg-cover bg-center bg-no-repeat block"
               style={{
-                backgroundImage: `url(http://localhost:3001/banneruploads/${banner.image})`,
+                backgroundImage: `url(${API_URL}/banneruploads/${banner.image})`,
               }}
             ></div>
             <div className="absolute inset-0 z-[2] pointer-events-none bg-[linear-gradient(160deg,rgba(20,20,20,0.55)_0%,transparent_50%),linear-gradient(to_top,rgba(0,0,0,0.75)_0%,rgba(0,0,0,0.15)_40%,transparent_65%)]"></div>

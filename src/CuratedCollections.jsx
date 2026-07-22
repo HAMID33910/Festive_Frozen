@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "./config";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -11,7 +12,7 @@ function CuratedCollections() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/categories")
+    fetch(`${API_URL}/api/categories`)
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.log(err));
@@ -71,7 +72,7 @@ function CuratedCollections() {
             <div className="relative overflow-hidden rounded-[22px] aspect-[3/4] cursor-pointer bg-primary shadow-[0_12px_30px_rgba(0,0,0,0.08)] transition-all duration-[0.35s] hover:-translate-y-2 hover:shadow-[0_22px_45px_rgba(143,63,22,0.18)]">
 
               <img
-                src={`http://localhost:3001/uploads/${item.image}`}
+                src={`${API_URL}/uploads/${item.image}`}
                 alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-[0.6s] hover:scale-105"
               />

@@ -1,6 +1,7 @@
 
 
 import { createContext, useState, useEffect } from "react";
+import { API_URL } from "./config";
 import LoginRequiredModal from "./LoginRequiredModal";
 import SuccessToast from "./SuccessToast";
 
@@ -46,7 +47,7 @@ export function CartProvider({ children }) {
   const loadCart = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3001/api/cart/${userId}`
+        `${API_URL}/api/cart/${userId}`
       );
 
       const data = await res.json();
@@ -70,7 +71,7 @@ export function CartProvider({ children }) {
   }
 
   try {
-    await fetch("http://localhost:3001/api/cart/add", {
+    await fetch(`${API_URL}/api/cart/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -104,7 +105,7 @@ export function CartProvider({ children }) {
   const removeFromCart = async (productId) => {
     try {
       await fetch(
-        "http://localhost:3001/api/cart/remove",
+        `${API_URL}/api/cart/remove`,
         {
           method: "POST",
           headers: {
@@ -131,7 +132,7 @@ export function CartProvider({ children }) {
   const increaseQuantity = async (productId) => {
     try {
       await fetch(
-        "http://localhost:3001/api/cart/increase",
+        `${API_URL}/api/cart/increase`,
         {
           method: "PUT",
           headers: {
@@ -158,7 +159,7 @@ export function CartProvider({ children }) {
   const decreaseQuantity = async (productId) => {
     try {
       await fetch(
-        "http://localhost:3001/api/cart/decrease",
+        `${API_URL}/api/cart/decrease`,
         {
           method: "PUT",
           headers: {
@@ -185,7 +186,7 @@ export function CartProvider({ children }) {
   const clearCart = async () => {
     try {
       await fetch(
-        `http://localhost:3001/api/cart/${userId}`,
+        `${API_URL}/api/cart/${userId}`,
         {
           method: "DELETE",
         }

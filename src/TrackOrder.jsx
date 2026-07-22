@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Navbar from "./navbar.jsx";
+import { API_URL } from "./config";
+import Navbar from "./Navbar.jsx";
 import Footer from "./footer.jsx";
 import WhatsAppButton from "./WhatsAppButton.jsx";
 
@@ -18,7 +19,7 @@ function TrackOrder() {
       setLoading(true);
 
       const res = await fetch(
-        `http://localhost:3001/api/orders/track/${orderId}`
+        `${API_URL}/api/orders/track/${orderId}`
       );
 
       const data = await res.json();

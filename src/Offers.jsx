@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
-import Navbar from "./navbar";
+import { API_URL } from "./config";
+import Navbar from "./Navbar";
 import Footer from "./footer";
 import WhatsAppButton from "./WhatsAppButton";
 
@@ -13,7 +14,7 @@ function Offers() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/deals")
+    fetch(`${API_URL}/api/deals`)
       .then((res) => res.json())
       .then((data) => setOffers(data))
       .catch((err) => console.log(err));
@@ -65,7 +66,7 @@ function Offers() {
                   <div className="relative h-[230px] overflow-hidden">
 
                     <img
-                      src={`http://localhost:3001/dealuploads/${offer.dealImage}`}
+                      src={`${API_URL}/dealuploads/${offer.dealImage}`}
                       alt={offer.dealName}
                       className="w-full h-full object-cover"
                     />

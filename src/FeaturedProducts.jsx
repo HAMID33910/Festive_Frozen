@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
+import { API_URL } from "./config";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -14,7 +15,7 @@ function Products() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/products")
+    fetch(`${API_URL}/api/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.log(err));
@@ -71,7 +72,7 @@ function Products() {
               <div className="relative h-[230px] overflow-hidden bg-surface-container-low max-[600px]:h-[220px] max-[380px]:h-[200px]">
 
                 <img
-                  src={`http://localhost:3001/productuploads/${product.productImage}`}
+                  src={`${API_URL}/productuploads/${product.productImage}`}
                   alt={product.productTitle}
                   className="w-full h-full object-cover transition-transform duration-[0.45s] hover:scale-105"
                 />
