@@ -15,7 +15,7 @@ import CategoryProducts from "./CategoryProducts.jsx";
 import ProductDetails from "./ProductDetails.jsx";
 import TrackOrder from "./TrackOrder.jsx"
 import HotSalesPage from "./HotSalesPage.jsx"
-// import SuccessToast from "./SuccessToast";
+
 import WishlistPage from "./WishlistPage";
 import DealDetails from "./DealDetails.jsx";
 import ForgotPassword from "./ForgotPassword.jsx"
@@ -37,11 +37,7 @@ function Home() {
   return (
     <>
       <Hero />
-      {/* <SuccessToast
-        isOpen={showLoginToast}
-        message="You are logged in"
-        onClose={() => setShowLoginToast(false)}
-      /> */}
+      
     </>
   );
 }
@@ -49,7 +45,7 @@ function Home() {
 function App() {
   return (
     <BrowserRouter>
-      {/* <Navbar /> */}
+      
       
       
       <Routes>
@@ -63,7 +59,6 @@ function App() {
         <Route path="/products" element={<Products />}/>
         <Route path="/Checkout" element={<Checkout />}/>
         <Route path="/Offers" element={<Offers />}/>
-        {/* <Route path="/CategoryProducts/:id" element={<CategoryProducts />}/> */}
         <Route path="/category/:id" element={<CategoryProducts />}/>
         <Route path="/product/:id" element={<ProductDetails />}/>
         <Route path="/TrackOrder" element={<TrackOrder />}/>
