@@ -1,3 +1,5 @@
-const API_URL = import.meta.env.VITE_API_URL || "https://festive-frozen.up.railway.app";
+const API_URL = import.meta.env.VITE_API_URL || (window.location.hostname === "localhost" ? 
+    "http://localhost:3001" : 
+    "https://festive-frozen-api.northflank.app");
 
 export { API_URL };
