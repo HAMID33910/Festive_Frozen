@@ -2,12 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBhOBG8CIQZzrqsbO8oeTLk3t5qZB0r-vA",
-  authDomain: "festive-frozen.firebaseapp.com",
-  projectId: "festive-frozen",
-  storageBucket: "festive-frozen.firebasestorage.app",
-  messagingSenderId: "568852537279",
-  appId: "1:568852537279:web:f997ec327475dea5148b0a",
+  apiKey: "AIzaSyCPfw4j_FjTXFTfEMpjjc-6EFKJYX2VU6E",
+  authDomain: "festive-frozen-foods.firebaseapp.com",
+  projectId: "festive-frozen-foods",
+  storageBucket: "festive-frozen-foods.firebasestorage.app",
+  messagingSenderId: "344348114579",
+  appId: "1:344348114579:web:35a0c7c62622f614f4d766",
+  measurementId: "G-K12B6YJNSG"
 };
 
 const app = initializeApp(firebaseConfig);

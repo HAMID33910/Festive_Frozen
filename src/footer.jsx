@@ -13,8 +13,12 @@ function Footer() {
             Premium frozen foods delivered with freshness, quality,
             and convenience for every family.
           </p>
+          <p className="mt-[18px] max-w-[450px] text-on-surface-subtle leading-[1.7] text-[15px] max-[992px]:mx-auto max-[768px]:text-sm max-[480px]:text-[13px]">
+            Locked in nutrition at the source, preventing spoilage and maintaining flavor 
+            integrity better than fresh-shipped.
+          </p>
 
-          <div className="flex gap-[15px] mt-[25px] max-[992px]:justify-center">
+          {/* <div className="flex gap-[15px] mt-[25px] max-[992px]:justify-center">
 
             <a href="#" className="w-[42px] h-[42px] rounded-full bg-surface flex justify-center items-center no-underline text-footer-brand transition-all duration-300 hover:bg-gold hover:text-white max-[480px]:w-[38px] max-[480px]:h-[38px]">
               <span className="material-symbols-outlined">public</span>
@@ -28,7 +32,7 @@ function Footer() {
               <span className="material-symbols-outlined">mail</span>
             </a>
 
-          </div>
+          </div> */}
         </div>
 
         <div>
