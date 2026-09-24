@@ -1,0 +1,151 @@
+================================================================================
+PROJECT DESCRIPTION & TECHNICAL BRIEF FOR GENERATING DOCUMENTATION (GPT PROMPT)
+================================================================================
+
+PROJECT NAME: Festive Frozen
+PROJECT TYPE: Full-Stack E-Commerce Web Application (Flash-Frozen Food & Ready-to-Cook Store)
+TARGET AUDIENCE: Pakistani & International Consumers, Families, and Admin Managers
+CORE PURPOSE: A premium, modern online store offering flash-frozen chicken/beef kababs, samosas, parathas, ready-to-cook items, and deals with fast delivery and eco-insulated packaging.
+
+--------------------------------------------------------------------------------
+1. TECHNICAL ARCHITECTURE & TECH STACK
+--------------------------------------------------------------------------------
+
+FRONTEND:
+- Framework & Build Tool: React 19, Vite, JavaScript (ES6+)
+- Styling & UI: Tailwind CSS 4, Custom CSS Tokens, Glassmorphism, Material Symbols, React Icons (Fi Icons)
+- Routing: React Router DOM v7
+- State Management: React Context API (CartContext for cart & wishlist state management)
+- Components & Libraries: 
+  * Swiper JS (Carousels for Hero Banners, Curated Collections, Featured Products, and Testimonials)
+  * Chart.js & React-Chartjs-2 (Admin Dashboard analytics graphs)
+  * Firebase SDK (Authentication & Firebase integration)
+
+BACKEND:
+- Runtime & Framework: Node.js, Express.js (v5)
+- Database: MongoDB (Mongoose ORM v9)
+- Authentication & Security: BcryptJS password hashing, Token/Session authentication, Google OAuth login handler
+- File Upload Handling: Multer storage engine for image uploads (banners, categories, products, deals)
+- API Communication: RESTful API JSON endpoints, CORS enabled
+
+--------------------------------------------------------------------------------
+2. SYSTEM MODULES & FEATURE BREAKDOWN
+--------------------------------------------------------------------------------
+
+A. USER AUTHENTICATION & SECURITY
+   - Signup & Login: Secure registration with password hashing (BcryptJS) and session token generation.
+   - Google Login Integration: One-click sign-in via Google OAuth token verification.
+   - OTP & Password Reset: 
+     * Forgot Password request flow sending One-Time Password (OTP) verification.
+     * OTP verification route and Reset Password interface.
+   - Role-Based Access Control: Distinguishes standard 'user' access from 'admin' privileges.
+
+B. SHOPPER FRONTEND FEATURES
+   - Navbar & Navigation:
+     * Sticky, responsive header with logo, navigation links, and action buttons.
+     * Real-time autocomplete search bar fetching live products, categories, and deals.
+     * Live badge counters for Cart and Wishlist items.
+   - Hero Banners & Promotional Slider:
+     * Dynamic Swiper carousel pulling live banner images from the backend database.
+     * CTA button directing shoppers to the full product catalog.
+   - Catalog & Collections:
+     * Curated Collections carousel filtering products by category.
+     * Featured Products & Hot Sales showcases with pricing, star ratings, and instant purchase options.
+     * Discount Offers & Special Deals section highlighting bundled savings.
+   - Product & Deal Details:
+     * Dedicated Product Detail pages (`/product/:id`) with image previews, stock status, descriptions, and add-to-cart buttons.
+     * Special Deal pages (`/deal/:id`) for custom combo packs.
+   - Cart & Checkout:
+     * Interactive Slide-over Cart Sidebar (`CartSidebar.jsx`) allowing real-time quantity adjustment, item removal, and subtotal calculation.
+     * Wishlist Page (`/wishlist`) for saving favorite food items.
+     * Comprehensive Checkout Screen (`Checkout.jsx`) collecting delivery address, contact details, and payment choices (Cash on Delivery).
+   - Order Tracking:
+     * Order Tracking screen (`TrackOrder.jsx`) where users can trace order status using Order ID or phone number.
+   - Brand Values & Customer Social Proof:
+     * Brand Values section (`values.jsx`) highlighting Flash Frozen nutrition lock, Eco-Insulated delivery, and Chef Approval.
+     * Customer Testimonials section (`Testimonials.jsx`) showcasing 5-star customer reviews, verified buyer badges, and product favorites.
+     * Floating WhatsApp support button (`WhatsAppButton.jsx`) for instant customer service.
+
+C. ADMIN MANAGEMENT PANEL (`/AdminPanel`)
+   - Executive Dashboard (`Dashboard.jsx`):
+     * Analytics cards showing Total Sales Revenue, Total Products, Total Categories, and Total Orders.
+     * Interactive Chart.js line graph displaying monthly sales trends.
+     * Pending orders queue with live status updates.
+   - Order Management (`Orders.jsx`):
+     * View all customer orders, filter by status (Pending, Processing, Delivered), update order statuses, and inspect buyer delivery details.
+   - Product Management (`Products.jsx`):
+     * Add, edit, and delete products with image upload support (Multer), title, category, price, and stock inventory tracking.
+   - Category Management (`Categories.jsx`):
+     * Create and manage food categories with uploaded banner images.
+   - Deal & Banner Management (`Deals.jsx` & `Banners.jsx`):
+     * Create custom promotional deals and update homepage hero sliders.
+   - Real-Time Admin Notifications (`notifications.js`):
+     * Bell notification system alerting admins of pending orders, low-stock items, and out-of-stock products.
+
+--------------------------------------------------------------------------------
+3. DATABASE SCHEMA / DATA MODELS
+--------------------------------------------------------------------------------
+
+- User Model: `name`, `email`, `password`, `role` ("user" | "admin"), `createdAt`
+- Product Model: `productTitle`, `productPrice`, `productCategory`, `stock`, `productImage`, `description`
+- Category Model: `title`, `image`
+- Order Model: `firstName`, `lastName`, `email`, `phone`, `address`, `city`, `items` (array), `totalPrice`, `status` ("Pending" | "Processing" | "Delivered"), `createdAt`
+- Deal Model: `title`, `description`, `originalPrice`, `discountPrice`, `image`
+- Banner Model: `title`, `image`, `link`
+- OTP Model: `email`, `otp`, `createdAt` (expires after timeout)
+
+--------------------------------------------------------------------------------
+4. API ENDPOINT STRUCTURE
+--------------------------------------------------------------------------------
+
+- `/api/signup` (POST) - Register new user
+- `/api/login` (POST) - User authentication
+- `/api/google-login` (POST) - Google OAuth authentication
+- `/api/forgot-password` (POST) - Request OTP
+- `/api/verify-otp` (POST) - Verify reset OTP
+- `/api/reset-password` (POST) - Update user password
+- `/api/products` (GET, POST, PUT, DELETE) - Product CRUD
+- `/api/categories` (GET, POST, PUT, DELETE) - Category CRUD
+- `/api/banners` (GET, POST, DELETE) - Hero Banners CRUD
+- `/api/deals` (GET, POST, DELETE) - Deals CRUD
+- `/api/orders` (GET, POST, PUT) - Customer orders & status updates
+- `/api/search?q=...` (GET) - Global search query
+- `/api/notifications` (GET) - Admin alerts (low stock, pending orders)
+- `/api/dashboard` (GET) - Executive metrics & sales chart data
+
+--------------------------------------------------------------------------------
+5. POST-LAUNCH OPERATIONS, DEPLOYMENT & MAINTENANCE
+--------------------------------------------------------------------------------
+
+- Deployment & Hosting Architecture:
+  * Backend: Deployed via Render / VPS (`render.yaml` blueprint included).
+  * Frontend: Static production build via Vite (`npm run build`) served on Vercel / Netlify / NGINX.
+  * Static File Directories: `/uploads`, `/productuploads`, `/banneruploads`, `/dealuploads`.
+- Environment Variables (`.env` configuration):
+  * `PORT`, `MONGO_URI`, `JWT_SECRET`, `FIREBASE_API_KEY`, `EMAIL_USER`, `EMAIL_PASS`.
+- Database Maintenance & Backups:
+  * MongoDB Atlas automated snapshots and daily data export procedures.
+- Quality Assurance & E2E Testing Checklist:
+  * Verification of guest & logged-in checkout flows.
+  * Image upload size and extension validation.
+  * Cart state persistence in localStorage/sessionStorage.
+- Troubleshooting & Support SOP:
+  * CORS origin mismatch debugging.
+  * Upload folder write permission checks.
+  * Session token expiry and auto-redirect handling.
+
+--------------------------------------------------------------------------------
+6. INSTRUCTIONS FOR GPT TO GENERATE COMPLETE DOCUMENTATION
+--------------------------------------------------------------------------------
+
+"Using the complete technical brief above for the 'Festive Frozen' e-commerce application, please generate full, highly detailed, production-ready documentation. 
+
+Organize the document into the following sections:
+1. Project Overview & System Architecture
+2. Full Technical Specification & Stack Breakdown
+3. End-User Guide (Registration, Browsing, Cart, Checkout, Order Tracking)
+4. Admin Panel Operations Manual (Dashboard Analytics, Product Management, Order Processing, Real-time Alerts)
+5. REST API Reference & Data Models (JSON Schemas, Request/Response Payload Examples)
+6. Deployment & Hosting Operations Guide (Render, Vercel, Production Build, Environment Variables)
+7. Security, Maintenance, Troubleshooting SOP, and Future Roadmap"
+================================================================================

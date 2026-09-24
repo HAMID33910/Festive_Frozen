@@ -138,20 +138,20 @@ function AdminPanel() {
         </aside>
 
         <main className="flex-1 min-w-0 p-[30px] overflow-y-auto max-md:p-5">
-          <header className="flex justify-between items-center mb-[35px] gap-5 flex-wrap max-md:flex-col max-md:items-start max-md:gap-4 max-md:mb-6">
+          <header className="flex justify-between items-center mb-[35px] gap-4 w-full max-md:mb-6">
             <div className="flex items-center gap-3">
               <button
-                className="hidden max-md:flex items-center justify-center w-10 h-10 rounded-lg bg-white shadow-sm cursor-pointer border-none text-admin-text"
+                className="hidden max-md:flex items-center justify-center w-10 h-10 rounded-lg bg-white shadow-sm cursor-pointer border-none text-admin-text shrink-0"
                 onClick={() => setSidebarOpen(!sidebarOpen)}
               >
                 <FiMenu />
               </button>
-              <h2 className="text-[32px] text-admin-text m-0 font-bold max-sm:text-[26px]">
+              <h2 className="text-[32px] text-admin-text m-0 font-bold max-sm:text-[24px]">
                 {page.charAt(0).toUpperCase() + page.slice(1)}
               </h2>
             </div>
 
-            <div className="flex items-center gap-4 max-md:w-full max-md:justify-between">
+            <div className="flex items-center gap-4 shrink-0">
               <div className="relative" ref={bellRef}>
                 <div
                   className="relative w-12 h-12 flex justify-center items-center rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.05)] cursor-pointer transition-all duration-[0.25s] border-none text-admin-text hover:bg-[#8f3f16] hover:text-white max-sm:w-[42px] max-sm:h-[42px]"

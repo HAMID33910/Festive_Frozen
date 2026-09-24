@@ -3,6 +3,7 @@ import CuratedCollections from "./CuratedCollections.jsx";
 import Products from "./FeaturedProducts.jsx";
 import HotSales from "./hotsales.jsx";
 import Values from "./values.jsx";
+import Testimonials from "./Testimonials.jsx";
 import Footer from "./footer.jsx";
 import Navbar from "./Navbar.jsx";
 import DiscountOffers from "./DiscountOffers.jsx";
@@ -74,6 +75,7 @@ function Hero() {
     <DiscountOffers/>
     <Products/>
     <HotSales/>
+    <Testimonials/>
     <Values/>
     <Footer/>
     <WhatsAppButton />
